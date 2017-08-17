@@ -5,7 +5,8 @@ import Location from 'Location'
 import Avatar from 'Avatar'
 import * as styles from './styles'
 
-class ProfileComponent extends React.Component {
+class Component extends React.Component {
+  static displayName = 'UserProfile'
   static propTypes = {
     user: object
   }
@@ -34,4 +35,4 @@ class ProfileComponent extends React.Component {
   }
 }
 
-export default ProfileComponent
+export default Component

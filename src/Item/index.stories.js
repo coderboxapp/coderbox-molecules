@@ -1,15 +1,13 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Box, Title, Subtitle, Text } from '@coderbox/atoms'
-import { withTheme } from 'utils'
-import transform from 'utils/transform'
+import { transform, withTheme } from '@coderbox/utils'
+import { Box, Title, Subtitle, Text, Link, theme } from '@coderbox/atoms'
 import { position } from 'mockup'
-import { Link } from 'components'
 import Item from '.'
 
-storiesOf('items/Item', module)
-  .add('simple usage', withTheme(() => {
+storiesOf('Item', module)
+  .add('simple usage', withTheme(theme, () => {
     return (
       <div>
         <Box>

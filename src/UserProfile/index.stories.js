@@ -6,7 +6,7 @@ import { withTheme } from 'utils'
 import { user } from 'mockup'
 import UserProfile from '.'
 
-storiesOf('Profile', module)
+storiesOf('UserProfile', module)
   .add('simple usage', withTheme(() => {
     return (
       <Box>
