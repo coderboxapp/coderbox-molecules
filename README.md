@@ -25,8 +25,17 @@ Works with [browserify](https://github.com/substack/node-browserify) and should 
 For code example check `.stories.js` files from each component.
 
 # Components List
-
+- [x] Avatar
 - [x] CompanyProfile
+- [x] DateRange
+- [x] DaysAgo
+- [x] Item
+- [x] JobHeader
+- [x] JobItem
+- [x] Location
+- [x] Markdown
+- [x] Tags
+- [x] TimelineItem
 - [ ] UserProfile
 
 # Build
