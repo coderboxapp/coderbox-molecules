@@ -8,8 +8,10 @@ export const Container = styled.div`
   & > .icon {
     border: 2px solid;
     margin: 0 1.4rem;
-    width: 2em;
-    height: 2em;
+    width: 2.2em;
+    height: 2.2em;
+    background: white;
+    z-index: 4;
   }
 `
 

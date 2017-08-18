@@ -4,13 +4,14 @@ import Avatar from 'Avatar'
 import DateRange from 'DateRange'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { Item, ItemLeft, ItemContent } from './styles'
+import Markdown from 'Markdown'
 
 class Component extends React.Component {
   static displayName = 'Item'
   static defaultProps = {}
 
   renderItem (item) {
-    let { image, dateRange, title, subtitle, tags } = item
+    let { image, dateRange, title, subtitle, tags, description } = item
     return (
       <Item>
         <ItemLeft>
@@ -21,6 +22,7 @@ class Component extends React.Component {
           <Title size='large'>{title}</Title>
           <Subtitle size='normal' color='gray'><Link>@{subtitle}</Link></Subtitle>
           <Tags color='gray' tone={2} tags={tags} />
+          <Markdown source={description} />
         </ItemContent>
       </Item>
     )

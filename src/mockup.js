@@ -36,7 +36,8 @@ export const position = {
   technologies: technologies,
   timePeriod: { end: '2015-06-08T12:57:34.716Z', start: '2009-12-31T22:00:00.000Z' },
   title: {_id: 28, name: 'web developer'},
-  type: 'position'
+  type: 'position',
+  icon: 'briefcase'
 }
 
 export const education = {
@@ -45,8 +46,14 @@ export const education = {
   institution: institution,
   technologies: technologies,
   timePeriod: { end: '2008-04-30T21:00:00.000Z', start: '2004-04-30T21:00:00.000Z' },
-  type: 'education'
+  type: 'education',
+  icon: 'graduation-cap'
 }
+
+export const items = [
+  position,
+  education
+]
 
 export const job = {
   _id: 38,

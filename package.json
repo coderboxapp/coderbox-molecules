@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@coderbox/atoms": "^1.0.29",
-    "@coderbox/utils": "^1.0.3",
+    "@coderbox/utils": "^1.0.4",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-avatar": "^2.3.0",
