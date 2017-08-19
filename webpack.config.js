@@ -8,7 +8,7 @@ const env = require('yargs').argv.env
 process.env.BABEL_ENV = env
 process.env.NODE_ENV = env
 
-let libraryName = 'coderbox-atoms'
+let libraryName = 'coderbox-ui'
 let plugins = [
   new webpack.DefinePlugin({
     'process.env': {

@@ -1,8 +1,8 @@
 {
-  "name": "@coderbox/molecules",
+  "name": "@coderbox/ui",
   "version": "1.0.0",
   "description": "React Components used at @Coderbox",
-  "main": "lib/coderbox-molecules.js",
+  "main": "lib/coderbox-ui.js",
   "scripts": {
     "prepare": "yarn build",
     "build": "webpack --env production",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coderboxapp/coderbox-molecules.git"
+    "url": "git+https://github.com/coderboxapp/coderbox-ui.git"
   },
   "keywords": [
     "react",
