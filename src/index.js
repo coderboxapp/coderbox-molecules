@@ -1,27 +1,39 @@
-import Avatar from 'Avatar'
-import CompanyProfile from 'CompanyProfile'
-import DateRange from 'DateRange'
-import DaysAgo from 'DaysAgo'
-import Item from 'Item'
-import JobHeader from 'JobHeader'
-import JobItem from 'JobItem'
-import Location from 'Location'
-import Markdown from 'Markdown'
-import Tags from 'Tags'
-import TimelineItem from 'TimelineItem'
-import UserProfile from 'UserProfile'
+// core
+import Avatar from 'elements/Avatar'
+import DateRange from 'elements/DateRange'
+import DaysAgo from 'elements/DaysAgo'
+import Location from 'elements/Location'
+import Markdown from 'elements/Markdown'
+import Tags from 'elements/Tags'
+
+// items
+import Item from 'items/Item'
+import JobItem from 'items/JobItem'
+import TimelineItem from 'items/TimelineItem'
+
+// forms
+
+// components
+import CompanyProfile from 'components/CompanyProfile'
+import JobHeader from 'components/JobHeader'
+import Timeline from 'components/Timeline'
+import UserProfile from 'components/UserProfile'
 
 export {
+  // elements
   Avatar,
-  CompanyProfile,
   DateRange,
   DaysAgo,
-  Item,
-  JobHeader,
-  JobItem,
   Location,
   Markdown,
   Tags,
+  // items
+  Item,
+  JobItem,
   TimelineItem,
+  // components
+  CompanyProfile,
+  JobHeader,
+  Timeline,
   UserProfile
 }

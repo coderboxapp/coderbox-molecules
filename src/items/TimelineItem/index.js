@@ -4,14 +4,22 @@ import moment from 'moment'
 import { object, bool } from 'prop-types'
 import { reverse } from 'lodash'
 import { Box, Icon, Subtitle } from '@coderbox/atoms'
-import { transform, toYears } from '@coderbox/utils'
-import { Item } from 'components'
+import { toYears } from '@coderbox/utils'
+import { PositionItem, EducationItem } from 'items'
 import * as s from './styles'
+
+const createElement = item => {
+  let elementTypes = {position: PositionItem, education: EducationItem}
+  let element = React.createElement(elementTypes[item.type], { item })
+
+  return element
+}
 
 const Component = ({ item, isOdd, ...props }) => {
   let icon = item.icon || 'plus'
   let date = item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present'
   let className = cx('timeline-item', props.className)
+
   let childs = [
     <s.Item alignRight={!isOdd} key={0}>
       <Subtitle>{date}</Subtitle>
@@ -20,7 +28,7 @@ const Component = ({ item, isOdd, ...props }) => {
     <Icon name={icon} color='primary' isCircular key={1} />,
     <s.Item key={2}>
       <Box>
-        <Item item={transform(item)} />
+        {createElement(item)}
       </Box>
     </s.Item>
   ]

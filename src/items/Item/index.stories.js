@@ -6,7 +6,7 @@ import { Box, Title, Subtitle, Text, Link, theme } from '@coderbox/atoms'
 import { position } from 'mockup'
 import Item from '.'
 
-storiesOf('Item', module)
+storiesOf('items/Item', module)
   .add('simple usage', withTheme(theme, () => {
     return (
       <div>

@@ -1,16 +1,16 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { position } from 'mockup'
 import { Box, theme } from '@coderbox/atoms'
 import { withTheme } from '@coderbox/utils'
-import TimelineItem from '.'
+import { items } from 'mockup'
+import Timeline from '.'
 
-storiesOf('TimelineItem', module)
+storiesOf('components/Timeline', module)
   .add('simple usage', withTheme(theme, () => {
     return (
       <Box>
-        <TimelineItem item={position} />
+        <Timeline items={items} />
       </Box>
     )
   }))

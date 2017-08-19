@@ -1,9 +1,8 @@
 import React from 'react'
 import { object } from 'prop-types'
 import { Title, Subtitle, Link, Text } from '@coderbox/atoms'
-import Item from 'Item'
-import Tags from 'Tags'
-import DaysAgo from 'DaysAgo'
+import { DaysAgo, Tags } from 'elements'
+import { Item } from 'items'
 import * as s from './styles'
 
 class Component extends React.Component {

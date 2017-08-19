@@ -1,11 +1,10 @@
-
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Box } from '@coderbox/atoms'
 import { withTheme } from 'utils'
 import Avatar from '.'
 
-storiesOf('Avatar', module)
+storiesOf('elements/Avatar', module)
   .add('simple usage', withTheme(() => {
     return (
       <Box hSpace='0.5em'>

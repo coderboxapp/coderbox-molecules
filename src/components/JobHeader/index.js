@@ -1,8 +1,6 @@
 import React from 'react'
-import Avatar from 'Avatar'
-import Location from 'Location'
-import Tags from 'Tags'
 import { Title, Text, Subtitle } from '@coderbox/atoms'
+import { Avatar, Location, Tags } from 'elements'
 import * as styles from './styles'
 
 const Component = ({job, ...props}) => {

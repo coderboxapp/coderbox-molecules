@@ -26,7 +26,8 @@ export const company = {
 
 export const institution = {
   _id: 22,
-  name: 'west university of timisoara'
+  name: 'west university of timisoara',
+  logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
 }
 
 export const position = {

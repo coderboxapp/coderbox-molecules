@@ -1,8 +1,7 @@
 import React from 'react'
 import { object } from 'prop-types'
 import { Title, Link } from '@coderbox/atoms'
-import Location from 'Location'
-import Avatar from 'Avatar'
+import { Location, Avatar } from 'elements'
 import * as styles from './styles'
 
 class Component extends React.Component {

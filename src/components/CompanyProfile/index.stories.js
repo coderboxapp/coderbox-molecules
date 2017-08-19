@@ -3,15 +3,14 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Box } from '@coderbox/atoms'
 import { withTheme } from 'utils'
-import { job } from 'mockup'
+import { company } from 'mockup'
+import CompanyProfile from '.'
 
-import JobHeader from '.'
-
-storiesOf('JobHeader', module)
+storiesOf('components/CompanyProfile', module)
   .add('simple usage', withTheme(() => {
     return (
       <Box>
-        <JobHeader job={job} />
+        <CompanyProfile company={company} />
       </Box>
     )
   }))

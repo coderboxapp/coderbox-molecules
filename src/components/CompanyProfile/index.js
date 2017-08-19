@@ -1,7 +1,5 @@
 import React from 'react'
-import Avatar from 'Avatar'
-import Location from 'Location'
-import Markdown from 'Markdown'
+import { Avatar, Location, Markdown } from 'elements'
 import { Title } from '@coderbox/atoms'
 import { CompanyProfile } from './styles'
 
