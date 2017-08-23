@@ -2,33 +2,25 @@ import React from 'react'
 import cx from 'classnames'
 import moment from 'moment'
 import { object, bool } from 'prop-types'
+import { compose, mapProps } from 'recompose'
 import { reverse } from 'lodash'
 import { Box, Icon, Subtitle } from '@coderbox/atoms'
 import { toYears } from '@coderbox/utils'
 import { PositionItem, EducationItem } from 'items'
 import * as s from './styles'
 
-const createElement = item => {
-  let elementTypes = {position: PositionItem, education: EducationItem}
-  let element = React.createElement(elementTypes[item.type], { item })
-
-  return element
-}
-
-const Component = ({ item, isOdd, ...props }) => {
-  let icon = item.icon || 'plus'
-  let date = item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present'
+const Component = ({ date, dateRange, icon, element, isOdd, ...props }) => {
   let className = cx('timeline-item', props.className)
 
   let childs = [
     <s.Item alignRight={!isOdd} key={0}>
       <Subtitle>{date}</Subtitle>
-      <Subtitle size='small' color='gray'>{toYears(item.timePeriod)}</Subtitle>
+      <Subtitle size='small' color='gray'>{dateRange}</Subtitle>
     </s.Item>,
     <Icon name={icon} color='primary' isCircular key={1} />,
     <s.Item key={2}>
       <Box>
-        {createElement(item)}
+        {element}
       </Box>
     </s.Item>
   ]
@@ -43,9 +35,27 @@ const Component = ({ item, isOdd, ...props }) => {
 }
 
 Component.displayName = 'TimelineItem'
-Component.propTypes = {
+Component.propsTypes = {
   item: object,
   isOdd: bool
 }
 
-export default Component
+const createElement = item => {
+  let elementTypes = {position: PositionItem, education: EducationItem}
+  let element = React.createElement(elementTypes[item.type], { item })
+
+  return element
+}
+
+export default compose(
+  mapProps(props => {
+    let { item } = props
+    return {
+      ...props,
+      icon: item.icon || 'plus',
+      date: item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present',
+      dateRange: toYears(item.timePeriod),
+      element: createElement(item)
+    }
+  })
+)(Component)

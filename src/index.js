@@ -1,4 +1,4 @@
-// core
+// elements
 import Avatar from 'elements/Avatar'
 import DateRange from 'elements/DateRange'
 import DaysAgo from 'elements/DaysAgo'
@@ -12,6 +12,7 @@ import JobItem from 'items/JobItem'
 import TimelineItem from 'items/TimelineItem'
 
 // forms
+import LoginForm from 'forms/LoginForm'
 
 // components
 import CompanyProfile from 'components/CompanyProfile'
@@ -31,6 +32,8 @@ export {
   Item,
   JobItem,
   TimelineItem,
+  // forms
+  LoginForm,
   // components
   CompanyProfile,
   JobHeader,

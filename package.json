@@ -7,7 +7,7 @@
     "prepare": "yarn build",
     "build": "webpack --env production",
     "dev": "webpack --progress --colors --watch --env development",
-    "start": "start-storybook -p 6006",
+    "start": "start-storybook -p 6005",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
@@ -38,7 +38,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "7.2.3",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^7.1.2",
     "babel-plugin-module-resolver": "^2.7.1",
     "babel-plugin-styled-components": "^1.1.7",
     "babel-preset-es2015": "6.24.1",
@@ -50,14 +50,18 @@
     "yargs": "^8.0.2"
   },
   "dependencies": {
-    "@coderbox/atoms": "^1.0.29",
+    "@coderbox/atoms": "^1.0.31",
+    "@coderbox/forms": "^1.0.12",
     "@coderbox/utils": "^1.0.4",
+    "formik": "^0.8.9",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-avatar": "^2.3.0",
     "react-dom": "^15.5.4",
     "react-markdown": "^2.5.0",
+    "recompose": "^0.25.0",
     "styled-components": "^2.1.2",
-    "styled-utils": "^1.2.3"
+    "styled-utils": "^1.2.3",
+    "yup": "^0.21.3"
   }
 }

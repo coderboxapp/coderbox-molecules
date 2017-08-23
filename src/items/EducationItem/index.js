@@ -1,7 +1,7 @@
 import React from 'react'
 import { object } from 'prop-types'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
-import { DateRange, Tags, Markdown } from 'elements'
+import { DateRange, Tags } from 'elements'
 import { Item } from 'items'
 
 class Component extends React.Component {
