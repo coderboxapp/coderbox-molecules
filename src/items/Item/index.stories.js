@@ -1,9 +1,8 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { transform, withTheme } from '@coderbox/utils'
+import { withTheme } from '@coderbox/utils'
 import { Box, Title, Subtitle, Text, Link, theme } from '@coderbox/atoms'
-import { position } from 'mockup'
 import Item from '.'
 
 storiesOf('items/Item', module)
@@ -17,9 +16,6 @@ storiesOf('items/Item', module)
             <Text color='success' tone={1}>price: 2000 €</Text>
             <Text>version: 1.0.0</Text>
           </Item>
-        </Box>
-        <Box>
-          <Item item={transform(position)} />
         </Box>
       </div>
     )

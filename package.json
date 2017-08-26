@@ -33,7 +33,7 @@
   "author": "Ghiura Alexandru <ghalex@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@storybook/react": "^3.2.5",
+    "@storybook/react": "^3.2.8",
     "@storybook/storybook-deployer": "^2.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
@@ -50,14 +50,15 @@
     "yargs": "^8.0.2"
   },
   "dependencies": {
-    "@coderbox/atoms": "^1.0.31",
-    "@coderbox/forms": "^1.0.12",
+    "@coderbox/atoms": "^1.0.33",
+    "@coderbox/forms": "^1.0.13",
     "@coderbox/utils": "^1.0.4",
     "formik": "^0.8.9",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-avatar": "^2.3.0",
     "react-dom": "^15.5.4",
+    "react-google-autocomplete": "^1.0.13",
     "react-markdown": "^2.5.0",
     "recompose": "^0.25.0",
     "styled-components": "^2.1.2",

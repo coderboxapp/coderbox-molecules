@@ -2,7 +2,7 @@
 export const user = {
   name: 'Alexandru Ghiura',
   email: 'ghalex@gmail.com',
-  url: 'http://twitter.com/ghalex',
+  website: 'http://twitter.com/ghalex',
   location: {
     formatted_address: 'Timisoara, Romania'
   }

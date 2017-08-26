@@ -11,7 +11,6 @@ import * as s from './styles'
 
 const Component = ({ date, dateRange, icon, element, isOdd, ...props }) => {
   let className = cx('timeline-item', props.className)
-
   let childs = [
     <s.Item alignRight={!isOdd} key={0}>
       <Subtitle>{date}</Subtitle>
@@ -47,6 +46,10 @@ const createElement = item => {
   return element
 }
 
+const createForm = item => {
+  return null
+}
+
 export default compose(
   mapProps(props => {
     let { item } = props
@@ -55,7 +58,8 @@ export default compose(
       icon: item.icon || 'plus',
       date: item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present',
       dateRange: toYears(item.timePeriod),
-      element: createElement(item)
+      element: createElement(item),
+      form: createForm(item)
     }
   })
 )(Component)

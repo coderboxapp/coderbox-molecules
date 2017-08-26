@@ -9,8 +9,13 @@ import UserProfile from '.'
 storiesOf('components/UserProfile', module)
   .add('simple usage', withTheme(() => {
     return (
-      <Box>
-        <UserProfile user={user} />
-      </Box>
+      <div>
+        <Box>
+          <UserProfile profile={user} />
+        </Box>
+        <Box>
+          <UserProfile />
+        </Box>
+      </div>
     )
   }))

@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Avatar = styled.div`
   display: inline-flex;
+  flex-direction: column;
   font-size: ${p => p.size / 5}px;
   padding: 0.35em;
   border: 1px solid;
@@ -12,8 +13,13 @@ export const Avatar = styled.div`
   text-align: center;
   margin: 0 0 0.5rem 0;
   vertical-align: middle;
+  max-width: ${p => p.size}px;
 
   & img {
     border-radius: ${p => p.theme.sizes.radius} !important;
+  }
+
+  & a {
+    margin-top: 5px;
   }
 `

@@ -1,37 +1,33 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { object, string, shape } from 'prop-types'
+import { compose, branch, renderComponent } from 'recompose'
 import { Title, Link } from '@coderbox/atoms'
 import { Location, Avatar } from 'elements'
-import * as styles from './styles'
+import * as s from './styles'
 
-class Component extends React.Component {
-  static displayName = 'UserProfile'
-  static propTypes = {
-    user: object
-  }
-
-  renderNoUser () {
-    return (
-      <div>No user to <b>render profile</b></div>
-    )
-  }
-
-  render () {
-    let { user } = this.props
-
-    if (!user) {
-      return this.renderNoUser()
-    }
-
-    return (
-      <styles.Profile>
-        <Avatar email={user.email} />
-        <Title>{user.name}</Title>
-        <Location location={user.location} />
-        {user.url && <Link href={user.url}>{user.url}</Link>}
-      </styles.Profile>
-    )
-  }
+const Component = ({ profile, ...props }) => {
+  return (
+    <s.Profile>
+      <Avatar email={profile.email} />
+      <Title>{profile.name}</Title>
+      <Location location={profile.location} />
+      {profile.website && <Link href={profile.website}>{profile.website}</Link>}
+    </s.Profile>
+  )
 }
 
-export default Component
+Component.displayName = 'UserProfile'
+Component.propTypes = {
+  profile: shape({
+    name: string,
+    location: object,
+    website: string
+  })
+}
+
+export default compose(
+  branch(
+    ({ profile }) => !profile,
+    renderComponent(() => <s.Profile>No user to <b>render profile</b></s.Profile>)
+  )
+)(Component)
