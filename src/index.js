@@ -15,6 +15,8 @@ import TimelineItem from 'items/TimelineItem'
 
 // forms
 import LoginForm from 'forms/LoginForm'
+import PositionForm from 'forms/PositionForm'
+import EducationForm from 'forms/EducationForm'
 import UserProfileForm from 'forms/UserProfileForm'
 
 // components
@@ -43,6 +45,8 @@ export {
   TimelineItem,
   // forms
   LoginForm,
+  PositionForm,
+  EducationForm,
   UserProfileForm,
   // components
   AutocompleteLocation,

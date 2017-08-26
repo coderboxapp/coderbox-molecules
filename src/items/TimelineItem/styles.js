@@ -18,4 +18,7 @@ export const Container = styled.div`
 export const Item = styled.div`
   flex: 100px;
   text-align: ${p => p.alignRight ? 'right' : 'left'};
+  & form {
+    margin-top: 40px;
+  }
 `

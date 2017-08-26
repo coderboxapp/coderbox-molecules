@@ -6,10 +6,12 @@ import { compose, mapProps } from 'recompose'
 import { reverse } from 'lodash'
 import { Box, Icon, Subtitle } from '@coderbox/atoms'
 import { toYears } from '@coderbox/utils'
+import { Stack, StackEditToolbar } from 'components'
 import { PositionItem, EducationItem } from 'items'
+import { PositionForm, EducationForm } from 'forms'
 import * as s from './styles'
 
-const Component = ({ date, dateRange, icon, element, isOdd, ...props }) => {
+const Component = ({ date, dateRange, icon, element, form, isOdd, ...props }) => {
   let className = cx('timeline-item', props.className)
   let childs = [
     <s.Item alignRight={!isOdd} key={0}>
@@ -19,7 +21,10 @@ const Component = ({ date, dateRange, icon, element, isOdd, ...props }) => {
     <Icon name={icon} color='primary' isCircular key={1} />,
     <s.Item key={2}>
       <Box>
-        {element}
+        <Stack toolbar={<StackEditToolbar isFixed />}>
+          {element}
+          {form}
+        </Stack>
       </Box>
     </s.Item>
   ]
@@ -40,14 +45,17 @@ Component.propsTypes = {
 }
 
 const createElement = item => {
-  let elementTypes = {position: PositionItem, education: EducationItem}
-  let element = React.createElement(elementTypes[item.type], { item })
+  let types = {position: PositionItem, education: EducationItem}
+  let element = React.createElement(types[item.type], { item })
 
   return element
 }
 
 const createForm = item => {
-  return null
+  let types = {position: PositionForm, education: EducationForm}
+  let form = React.createElement(types[item.type], { item })
+
+  return form
 }
 
 export default compose(
