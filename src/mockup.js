@@ -16,6 +16,17 @@ export const technologies = [
   {_id: 1, name: 'css', category: 'frontend', 'duration': 96}
 ]
 
+export const companies = [
+  {_id: 104, name: 'tibco software innovations romania'},
+  {_id: 103, name: 'tibco software'},
+  {_id: 101, name: 'intelligent software system'},
+  {_id: 97, name: 'blue couch '},
+  {_id: 96, name: 'saguaro'},
+  {_id: 94, name: 'epoint web solutions'},
+  {_id: 93, name: 'nokia'},
+  {_id: 92, name: 'athos'}
+]
+
 export const company = {
   _id: 4,
   name: 'coderbox',

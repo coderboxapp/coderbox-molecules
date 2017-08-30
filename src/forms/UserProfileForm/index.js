@@ -98,8 +98,8 @@ export default compose(
     }),
     validationSchema: yup.object().shape({
       name: yup.string()
-        .min(2, 'Name has to be at least 3 characters long.')
-        .required('Email is required')
+        .min(3, 'Name has to be at least 3 characters long.')
+        .required('Name is required')
     }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {

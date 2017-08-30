@@ -1,11 +1,10 @@
 import React from 'react'
 import yup from 'yup'
-import { shape, string, object } from 'prop-types'
+import { shape, string, object, array } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
-import { Field, Control, Input } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
-import { AutocompleteLocation } from 'components'
 
 const Component = ({
   profile,
@@ -13,6 +12,7 @@ const Component = ({
   errors,
   status,
   submitting,
+  suggestions,
   handleChange,
   handleSubmit,
   onCancel,
@@ -29,35 +29,24 @@ const Component = ({
         <Control hasLeftIcon>
           <Icon name='user' className='left' />
           <Input
-            name='name'
-            value={values.name}
-            color={errors.name ? 'danger' : null}
+            name='title'
+            value={values.title}
+            color={errors.title ? 'danger' : null}
             onChange={handleChange}
-            placeholder='Your name (eg. Darth Vader)'
+            placeholder='Type title(eg. Web Developer)'
           />
         </Control>
       </Field>
       <Field>
         <Control hasLeftIcon>
-          <Icon name='map-marker' className='left' />
-          <AutocompleteLocation
-            name='location'
-            value={values.location}
-            color={errors.location ? 'danger' : null}
-            onChange={loc => props.setFieldValue('location', loc)}
-            placeholder='Where do you live ?'
-          />
-        </Control>
-      </Field>
-      <Field>
-        <Control hasLeftIcon>
-          <Icon name='globe' className='left' />
-          <Input
-            name='website'
-            value={values.website}
-            color={errors.website ? 'danger' : null}
-            onChange={handleChange}
-            placeholder='Your website'
+          <Icon name='building' className='left' />
+          <Dropdown
+            isSearch
+            name='company'
+            items={values.companies}
+            value={values.company}
+            onChange={c => console.log(c)}
+            placeholder='Type company name'
           />
         </Control>
       </Field>
@@ -75,27 +64,32 @@ const Component = ({
 
 Component.displayName = 'PositionForm'
 Component.propTypes = {
-  profile: shape({
-    name: string,
-    location: object,
-    website: string
+  position: shape({
+    title: object,
+    company: object
+  }),
+  suggestions: shape({
+    companies: array
   })
 }
 
 export default compose(
   defaultProps({
-    profile: {}
+    position: {}
   }),
   withFormik({
-    mapPropsToValues: ({ profile }) => ({
-      name: profile.name,
-      location: profile.location,
-      website: profile.website
+    mapPropsToValues: ({ position, suggestions }) => ({
+      title: position.title.name,
+      company: position.location,
+      companies: suggestions.companies.map(c => ({
+        value: c._id,
+        text: c.name
+      }))
     }),
     validationSchema: yup.object().shape({
-      name: yup.string()
-        .min(2, 'Name has to be at least 3 characters long.')
-        .required('Email is required')
+      title: yup.string()
+        .min(3, 'Title has to be at least 3 characters long.')
+        .required('Title is required')
     }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {
