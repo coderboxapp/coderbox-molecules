@@ -13,27 +13,29 @@ export const location = { formatted_address: 'Timișoara, România' }
 export const technologies = [
   {_id: 93, name: 'java', category: 'backend', 'duration': 96},
   {_id: 70, name: 'spring', category: 'backend', 'duration': 96},
-  {_id: 1, name: 'css', category: 'frontend', 'duration': 96}
+  {_id: 1, name: 'css', category: 'frontend', 'duration': 96},
+  {_id: 3, name: 'javascript', category: 'frontend', 'duration': 96}
 ]
-
 export const companies = [
+  {
+    _id: 4,
+    name: 'coderbox',
+    logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/coderbox-blue.png',
+    shortBio: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
+    location: location
+  },
   {_id: 104, name: 'tibco software innovations romania'},
   {_id: 103, name: 'tibco software'},
   {_id: 101, name: 'intelligent software system'},
-  {_id: 97, name: 'blue couch '},
+  {_id: 97, name: 'bolue couch'},
   {_id: 96, name: 'saguaro'},
   {_id: 94, name: 'epoint web solutions'},
   {_id: 93, name: 'nokia'},
+  {_id: 932, name: 'nok it'},
   {_id: 92, name: 'athos'}
 ]
 
-export const company = {
-  _id: 4,
-  name: 'coderbox',
-  logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/coderbox-blue.png',
-  shortBio: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
-  location: location
-}
+export const company = companies[0]
 
 export const institution = {
   _id: 22,
@@ -45,7 +47,7 @@ export const position = {
   _id: 125,
   company: company,
   responsabilities: "You can use [Markdown](https://daringfireball.net/projects/markdown/) in your description.\n\n> You can add quotes\n\nQuote break.\n\n> Another quote\n\nMake a list of things:\n* **bold**\n* *italicized*\n* or even `crossed` out\n\n`Oh, and you can even add code blocks.`\n\nWe're excited to bring back beautiful formatting for your updates!",
-  technologies: technologies,
+  technologies: technologies.concat().slice(0, 2),
   timePeriod: { end: '2015-06-08T12:57:34.716Z', start: '2009-12-31T22:00:00.000Z' },
   title: {_id: 28, name: 'web developer'},
   type: 'position',

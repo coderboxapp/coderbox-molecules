@@ -18,6 +18,9 @@ const Component = ({
   onCancel,
   ...props
 }) => {
+  const toDropdown = i => ({value: i._id, text: i.name})
+  const fromDropdown = i => ({_id: i.value, name: i.text})
+
   return (
     <form onSubmit={handleSubmit}>
       {status &&
@@ -44,13 +47,28 @@ const Component = ({
             isSearch
             name='company'
             maxItems={4}
+            valueField='_id'
+            labelField='name'
             items={suggestions.companies}
             value={values.company}
-            onChange={c => props.setFieldValue('company', {
-              _id: c.value,
-              name: c.text
-            })}
+            onChange={c => props.setFieldValue('company', c)}
             placeholder='Type company name'
+          />
+        </Control>
+      </Field>
+      <Field>
+        <Control>
+          <Dropdown
+            isSearch
+            isMultiple
+            name='technologies'
+            maxItems={4}
+            valueField='_id'
+            labelField='name'
+            items={suggestions.technologies}
+            value={values.technologies}
+            onChange={t => props.setFieldValue('technologies', t)}
+            placeholder='Type technologies'
           />
         </Control>
       </Field>
@@ -68,7 +86,7 @@ const Component = ({
 
 Component.displayName = 'PositionForm'
 Component.propTypes = {
-  position: shape({
+  data: shape({
     title: object,
     company: object
   }),
@@ -79,13 +97,14 @@ Component.propTypes = {
 
 export default compose(
   defaultProps({
-    position: { title: { name: '' } },
+    data: { title: { name: '' } },
     suggestions: { companies: [] }
   }),
   withFormik({
-    mapPropsToValues: ({ position, suggestions }) => ({
-      title: position.title.name,
-      company: position.company
+    mapPropsToValues: ({ data, suggestions }) => ({
+      title: data.title.name,
+      company: data.company,
+      technologies: data.technologies
     }),
     validationSchema: yup.object().shape({
       title: yup.string()

@@ -53,7 +53,7 @@ const createElement = item => {
 
 const createForm = item => {
   let types = {position: PositionForm, education: EducationForm}
-  let form = React.createElement(types[item.type], { item })
+  let form = React.createElement(types[item.type], { data: item })
 
   return form
 }

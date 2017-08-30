@@ -3,14 +3,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withTheme } from '@coderbox/utils'
 import { Box, theme } from '@coderbox/atoms'
-import { companies, position } from 'mockup'
+import { companies, technologies, position } from 'mockup'
 import PositionForm from '.'
 
 let suggestions = {
-  companies: companies.map(c => ({
-    value: c._id,
-    text: c.name
-  }))
+  companies,
+  technologies
 }
 
 storiesOf('forms/PositionForm', module)
@@ -19,7 +17,7 @@ storiesOf('forms/PositionForm', module)
       <div>
         <Box>
           <PositionForm
-            position={position}
+            data={position}
             suggestions={suggestions}
             onSubmit={d => console.log('data=', d)} />
         </Box>
