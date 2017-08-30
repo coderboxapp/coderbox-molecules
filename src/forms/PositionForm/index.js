@@ -1,6 +1,6 @@
 import React from 'react'
 import yup from 'yup'
-import { shape, string, object, array } from 'prop-types'
+import { shape, object, array } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { Field, Control, Input, Dropdown } from '@coderbox/forms'
@@ -43,9 +43,13 @@ const Component = ({
           <Dropdown
             isSearch
             name='company'
-            items={values.companies}
+            maxItems={4}
+            items={suggestions.companies}
             value={values.company}
-            onChange={c => console.log(c)}
+            onChange={c => props.setFieldValue('company', {
+              _id: c.value,
+              name: c.text
+            })}
             placeholder='Type company name'
           />
         </Control>
@@ -75,16 +79,13 @@ Component.propTypes = {
 
 export default compose(
   defaultProps({
-    position: {}
+    position: { title: { name: '' } },
+    suggestions: { companies: [] }
   }),
   withFormik({
     mapPropsToValues: ({ position, suggestions }) => ({
       title: position.title.name,
-      company: position.location,
-      companies: suggestions.companies.map(c => ({
-        value: c._id,
-        text: c.name
-      }))
+      company: position.company
     }),
     validationSchema: yup.object().shape({
       title: yup.string()

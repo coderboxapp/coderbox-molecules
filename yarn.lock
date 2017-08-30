@@ -12,9 +12,9 @@
     styled-theme "^0.3.3"
     styled-utils "^1.2.3"
 
-"@coderbox/forms@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@coderbox/forms/-/forms-1.0.13.tgz#0107baa4685a0caa5fc5b880c43b53d80928a7ba"
+"@coderbox/forms@^1.0.15":
+  version "1.0.15"
+  resolved "https://registry.yarnpkg.com/@coderbox/forms/-/forms-1.0.15.tgz#0048ae6792bca890ee74d3e20383ec7437d96e2a"
   dependencies:
     "@coderbox/atoms" "^1.0.33"
     react "^15.5.4"
