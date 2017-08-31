@@ -1,5 +1,5 @@
 import React from 'react'
-import { shape, object, array } from 'prop-types'
+import { shape, object, array, string } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
@@ -72,6 +72,15 @@ const Component = ({
         />
       </Field>
 
+      <Field label='Degree:'>
+        <Dropdown
+          name='degree'
+          value={values.degree}
+          items={[ 'High School', 'Bachelor’s Degree', 'Engineer’s Degree', 'Master’s Degree' ]}
+          onChange={d => props.setFieldValue('degree', d)}
+        />
+      </Field>
+
       <div>
         <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
           Save
@@ -89,7 +98,8 @@ Component.propTypes = {
   data: shape({
     institution: object,
     technologies: array,
-    dateRange: object
+    dateRange: object,
+    degree: string
   }),
   suggestions: shape({
     institutions: array,
@@ -106,7 +116,8 @@ export default compose(
     mapPropsToValues: ({ data }) => ({
       institution: data.institution,
       technologies: data.technologies,
-      dateRange: data.timePeriod
+      dateRange: data.timePeriod,
+      degree: data.degree || ''
     }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {

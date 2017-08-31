@@ -128,7 +128,7 @@ export default compose(
     mapPropsToValues: ({ data, suggestions }) => ({
       title: data.title.name,
       company: data.company,
-      technologies: data.technologies,
+      technologies: data.technologies.concat(),
       dateRange: data.timePeriod,
       responsabilities: data.responsabilities
     }),
