@@ -1,9 +1,9 @@
 import React from 'react'
 import yup from 'yup'
-import { shape, object, array } from 'prop-types'
+import { shape, object, array, string } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
-import { Field, Control, Input, Dropdown, DateRange } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown, DateRange, Textarea } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
 const Component = ({
@@ -25,7 +25,7 @@ const Component = ({
           <Text color='danger' size='normal'>{status}</Text>
         </Field>
       }
-      <Field>
+      <Field label='Title:'>
         <Control hasLeftIcon>
           <Icon name='user' className='left' />
           <Input
@@ -37,7 +37,8 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Field>
+
+      <Field label='Company:'>
         <Control hasLeftIcon>
           <Icon name='building' className='left' />
           <Dropdown
@@ -53,7 +54,8 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Field>
+
+      <Field label='Technologies:'>
         <Control>
           <Dropdown
             isSearch
@@ -69,15 +71,27 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Field>
+
+      <Field label='Period:'>
         <DateRange
           isSearch
           isMultiple
           name='dateRange'
+          size='small'
           range={values.dateRange}
           onChange={d => props.setFieldValue('dateRange', d)}
         />
       </Field>
+
+      <Field label='Responsabilities:'>
+        <Textarea
+          rows={10}
+          name='responsabilities'
+          value={values.responsabilities}
+          onChange={handleChange}
+          placeholder='Description ?' />
+      </Field>
+
       <div>
         <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
           Save
@@ -94,10 +108,14 @@ Component.displayName = 'PositionForm'
 Component.propTypes = {
   data: shape({
     title: object,
-    company: object
+    company: object,
+    technologies: array,
+    dateRange: object,
+    responsabilities: string
   }),
   suggestions: shape({
-    companies: array
+    companies: array,
+    technologies: array
   })
 }
 
@@ -111,7 +129,8 @@ export default compose(
       title: data.title.name,
       company: data.company,
       technologies: data.technologies,
-      dateRange: data.timePeriod
+      dateRange: data.timePeriod,
+      responsabilities: data.responsabilities
     }),
     validationSchema: yup.object().shape({
       title: yup.string()

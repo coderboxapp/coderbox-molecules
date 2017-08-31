@@ -19,6 +19,6 @@ export const Item = styled.div`
   flex: 100px;
   text-align: ${p => p.alignRight ? 'right' : 'left'};
   & form {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 `

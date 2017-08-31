@@ -1,11 +1,10 @@
 import React from 'react'
-import yup from 'yup'
-import { shape, string, object } from 'prop-types'
+import { shape, object, array } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
-import { Field, Control, Input } from '@coderbox/forms'
+import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
-import { AutocompleteLocation } from 'components'
+// import yup from 'yup'
 
 const Component = ({
   profile,
@@ -13,6 +12,7 @@ const Component = ({
   errors,
   status,
   submitting,
+  suggestions,
   handleChange,
   handleSubmit,
   onCancel,
@@ -25,42 +25,53 @@ const Component = ({
           <Text color='danger' size='normal'>{status}</Text>
         </Field>
       }
-      <Field>
+
+      <Field label='Institutions:'>
         <Control hasLeftIcon>
-          <Icon name='user' className='left' />
-          <Input
-            name='name'
-            value={values.name}
-            color={errors.name ? 'danger' : null}
-            onChange={handleChange}
-            placeholder='Your name (eg. Darth Vader)'
+          <Icon name='building' className='left' />
+          <Dropdown
+            isSearch
+            name='institution'
+            maxItems={4}
+            valueField='_id'
+            labelField='name'
+            items={suggestions.institutions}
+            value={values.institution}
+            onChange={c => props.setFieldValue('institution', c)}
+            placeholder='Type institution name (eg. West University)'
           />
         </Control>
       </Field>
-      <Field>
-        <Control hasLeftIcon>
-          <Icon name='map-marker' className='left' />
-          <AutocompleteLocation
-            name='location'
-            value={values.location}
-            color={errors.location ? 'danger' : null}
-            onChange={loc => props.setFieldValue('location', loc)}
-            placeholder='Where do you live ?'
+
+      <Field label='Technologies:'>
+        <Control>
+          <Dropdown
+            isSearch
+            isMultiple
+            name='technologies'
+            maxItems={4}
+            valueField='_id'
+            labelField='name'
+            items={suggestions.technologies}
+            value={values.technologies}
+            onChange={t => props.setFieldValue('technologies', t)}
+            placeholder='Type technologies'
           />
         </Control>
       </Field>
-      <Field>
-        <Control hasLeftIcon>
-          <Icon name='globe' className='left' />
-          <Input
-            name='website'
-            value={values.website}
-            color={errors.website ? 'danger' : null}
-            onChange={handleChange}
-            placeholder='Your website'
-          />
-        </Control>
+
+      <Field label='Period:'>
+        <DateRange
+          isSearch
+          isMultiple
+          name='dateRange'
+          range={values.dateRange}
+          label='In progress...'
+          size='small'
+          onChange={d => props.setFieldValue('dateRange', d)}
+        />
       </Field>
+
       <div>
         <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
           Save
@@ -75,27 +86,27 @@ const Component = ({
 
 Component.displayName = 'EducationForm'
 Component.propTypes = {
-  profile: shape({
-    name: string,
-    location: object,
-    website: string
+  data: shape({
+    institution: object,
+    technologies: array,
+    dateRange: object
+  }),
+  suggestions: shape({
+    institutions: array,
+    technologies: array
   })
 }
 
 export default compose(
   defaultProps({
-    profile: {}
+    data: {},
+    suggestions: { institutions: [], technologies: [] }
   }),
   withFormik({
-    mapPropsToValues: ({ profile }) => ({
-      name: profile.name,
-      location: profile.location,
-      website: profile.website
-    }),
-    validationSchema: yup.object().shape({
-      name: yup.string()
-        .min(2, 'Name has to be at least 3 characters long.')
-        .required('Email is required')
+    mapPropsToValues: ({ data }) => ({
+      institution: data.institution,
+      technologies: data.technologies,
+      dateRange: data.timePeriod
     }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {
