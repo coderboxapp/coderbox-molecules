@@ -12,7 +12,6 @@ const fade = keyframes`
 
 export const Stack = styled.div`
   position: relative;
-  overflow: hidden;
 `
 
 export const StackItem = styled.div`

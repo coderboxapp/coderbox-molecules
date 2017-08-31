@@ -3,7 +3,7 @@ import yup from 'yup'
 import { shape, object, array } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
-import { Field, Control, Input, Dropdown } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
 const Component = ({
@@ -18,9 +18,6 @@ const Component = ({
   onCancel,
   ...props
 }) => {
-  const toDropdown = i => ({value: i._id, text: i.name})
-  const fromDropdown = i => ({_id: i.value, name: i.text})
-
   return (
     <form onSubmit={handleSubmit}>
       {status &&
@@ -72,6 +69,15 @@ const Component = ({
           />
         </Control>
       </Field>
+      <Field>
+        <DateRange
+          isSearch
+          isMultiple
+          name='dateRange'
+          range={values.dateRange}
+          onChange={d => props.setFieldValue('dateRange', d)}
+        />
+      </Field>
       <div>
         <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
           Save
@@ -98,13 +104,14 @@ Component.propTypes = {
 export default compose(
   defaultProps({
     data: { title: { name: '' } },
-    suggestions: { companies: [] }
+    suggestions: { companies: [], technologies: [] }
   }),
   withFormik({
     mapPropsToValues: ({ data, suggestions }) => ({
       title: data.title.name,
       company: data.company,
-      technologies: data.technologies
+      technologies: data.technologies,
+      dateRange: data.timePeriod
     }),
     validationSchema: yup.object().shape({
       title: yup.string()

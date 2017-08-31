@@ -3,7 +3,7 @@ import { bgColor } from 'styled-utils'
 
 export const Timeline = styled.div`
   position: relative;
-  max-width: 900px;
+  max-width: 1200px;
   min-height: 200px;
   padding: 50px 20px;
   margin: 40px auto;

@@ -6,7 +6,7 @@ import { Box, theme } from '@coderbox/atoms'
 import { user } from 'mockup'
 import ProfileForm from '.'
 
-storiesOf('forms/ProfileForm', module)
+storiesOf('forms/UserProfileForm', module)
   .add('simple usage', withTheme(theme, () => {
     return (
       <div>
@@ -14,9 +14,6 @@ storiesOf('forms/ProfileForm', module)
           <ProfileForm
             profile={user}
             onSubmit={d => console.log('data=', d)} />
-        </Box>
-        <Box>
-          <ProfileForm />
         </Box>
       </div>
     )
