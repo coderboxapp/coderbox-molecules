@@ -1,11 +1,12 @@
 import React from 'react'
+import { compact } from 'lodash'
 import { compose, withState, withHandlers } from 'recompose'
 import { Stack, StackItem } from './styles'
 
 const Component = ({ index, next, prev, toolbar, children, ...props }) => {
   const stack = { index, next, prev }
   const items = React.Children.map(
-    children,
+    compact(children),
     (item, i) => (
       <StackItem isVisible={index === i}>
         {React.cloneElement(item, { stack })}

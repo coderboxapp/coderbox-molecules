@@ -10,7 +10,7 @@ storiesOf('items/TimelineItem', module)
   .add('simple usage', withTheme(theme, () => {
     return (
       <Box>
-        <TimelineItem item={position} />
+        <TimelineItem data={position} />
       </Box>
     )
   }))

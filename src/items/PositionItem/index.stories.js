@@ -11,7 +11,7 @@ storiesOf('items/PositionItem', module)
     return (
       <div>
         <Box>
-          <PositionItem item={position} />
+          <PositionItem data={position} />
         </Box>
       </div>
     )

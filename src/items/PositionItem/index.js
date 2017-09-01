@@ -1,28 +1,26 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { position } from '@coderbox/prop-types'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { DateRange, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 
-class Component extends React.Component {
-  render () {
-    let { company, responsabilities, title, technologies, timePeriod } = this.props.item
+const Component = ({ data }) => {
+  let { company, responsabilities, title, technologies, timePeriod } = data
 
-    return (
-      <Item image={company.logo}>
-        <DateRange dateRange={timePeriod} />
-        <Title size='large'>{title.name}</Title>
-        <Subtitle size='normal' color='gray'><Link>@{company.name}</Link></Subtitle>
-        <Tags tags={technologies} />
-        <Markdown source={responsabilities} />
-      </Item>
-    )
-  }
+  return (
+    <Item image={company.logo}>
+      <DateRange dateRange={timePeriod} />
+      <Title size='large'>{title.name}</Title>
+      <Subtitle size='normal' color='gray'><Link>@{company.name}</Link></Subtitle>
+      <Tags tags={technologies} />
+      <Markdown source={responsabilities} />
+    </Item>
+  )
 }
 
 Component.displayName = 'PositionItem'
 Component.propTypes = {
-  item: object
+  data: position
 }
 
 export default Component

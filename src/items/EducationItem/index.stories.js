@@ -11,7 +11,7 @@ storiesOf('items/EducationItem', module)
     return (
       <div>
         <Box>
-          <EducationItem item={education} />
+          <EducationItem data={education} />
         </Box>
       </div>
     )

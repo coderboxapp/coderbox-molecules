@@ -1,27 +1,25 @@
 import React from 'react'
-import { object } from 'prop-types'
+import { education } from '@coderbox/prop-types'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { DateRange, Tags } from 'elements'
 import { Item } from 'items'
 
-class Component extends React.Component {
-  render () {
-    let { institution, degree, technologies, timePeriod } = this.props.item
+const Component = ({ data }) => {
+  let { institution, degree, technologies, timePeriod } = data
 
-    return (
-      <Item image={institution.logo}>
-        <DateRange dateRange={timePeriod} />
-        <Title size='large'>{degree}</Title>
-        <Subtitle size='normal' color='gray'><Link>@{institution.name}</Link></Subtitle>
-        <Tags tags={technologies} />
-      </Item>
-    )
-  }
+  return (
+    <Item image={institution.logo}>
+      <DateRange dateRange={timePeriod} />
+      <Title size='large'>{degree}</Title>
+      <Subtitle size='normal' color='gray'><Link>@{institution.name}</Link></Subtitle>
+      <Tags tags={technologies} />
+    </Item>
+  )
 }
 
 Component.displayName = 'EducationItem'
 Component.propTypes = {
-  item: object
+  data: education.isRequired
 }
 
 export default Component

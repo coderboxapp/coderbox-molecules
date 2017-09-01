@@ -43,7 +43,7 @@ class Component extends React.Component {
           return (
             <TimelineItem
               key={index}
-              item={item}
+              data={item}
               isOdd={Boolean(index % 2)}
             />
           )

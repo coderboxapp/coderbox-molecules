@@ -1,8 +1,8 @@
 import React from 'react'
 import yup from 'yup'
-import { shape, string, object } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
+import { user } from '@coderbox/prop-types'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
@@ -79,11 +79,7 @@ const Component = ({
 
 Component.displayName = 'UserProfileForm'
 Component.propTypes = {
-  profile: shape({
-    name: string,
-    location: object,
-    website: string
-  })
+  profile: user
 }
 
 export default compose(

@@ -64,11 +64,6 @@ export const education = {
   icon: 'graduation-cap'
 }
 
-export const items = [
-  position,
-  education
-]
-
 export const job = {
   _id: 38,
   company: company,
@@ -86,3 +81,8 @@ export const job = {
   createdAt: '2017-06-07T08:49:01.358Z',
   type: 'job'
 }
+
+export const items = [
+  position,
+  education
+]

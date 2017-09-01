@@ -1,9 +1,10 @@
 import React from 'react'
 import cx from 'classnames'
 import moment from 'moment'
-import { object, bool } from 'prop-types'
 import { compose, mapProps } from 'recompose'
 import { reverse } from 'lodash'
+import { oneOfType, bool } from 'prop-types'
+import { position, education } from '@coderbox/prop-types'
 import { Box, Icon, Subtitle } from '@coderbox/atoms'
 import { toYears } from '@coderbox/utils'
 import { Stack, StackEditToolbar } from 'components'
@@ -39,35 +40,37 @@ const Component = ({ date, dateRange, icon, element, form, isOdd, ...props }) =>
 }
 
 Component.displayName = 'TimelineItem'
-Component.propsTypes = {
-  item: object,
+Component.propTypes = {
+  data: oneOfType([ education, position ]),
   isOdd: bool
 }
 
-const createElement = item => {
-  let types = {position: PositionItem, education: EducationItem}
-  let element = React.createElement(types[item.type], { item })
+const formFactory = data => {
+  const map = {position: PositionForm, education: EducationForm}
+  const type = map[data.type]
 
-  return element
+  if (!type) return
+  return React.createElement(type, { data })
 }
 
-const createForm = item => {
-  let types = {position: PositionForm, education: EducationForm}
-  let form = React.createElement(types[item.type], { data: item })
+const elementFactory = data => {
+  const map = {position: PositionItem, education: EducationItem}
+  const type = map[data.type]
 
-  return form
+  if (!type) return
+  return React.createElement(type, { data })
 }
 
 export default compose(
   mapProps(props => {
-    let { item } = props
+    let { data } = props
     return {
       ...props,
-      icon: item.icon || 'plus',
-      date: item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present',
-      dateRange: toYears(item.timePeriod),
-      element: createElement(item),
-      form: createForm(item)
+      icon: data.icon || 'plus',
+      date: data.timePeriod.end ? moment(data.timePeriod.end).format('MMM YYYY') : 'Present',
+      dateRange: toYears(data.timePeriod),
+      element: elementFactory(data),
+      form: formFactory(data)
     }
   })
 )(Component)

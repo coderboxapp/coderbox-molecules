@@ -1,7 +1,7 @@
 import React from 'react'
-import { shape, object, array, string } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
+import { education, suggestions } from '@coderbox/prop-types'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 // import yup from 'yup'
@@ -95,16 +95,8 @@ const Component = ({
 
 Component.displayName = 'EducationForm'
 Component.propTypes = {
-  data: shape({
-    institution: object,
-    technologies: array,
-    dateRange: object,
-    degree: string
-  }),
-  suggestions: shape({
-    institutions: array,
-    technologies: array
-  })
+  data: education,
+  suggestions: suggestions
 }
 
 export default compose(

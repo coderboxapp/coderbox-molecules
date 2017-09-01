@@ -1,8 +1,8 @@
 import React from 'react'
 import yup from 'yup'
-import { shape, object, array, string } from 'prop-types'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
+import { position, suggestions } from '@coderbox/prop-types'
 import { Field, Control, Input, Dropdown, DateRange, Textarea } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
@@ -106,27 +106,18 @@ const Component = ({
 
 Component.displayName = 'PositionForm'
 Component.propTypes = {
-  data: shape({
-    title: object,
-    company: object,
-    technologies: array,
-    dateRange: object,
-    responsabilities: string
-  }),
-  suggestions: shape({
-    companies: array,
-    technologies: array
-  })
+  data: position,
+  suggestions: suggestions
 }
 
 export default compose(
   defaultProps({
-    data: { title: { name: '' } },
+    data: {},
     suggestions: { companies: [], technologies: [] }
   }),
   withFormik({
     mapPropsToValues: ({ data, suggestions }) => ({
-      title: data.title.name,
+      title: data.title && data.title.name,
       company: data.company,
       technologies: data.technologies.concat(),
       dateRange: data.timePeriod,
