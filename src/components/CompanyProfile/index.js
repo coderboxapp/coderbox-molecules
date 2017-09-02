@@ -12,7 +12,7 @@ const Component = ({ company }) => {
       <Title>{company.name}</Title>
       <Location location={company.location} />
       <div className='bio'>
-        <Markdown source={company.shortBio} />
+        <Markdown source={company.shortBio} max={0} />
       </div>
     </CompanyProfile>
   )

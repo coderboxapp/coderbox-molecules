@@ -7,11 +7,15 @@ export const Item = styled.div`
 export const ItemLeft = styled.div`
   margin: 0;
   padding: 0;
+  text-align: center;
+  width: 80px;
+
+  & .tag {
+    padding: 0 0.35rem;
+  }
 `
 
 export const ItemContent = styled.div`
-  min-width: 0;
-  width: auto;
   display: block;
   margin-left: 0;
   padding-left: 1.5em;

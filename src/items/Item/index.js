@@ -1,14 +1,17 @@
 import React from 'react'
 import cx from 'classnames'
+import { string, element } from 'prop-types'
+import { Tag } from '@coderbox/atoms'
 import { Avatar } from 'elements'
 import { Item, ItemLeft, ItemContent } from './styles'
 
-const Component = ({ image, children, ...props }) => {
+const Component = ({ image, tag, children, ...props }) => {
   let className = cx('item', props.className)
   return (
     <Item className={className}>
       <ItemLeft>
-        <Avatar src={image} size={58} />
+        <Avatar src={image} size={60} />
+        {tag}
       </ItemLeft>
       <ItemContent>
         {children}
@@ -18,4 +21,9 @@ const Component = ({ image, children, ...props }) => {
 }
 
 Component.displayName = 'Item'
+Component.propTypes = {
+  image: string.isRequired,
+  tag: element
+}
+
 export default Component

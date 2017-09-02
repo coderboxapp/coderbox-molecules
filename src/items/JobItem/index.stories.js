@@ -13,6 +13,9 @@ storiesOf('items/JobItem', module)
         <Box>
           <JobItem data={job} />
         </Box>
+        <Box>
+          <JobItem data={job} showTag showDesc />
+        </Box>
       </div>
     )
   }))
