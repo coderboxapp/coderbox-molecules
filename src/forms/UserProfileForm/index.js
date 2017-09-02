@@ -29,7 +29,8 @@ const Component = ({
       <Field align='center'>
         <Avatar email={profile.email} isEdit />
       </Field>
-      <Field>
+
+      <Field label='Name:'>
         <Control hasLeftIcon>
           <Icon name='user' className='left' />
           <Input
@@ -41,7 +42,8 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Field>
+
+      <Field label='Location:'>
         <Control hasLeftIcon>
           <Icon name='map-marker' className='left' />
           <AutocompleteLocation
@@ -53,7 +55,8 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Field>
+
+      <Field label='Personal website:'>
         <Control hasLeftIcon>
           <Icon name='globe' className='left' />
           <Input

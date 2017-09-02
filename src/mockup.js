@@ -69,13 +69,21 @@ export const job = {
   company: company,
   title: 'Front-End Developer',
   location: location,
-  description: 'Job responsabilities are to do **this** and work on ...',
+  description: `Join the Engineering Team of the world's most widely used Business Intelligence product. Help us continue our market dominance using cutting edge technologies and modern software development techniques.
+
+### Skills & Requirements
+
+- 4+ years experience building Web based enterprise business applications
+- 4+ years experience with \`ReactJs\`,  \`JavaScript\` and cross-browser development
+- 2+ years experience with \`CSS\` development
+- 2+ years experience with JavaScript libraries such as \`jQuery\`
+  `,
   published: true,
   paid: false,
   teamWork: true,
   minSalary: 1400,
   views: 1,
-  technologies: technologies,
+  technologies: technologies.concat().slice(0, 2),
   industry: 3,
   categories: [{'name': 'backend', 'duration': 96}, {'name': 'frontend', 'duration': 96}],
   createdAt: '2017-06-07T08:49:01.358Z',

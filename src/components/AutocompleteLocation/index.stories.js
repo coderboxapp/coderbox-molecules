@@ -10,13 +10,8 @@ storiesOf('components/AutocompleteLocation', module)
     return (
       <div>
         <Field>
-          <AutocompleteLocation
-            placeholder='Type city'
-            onChange={action('tag: ')} />
-        </Field>
-        <Field>
           <Control hasLeftIcon>
-            <Icon name='star' className='left' />
+            <Icon name='map' className='left' />
             <AutocompleteLocation
               placeholder='Type city'
               onChange={action('tag: ')} />

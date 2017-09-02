@@ -56,7 +56,6 @@ export const position = shape({
   responsabilities: string,
   technologies: arrayOf(technology),
   timePeriod: dateRange,
-  aaa: string.isRequired,
   type: equal('position')
 })
 

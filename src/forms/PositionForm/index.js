@@ -27,7 +27,7 @@ const Component = ({
       }
       <Field label='Title:'>
         <Control hasLeftIcon>
-          <Icon name='user' className='left' />
+          <Icon name='info' className='left' />
           <Input
             name='title'
             value={values.title}
