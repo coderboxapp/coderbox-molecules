@@ -37,7 +37,7 @@ class Component extends React.Component {
     let className = cx('markdown', props.className)
     let child = (
       <p>
-        <Button color='primary' isOutlined onClick={() => this.toggleReadMore()}>
+        <Button as='a' color='primary' isOutlined onClick={() => this.toggleReadMore()}>
           {readMore ? '+ Read More' : '- Read Less'}
         </Button>
       </p>

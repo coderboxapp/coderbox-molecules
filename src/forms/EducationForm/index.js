@@ -106,10 +106,12 @@ export default compose(
   }),
   withFormik({
     mapPropsToValues: ({ data }) => ({
+      _id: data._id,
       institution: data.institution,
       technologies: data.technologies,
       dateRange: data.timePeriod,
-      degree: data.degree || ''
+      degree: data.degree || '',
+      type: data.type
     }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {

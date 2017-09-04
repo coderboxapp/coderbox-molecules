@@ -3,7 +3,7 @@ import cx from 'classnames'
 import moment from 'moment'
 import { compose, mapProps } from 'recompose'
 import { reverse } from 'lodash'
-import { oneOfType, bool } from 'prop-types'
+import { oneOfType, bool, func } from 'prop-types'
 import { position, education } from '@coderbox/prop-types'
 import { Box, Icon, Subtitle } from '@coderbox/atoms'
 import { toYears } from '@coderbox/utils'
@@ -12,7 +12,7 @@ import { PositionItem, EducationItem } from 'items'
 import { PositionForm, EducationForm } from 'forms'
 import * as s from './styles'
 
-const Component = ({ date, dateRange, icon, element, form, isOdd, ...props }) => {
+const Component = ({ date, dateRange, icon, element, form, isOdd, onDelete, ...props }) => {
   let className = cx('timeline-item', props.className)
   let childs = [
     <s.Item alignRight={!isOdd} key={0}>
@@ -22,7 +22,7 @@ const Component = ({ date, dateRange, icon, element, form, isOdd, ...props }) =>
     <Icon name={icon} color='primary' isCircular key={1} />,
     <s.Item key={2}>
       <Box>
-        <Stack toolbar={<StackEditToolbar isFixed />}>
+        <Stack toolbar={<StackEditToolbar onDelete={onDelete} isFixed />}>
           {element}
           {form}
         </Stack>
@@ -42,15 +42,17 @@ const Component = ({ date, dateRange, icon, element, form, isOdd, ...props }) =>
 Component.displayName = 'TimelineItem'
 Component.propTypes = {
   data: oneOfType([ education, position ]),
+  onSave: func,
+  onDelete: func,
   isOdd: bool
 }
 
-const formFactory = data => {
+const formFactory = (data, props) => {
   const map = {position: PositionForm, education: EducationForm}
   const type = map[data.type]
 
   if (!type) return
-  return React.createElement(type, { data })
+  return React.createElement(type, { data, ...props })
 }
 
 const elementFactory = data => {
@@ -62,15 +64,14 @@ const elementFactory = data => {
 }
 
 export default compose(
-  mapProps(props => {
-    let { data } = props
+  mapProps(({ data, onSave, ...props }) => {
     return {
       ...props,
       icon: data.icon || 'plus',
       date: data.timePeriod.end ? moment(data.timePeriod.end).format('MMM YYYY') : 'Present',
       dateRange: toYears(data.timePeriod),
       element: elementFactory(data),
-      form: formFactory(data)
+      form: formFactory(data, { onSubmit: onSave })
     }
   })
 )(Component)

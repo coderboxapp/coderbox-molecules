@@ -1,10 +1,20 @@
-import React from 'react'
+// @flow
+import * as React from 'react'
 import { compact } from 'lodash'
 import { compose, withState, withHandlers } from 'recompose'
 import { Stack, StackItem } from './styles'
 
-const Component = ({ index, next, prev, toolbar, children, ...props }) => {
-  const stack = { index, next, prev }
+type Props = {
+  index: number,
+  next: Function,
+  prev: Function,
+  setIndex: Function,
+  toolbar: React.Element<*>,
+  children?: React.Element<*>
+}
+
+const Component = ({ index, next, prev, setIndex, toolbar, children, ...props }: Props) => {
+  const stack = { index, next, prev, setIndex }
   const items = React.Children.map(
     compact(children),
     (item, i) => (
@@ -23,7 +33,6 @@ const Component = ({ index, next, prev, toolbar, children, ...props }) => {
 }
 
 Component.displayName = 'Stack'
-Component.propTypes = {}
 
 export default compose(
   withState('index', 'setIndex', 0),

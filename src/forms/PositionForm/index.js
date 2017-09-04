@@ -45,7 +45,6 @@ const Component = ({
             isSearch
             name='company'
             maxItems={4}
-            valueField='_id'
             labelField='name'
             items={suggestions.companies}
             value={values.company}
@@ -60,9 +59,10 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
+            color='primary'
+            accentColor='danger'
             name='technologies'
             maxItems={4}
-            valueField='_id'
             labelField='name'
             items={suggestions.technologies}
             value={values.technologies}
@@ -117,11 +117,13 @@ export default compose(
   }),
   withFormik({
     mapPropsToValues: ({ data, suggestions }) => ({
+      _id: data._id,
       title: data.title && data.title.name,
       company: data.company,
       technologies: data.technologies.concat(),
       dateRange: data.timePeriod,
-      responsabilities: data.responsabilities
+      responsabilities: data.responsabilities,
+      type: data.type
     }),
     validationSchema: yup.object().shape({
       title: yup.string()

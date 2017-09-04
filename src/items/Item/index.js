@@ -22,7 +22,7 @@ const Component = ({ image, tag, children, ...props }) => {
 
 Component.displayName = 'Item'
 Component.propTypes = {
-  image: string.isRequired,
+  image: string,
   tag: element
 }
 

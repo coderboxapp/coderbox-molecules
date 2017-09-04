@@ -1,19 +1,15 @@
 // @flow
 import * as React from 'react'
 import cx from 'classnames'
-import { Timeline } from './styles'
-
-import type { Colors } from '@coderbox/atoms'
-import type TimelineRow from '../TimelineRow'
+import Stack from 'components/Stack'
 
 type Props = {
   className?: string,
-  color: Colors,
-  children?: TimelineRow
+  children?: React.Node
 }
 
 class Component extends React.Component<Props> {
-  static displayName = 'Timeline'
+  static displayName = 'EditableItem'
   static defaultProps = {
     color: 'primary'
   }
@@ -23,9 +19,9 @@ class Component extends React.Component<Props> {
     let className = cx('timeline', props.className)
 
     return (
-      <Timeline {...props} className={className}>
+      <div {...props} className={className}>
         {children}
-      </Timeline>
+      </div>
     )
   }
 }

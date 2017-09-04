@@ -1,7 +1,7 @@
 import React from 'react'
 import yup from 'yup'
 import { Formik as withFormik } from 'formik'
-import { compose, defaultProps } from 'recompose'
+import { compose, defaultProps, withPropsOnChange } from 'recompose'
 import { user } from '@coderbox/prop-types'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
@@ -60,11 +60,11 @@ const Component = ({
         <Control hasLeftIcon>
           <Icon name='globe' className='left' />
           <Input
-            name='website'
-            value={values.website}
-            color={errors.website ? 'danger' : null}
+            name='url'
+            value={values.url}
+            color={errors.url ? 'danger' : null}
             onChange={handleChange}
-            placeholder='Your website'
+            placeholder='Your personal website'
           />
         </Control>
       </Field>
@@ -87,13 +87,21 @@ Component.propTypes = {
 
 export default compose(
   defaultProps({
-    profile: {}
+    profile: {},
+    submitting: false
   }),
+  withPropsOnChange(
+    (props, nextProps) => props.submitting && !nextProps.submitting && !nextProps.status,
+    (props) => {
+      if (props.stack && props.stack.index > 0) props.stack.setIndex(0)
+      return {}
+    }
+  ),
   withFormik({
     mapPropsToValues: ({ profile }) => ({
       name: profile.name,
       location: profile.location,
-      website: profile.website
+      url: profile.url
     }),
     validationSchema: yup.object().shape({
       name: yup.string()

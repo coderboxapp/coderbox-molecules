@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
 export const StackToolbar = styled.div`
-  position: ${p => p.isFixed ? 'absolute' : 'block'};
+  position: ${p => p.isFixed ? 'absolute' : 'relative'};
   right: 0;
   top: 0;
+  margin: 0.25em;
 `

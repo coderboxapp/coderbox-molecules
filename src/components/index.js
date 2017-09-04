@@ -5,6 +5,7 @@ import Stack from './Stack'
 import StackToolbar from './StackToolbar'
 import StackEditToolbar from './StackEditToolbar'
 import Timeline from './Timeline'
+import TimelineRow from './TimelineRow'
 import UserProfile from './UserProfile'
 
 export {
@@ -15,5 +16,6 @@ export {
   StackToolbar,
   StackEditToolbar,
   Timeline,
+  TimelineRow,
   UserProfile
 }

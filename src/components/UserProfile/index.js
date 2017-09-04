@@ -11,7 +11,7 @@ const Component = ({ profile, ...props }) => {
       <Avatar email={profile.email} />
       <Title>{profile.name}</Title>
       <Location location={profile.location} />
-      {profile.website && <Link href={profile.website}>{profile.website}</Link>}
+      {profile.url && <Link href={profile.url}>{profile.url}</Link>}
     </s.Profile>
   )
 }
@@ -21,7 +21,7 @@ Component.propTypes = {
   profile: shape({
     name: string,
     location: object,
-    website: string
+    url: string
   })
 }
 
