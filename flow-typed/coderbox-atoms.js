@@ -6,7 +6,7 @@ declare module '@coderbox/atoms' {
   declare var Button : React$ComponentType<*>
   declare var Icon : React$ComponentType<*>
 
-  declare type Colors = 'primary' | 'success' | 'danger' | 'white' | 'black'
+  declare type Colors = 'primary' | 'success' | 'danger' | 'white' | 'black' | 'gray'
 
   declare var theme : any
 }
