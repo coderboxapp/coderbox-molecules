@@ -7,11 +7,14 @@ import { withStack } from 'hocs'
 import { EditableItem } from './styles'
 
 type Props = {
+  data: any,
+  itemFactory: (d: any, p: any) => React.Node,
+  formFactory: (d: any, p: any) => React.Node,
+  stack: { index: number, setIndex: (i: number) => void},
   className?: string,
   children?: React.Node,
   onSave: Function,
-  onDelete: Function,
-  stack: { index: number, setIndex: (i: number) => void}
+  onDelete: Function
 }
 
 class Component extends React.Component<Props> {
@@ -24,7 +27,10 @@ class Component extends React.Component<Props> {
     let { data, itemFactory, formFactory, stack, onSave, onDelete, ...props } = this.props
     let className = cx('timeline', props.className)
     let Item = itemFactory(data)
-    let Form = formFactory(data)
+    let Form = formFactory(data, {
+      onSave: (formData) => onSave(formData),
+      onCancel: () => stack.setIndex(0)
+    })
 
     return (
       <EditableItem {...props} className={className}>
