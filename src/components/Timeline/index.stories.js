@@ -1,18 +1,20 @@
 // @flow
 import React from 'react'
+import moment from 'moment'
 import { storiesOf } from '@storybook/react'
 import { Box, theme } from '@coderbox/atoms'
 import { withTheme, toYears } from '@coderbox/utils'
 import { items } from 'mockup'
-import moment from 'moment'
+
 import Timeline from '.'
 import TimelienRow from '../TimelineRow'
+import { EditableItem } from 'items'
 
 storiesOf('components/Timeline', module)
   .add('simple usage', withTheme(theme, () => {
     return (
       <Box>
-        <Timeline color='danger'>
+        <Timeline color='primary'>
           {items.map(
             (item, index) => {
               const title = item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present'
@@ -25,10 +27,9 @@ storiesOf('components/Timeline', module)
                   subtitle={subtitle}
                   isOdd={Boolean(index % 2)}
                   icon={item.icon}
-                  color='black'>
+                  color='primary'>
 
-                  <div>Row data here</div>
-
+                  <EditableItem data={item} />
                 </TimelienRow>
               )
             }

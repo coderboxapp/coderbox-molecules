@@ -3,11 +3,12 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withTheme } from '@coderbox/utils'
 import { Box, theme } from '@coderbox/atoms'
-import { companies, technologies, position } from 'mockup'
+import { companies, titles, technologies, position } from 'mockup'
 import PositionForm from '.'
 
 let suggestions = {
   companies,
+  titles,
   technologies
 }
 

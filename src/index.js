@@ -11,7 +11,6 @@ import Item from 'items/Item'
 import JobItem from 'items/JobItem'
 import PositionItem from 'items/PositionItem'
 import EducationItem from 'items/EducationItem'
-import TimelineItem from 'items/TimelineItem'
 
 // forms
 import LoginForm from 'forms/LoginForm'
@@ -42,7 +41,6 @@ export {
   JobItem,
   PositionItem,
   EducationItem,
-  TimelineItem,
   // forms
   LoginForm,
   PositionForm,

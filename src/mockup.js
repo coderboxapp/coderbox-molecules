@@ -16,6 +16,7 @@ export const technologies = [
   {_id: 1, name: 'css', category: 'frontend', 'duration': 96},
   {_id: 3, name: 'javascript', category: 'frontend', 'duration': 96}
 ]
+
 export const companies = [
   {
     _id: 4,
@@ -35,6 +36,13 @@ export const companies = [
   {_id: 92, name: 'athos'}
 ]
 
+export const titles = [
+  {_id: 104, name: 'web developer'},
+  {_id: 103, name: 'front-end developer'},
+  {_id: 3, name: 'manager engineer'},
+  {_id: 4, name: 'software engineer'}
+]
+
 export const company = companies[0]
 
 export const institution = {
@@ -49,7 +57,7 @@ export const position = {
   responsabilities: "You can use [Markdown](https://daringfireball.net/projects/markdown/) in your description.\n\n> You can add quotes\n\nQuote break.\n\n> Another quote\n\nMake a list of things:\n* **bold**\n* *italicized*\n* or even `crossed` out\n\n`Oh, and you can even add code blocks.`\n\nWe're excited to bring back beautiful formatting for your updates!",
   technologies: technologies.concat().slice(0, 2),
   timePeriod: { end: '2015-06-08T12:57:34.716Z', start: '2009-12-31T22:00:00.000Z' },
-  title: {_id: 28, name: 'web developer'},
+  title: titles[2],
   type: 'position',
   icon: 'briefcase'
 }

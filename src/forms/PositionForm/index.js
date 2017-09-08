@@ -3,7 +3,7 @@ import yup from 'yup'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { position, suggestions } from '@coderbox/prop-types'
-import { Field, Control, Input, Dropdown, DateRange, Textarea } from '@coderbox/forms'
+import { Field, Control, Dropdown, DateRange, Textarea } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
 const Component = ({
@@ -11,11 +11,12 @@ const Component = ({
   values,
   errors,
   status,
-  submitting,
   suggestions,
   handleChange,
   handleSubmit,
+  isSubmitting,
   onCancel,
+  onSubmitComplete,
   ...props
 }) => {
   return (
@@ -28,11 +29,16 @@ const Component = ({
       <Field label='Title:'>
         <Control hasLeftIcon>
           <Icon name='info' className='left' />
-          <Input
+          <Dropdown
+            isSearch
+            allowNew
             name='title'
+            maxItems={4}
+            labelField='name'
+            items={suggestions.titles}
             value={values.title}
-            color={errors.title ? 'danger' : null}
-            onChange={handleChange}
+            color={errors.title ? 'danger' : undefined}
+            onChange={c => props.setFieldValue('title', c)}
             placeholder='Type title(eg. Web Developer)'
           />
         </Control>
@@ -43,6 +49,7 @@ const Component = ({
           <Icon name='building' className='left' />
           <Dropdown
             isSearch
+            allowNew
             name='company'
             maxItems={4}
             labelField='name'
@@ -93,7 +100,7 @@ const Component = ({
       </Field>
 
       <div>
-        <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
+        <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
         <Button color='gray' tone='2' onClick={(evt) => props.stack ? props.stack.prev() : onCancel(evt)}>
@@ -113,12 +120,12 @@ Component.propTypes = {
 export default compose(
   defaultProps({
     data: {},
-    suggestions: { companies: [], technologies: [] }
+    suggestions: { companies: [], technologies: [], titles: [] }
   }),
   withFormik({
     mapPropsToValues: ({ data, suggestions }) => ({
       _id: data._id,
-      title: data.title && data.title.name,
+      title: data.title,
       company: data.company,
       technologies: data.technologies.concat(),
       dateRange: data.timePeriod,
@@ -130,9 +137,16 @@ export default compose(
         .min(3, 'Title has to be at least 3 characters long.')
         .required('Title is required')
     }),
-    handleSubmit: (values, { props }) => {
+    handleSubmit: (values, { props, setSubmitting }) => {
       if (props.onSubmit) {
-        props.onSubmit(values)
+        props
+          .onSubmit(values)
+          .then((result) => {
+            setSubmitting(false)
+            if (props.onSubmitComplete) {
+              props.onSubmitComplete()
+            }
+          })
       }
     }
   })

@@ -2,37 +2,33 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Box, theme } from '@coderbox/atoms'
-import { withTheme } from '@coderbox/utils'
-import { PositionForm, EducationForm } from 'forms'
-import { PositionItem, EducationItem } from 'items'
+import { withTheme } from '@coderbox/hocs'
 import { position } from 'mockup'
+import { compose, withHandlers } from 'recompose'
 import EditableItem from '.'
 
-const formFactory = (data, props) => {
-  const map = {position: PositionForm, education: EducationForm}
-  const type = map[data.type]
-
-  if (!type) return
-  return React.createElement(type, { data, ...props })
-}
-
-const itemFactory = (data, props) => {
-  const map = {position: PositionItem, education: EducationItem}
-  const type = map[data.type]
-
-  if (!type) return
-  return React.createElement(type, { data, ...props })
-}
-
-storiesOf('items/EditableItem', module)
-  .add('simple usage', withTheme(theme, () => {
+const Component = compose(
+  withHandlers({
+    onSave: (props) => d => {
+      return new Promise(resolve => {
+        setTimeout(resolve, 1200)
+      })
+    },
+    onDelete: (props) => (item) => console.log('Delete: ', item)
+  }),
+  withTheme(theme)
+)(
+  ({ onSave, onDelete }) => {
     return (
       <Box>
         <EditableItem
           data={position}
-          onSave={d => console.log(d)}
-          onDelete={d => console.log(d)}
-          {...{itemFactory, formFactory}} />
+          onSave={onSave}
+          onDelete={onDelete} />
       </Box>
     )
-  }))
+  }
+)
+
+const stories = storiesOf('items/EditableItem', module)
+stories.add('simple usage', () => <Component />)

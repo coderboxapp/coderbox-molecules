@@ -1,13 +1,13 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { Box } from '@coderbox/atoms'
-import { withTheme } from 'utils'
+import { Box, theme } from '@coderbox/atoms'
+import { withTheme } from '@coderbox/utils'
 import { user } from 'mockup'
 import UserProfile from '.'
 
 storiesOf('components/UserProfile', module)
-  .add('simple usage', withTheme(() => {
+  .add('simple usage', withTheme(theme, () => {
     return (
       <div>
         <Box>

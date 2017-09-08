@@ -3,13 +3,13 @@ import * as React from 'react'
 import cx from 'classnames'
 import Stack from 'components/Stack'
 import StackEditToolbar from 'components/StackEditToolbar'
-import { withStack } from 'hocs'
+import { withStack } from '@coderbox/hocs'
+import { Factory } from 'utils'
 import { EditableItem } from './styles'
 
 type Props = {
   data: any,
-  itemFactory: (d: any, p: any) => React.Node,
-  formFactory: (d: any, p: any) => React.Node,
+  factory: {createForm: Function, createItem: Function},
   stack: { index: number, setIndex: (i: number) => void},
   className?: string,
   children?: React.Node,
@@ -24,11 +24,13 @@ class Component extends React.Component<Props> {
   }
 
   render () {
-    let { data, itemFactory, formFactory, stack, onSave, onDelete, ...props } = this.props
+    let { data, stack, onSave, onDelete, ...props } = this.props
     let className = cx('timeline', props.className)
-    let Item = itemFactory(data)
-    let Form = formFactory(data, {
-      onSave: (formData) => onSave(formData),
+    let factory = this.props.factory || new Factory()
+    let Item = factory.createItem(data)
+    let Form = factory.createForm(data, {
+      onSubmit: (formData) => onSave(formData),
+      onSubmitComplete: () => stack.setIndex(0),
       onCancel: () => stack.setIndex(0)
     })
 
