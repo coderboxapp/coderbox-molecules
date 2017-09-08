@@ -8,6 +8,7 @@ import Tags from 'elements/Tags'
 
 // items
 import Item from 'items/Item'
+import EditableItem from 'items/EditableItem'
 import JobItem from 'items/JobItem'
 import PositionItem from 'items/PositionItem'
 import EducationItem from 'items/EducationItem'
@@ -26,6 +27,7 @@ import Stack from 'components/Stack'
 import StackToolbar from 'components/StackToolbar'
 import StackEditToolbar from 'components/StackEditToolbar'
 import Timeline from 'components/Timeline'
+import TimelineRow from 'components/TimelineRow'
 import UserProfile from 'components/UserProfile'
 
 export {
@@ -39,6 +41,7 @@ export {
   // items
   Item,
   JobItem,
+  EditableItem,
   PositionItem,
   EducationItem,
   // forms
@@ -54,5 +57,6 @@ export {
   StackToolbar,
   StackEditToolbar,
   Timeline,
+  TimelineRow,
   UserProfile
 }

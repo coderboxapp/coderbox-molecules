@@ -35,7 +35,8 @@ For code example check `.stories.js` files from each component.
 - [x] Location
 - [x] Markdown
 - [x] Tags
-- [x] TimelineItem
+- [x] Timeline
+- [x] TimelineRow
 - [ ] UserProfile
 
 # Build
