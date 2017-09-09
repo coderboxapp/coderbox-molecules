@@ -10,7 +10,7 @@ const Component = ({
   values,
   errors,
   status,
-  submitting,
+  isSubmitting,
   suggestions,
   handleChange,
   handleSubmit,
@@ -75,7 +75,7 @@ const Component = ({
           placeholder='Description ?' />
       </Field>
 
-      <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
+      <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
         Login
       </Button>
     </form>
@@ -95,9 +95,16 @@ export default compose(
       location: data.location,
       description: data.description
     }),
-    handleSubmit: (values, { props }) => {
+    handleSubmit: (values, { props, setSubmitting }) => {
       if (props.onSubmit) {
-        props.onSubmit(values)
+        props
+          .onSubmit(values)
+          .then((result) => {
+            setSubmitting(false)
+            if (props.onSubmitComplete) {
+              props.onSubmitComplete()
+            }
+          })
       }
     }
   })

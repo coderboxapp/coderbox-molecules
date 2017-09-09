@@ -12,9 +12,9 @@ const Component = ({
   errors,
   status,
   suggestions,
+  isSubmitting,
   handleChange,
   handleSubmit,
-  isSubmitting,
   onCancel,
   onSubmitComplete,
   ...props
@@ -127,7 +127,7 @@ export default compose(
       _id: data._id,
       title: data.title,
       company: data.company,
-      technologies: data.technologies.concat(),
+      technologies: data.technologies && data.technologies.concat(),
       dateRange: data.timePeriod,
       responsabilities: data.responsabilities,
       type: data.type

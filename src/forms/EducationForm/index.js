@@ -1,21 +1,20 @@
 import React from 'react'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
-import { education, suggestions } from '@coderbox/prop-types'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
-// import yup from 'yup'
 
 const Component = ({
-  profile,
   values,
   errors,
   status,
-  submitting,
   suggestions,
+  isSubmitting,
+  setFieldValue,
   handleChange,
   handleSubmit,
   onCancel,
+  onSubmitComplete,
   ...props
 }) => {
   return (
@@ -37,7 +36,7 @@ const Component = ({
             labelField='name'
             items={suggestions.institutions}
             value={values.institution}
-            onChange={c => props.setFieldValue('institution', c)}
+            onChange={c => setFieldValue('institution', c)}
             placeholder='Type institution name (eg. West University)'
           />
         </Control>
@@ -54,7 +53,7 @@ const Component = ({
             labelField='name'
             items={suggestions.technologies}
             value={values.technologies}
-            onChange={t => props.setFieldValue('technologies', t)}
+            onChange={t => setFieldValue('technologies', t)}
             placeholder='Type technologies'
           />
         </Control>
@@ -68,7 +67,7 @@ const Component = ({
           range={values.dateRange}
           label='In progress...'
           size='small'
-          onChange={d => props.setFieldValue('dateRange', d)}
+          onChange={d => setFieldValue('dateRange', d)}
         />
       </Field>
 
@@ -77,12 +76,12 @@ const Component = ({
           name='degree'
           value={values.degree}
           items={[ 'High School', 'Bachelor’s Degree', 'Engineer’s Degree', 'Master’s Degree' ]}
-          onChange={d => props.setFieldValue('degree', d)}
+          onChange={d => setFieldValue('degree', d)}
         />
       </Field>
 
       <div>
-        <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
+        <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
         <Button color='gray' tone='2' onClick={(evt) => props.stack ? props.stack.prev() : onCancel(evt)}>
@@ -94,10 +93,6 @@ const Component = ({
 }
 
 Component.displayName = 'EducationForm'
-Component.propTypes = {
-  data: education,
-  suggestions: suggestions
-}
 
 export default compose(
   defaultProps({
@@ -113,9 +108,16 @@ export default compose(
       degree: data.degree || '',
       type: data.type
     }),
-    handleSubmit: (values, { props }) => {
+    handleSubmit: (values, { props, setSubmitting }) => {
       if (props.onSubmit) {
-        props.onSubmit(values)
+        props
+          .onSubmit(values)
+          .then((result) => {
+            setSubmitting(false)
+            if (props.onSubmitComplete) {
+              props.onSubmitComplete()
+            }
+          })
       }
     }
   })

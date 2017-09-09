@@ -24,6 +24,6 @@ export const Item = styled.div`
   }
 
   & .box {
-    min-height: 60px;
+    min-height: 20px;
   }
 `

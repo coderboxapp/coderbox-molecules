@@ -4,7 +4,7 @@ import { bgColor } from 'styled-utils'
 export const Timeline = styled.div`
   position: relative;
   width: 100%;
-  min-height: 200px;
+  min-height: 140px;
   padding: 2.5rem 0;
   margin: 40px auto;
   box-sizing: border-box;

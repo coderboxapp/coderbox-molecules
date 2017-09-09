@@ -11,6 +11,7 @@ type Props = {
   data: any,
   factory: {createForm: Function, createItem: Function},
   stack: { index: number, setIndex: (i: number) => void},
+  suggestions: [],
   className?: string,
   children?: React.Node,
   onSave: Function,
@@ -24,14 +25,15 @@ class Component extends React.Component<Props> {
   }
 
   render () {
-    let { data, stack, onSave, onDelete, ...props } = this.props
+    let { data, stack, onSave, onDelete, suggestions, ...props } = this.props
     let className = cx('timeline', props.className)
     let factory = this.props.factory || new Factory()
     let Item = factory.createItem(data)
     let Form = factory.createForm(data, {
       onSubmit: (formData) => onSave(formData),
       onSubmitComplete: () => stack.setIndex(0),
-      onCancel: () => stack.setIndex(0)
+      onCancel: () => stack.setIndex(0),
+      suggestions
     })
 
     return (
