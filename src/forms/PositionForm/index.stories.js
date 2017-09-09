@@ -11,6 +11,12 @@ let suggestions = {
   titles,
   technologies
 }
+const handleSave = (data) => {
+  return new Promise(resolve => {
+    console.log(data)
+    resolve()
+  })
+}
 
 storiesOf('forms/PositionForm', module)
   .add('simple usage', withTheme(theme, () => {
@@ -20,7 +26,7 @@ storiesOf('forms/PositionForm', module)
           <PositionForm
             data={position}
             suggestions={suggestions}
-            onSubmit={d => console.log('data=', d)} />
+            onSubmit={handleSave} />
         </Box>
       </div>
     )
