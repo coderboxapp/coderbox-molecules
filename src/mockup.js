@@ -43,13 +43,26 @@ export const titles = [
   {_id: 4, name: 'software engineer'}
 ]
 
-export const company = companies[0]
+export const institutions = [
+  {
+    _id: 22,
+    name: 'west university of timisoara',
+    logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
+  },
+  {
+    _id: 234,
+    name: 'politehnica university of timisoara',
+    logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
+  },
+  {
+    _id: 1118,
+    name: 'economics university of timisoara',
+    logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
+  }
+]
 
-export const institution = {
-  _id: 22,
-  name: 'west university of timisoara',
-  logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
-}
+export const company = companies[0]
+export const institution = institutions[0]
 
 export const position = {
   _id: 125,

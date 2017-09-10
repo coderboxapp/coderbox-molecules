@@ -1,4 +1,5 @@
 import React from 'react'
+import { object, string } from 'yup'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
@@ -25,17 +26,18 @@ const Component = ({
         </Field>
       }
 
-      <Field label='Institutions:'>
+      <Field label='Institution:'>
         <Control hasLeftIcon>
           <Icon name='building' className='left' />
           <Dropdown
             isSearch
+            allowNew
             name='institution'
             maxItems={4}
-            valueField='_id'
             labelField='name'
             items={suggestions.institutions}
             value={values.institution}
+            borderColor={errors['institution.name'] ? 'danger' : undefined}
             onChange={c => setFieldValue('institution', c)}
             placeholder='Type institution name (eg. West University)'
           />
@@ -49,7 +51,6 @@ const Component = ({
             isMultiple
             name='technologies'
             maxItems={4}
-            valueField='_id'
             labelField='name'
             items={suggestions.technologies}
             value={values.technologies}
@@ -84,7 +85,7 @@ const Component = ({
         <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
-        <Button color='gray' tone='2' onClick={(evt) => props.stack ? props.stack.prev() : onCancel(evt)}>
+        <Button color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
           Cancel
         </Button>
       </div>
@@ -100,14 +101,20 @@ export default compose(
     suggestions: { institutions: [], technologies: [] }
   }),
   withFormik({
-    mapPropsToValues: ({ data }) => ({
-      _id: data._id,
-      institution: data.institution,
-      technologies: data.technologies,
-      dateRange: data.timePeriod,
-      degree: data.degree || '',
-      type: data.type
+    validateOnChange: true,
+    validationSchema: object().shape({
+      institution: object().shape({
+        name: string()
+        .min(3, 'Title has to be at least 3 characters long.')
+        .required('Title is required')
+      })
     }),
+    mapPropsToValues: ({ data }) => {
+      return {
+        ...data,
+        type: 'education'
+      }
+    },
     handleSubmit: (values, { props, setSubmitting }) => {
       if (props.onSubmit) {
         props

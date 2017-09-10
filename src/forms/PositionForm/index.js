@@ -37,7 +37,7 @@ const Component = ({
             labelField='name'
             items={suggestions.titles}
             value={values.title}
-            color={errors.title ? 'danger' : undefined}
+            borderColor={errors['title.name'] ? 'danger' : undefined}
             onChange={c => props.setFieldValue('title', c)}
             placeholder='Type title(eg. Web Developer)'
           />
@@ -55,6 +55,7 @@ const Component = ({
             labelField='name'
             items={suggestions.companies}
             value={values.company}
+            borderColor={errors['company.name'] ? 'danger' : undefined}
             onChange={c => props.setFieldValue('company', c)}
             placeholder='Type company name'
           />
@@ -66,8 +67,7 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
-            color='primary'
-            accentColor='danger'
+            accentColor='primary'
             name='technologies'
             maxItems={4}
             labelField='name'
@@ -103,7 +103,7 @@ const Component = ({
         <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
-        <Button color='gray' tone='2' onClick={(evt) => props.stack ? props.stack.prev() : onCancel(evt)}>
+        <Button color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
           Cancel
         </Button>
       </div>
@@ -123,20 +123,25 @@ export default compose(
     suggestions: { companies: [], technologies: [], titles: [] }
   }),
   withFormik({
-    mapPropsToValues: ({ data, suggestions }) => ({
-      _id: data._id,
-      title: data.title,
-      company: data.company,
-      technologies: data.technologies && data.technologies.concat(),
-      dateRange: data.timePeriod,
-      responsabilities: data.responsabilities,
-      type: data.type
-    }),
+    validateOnChange: true,
     validationSchema: yup.object().shape({
-      title: yup.string()
+      title: yup.object().shape({
+        name: yup.string()
         .min(3, 'Title has to be at least 3 characters long.')
         .required('Title is required')
+      }),
+      company: yup.object().shape({
+        name: yup.string()
+        .min(3, 'Title has to be at least 3 characters long.')
+        .required('Title is required')
+      })
     }),
+    mapPropsToValues: ({ data }) => {
+      return {
+        ...data,
+        type: 'position'
+      }
+    },
     handleSubmit: (values, { props, setSubmitting }) => {
       if (props.onSubmit) {
         props

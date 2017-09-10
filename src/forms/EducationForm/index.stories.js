@@ -3,11 +3,19 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withTheme } from '@coderbox/utils'
 import { Box, theme } from '@coderbox/atoms'
-import { technologies, education } from 'mockup'
+import { technologies, institutions, education } from 'mockup'
 import EducationForm from '.'
 
-let suggestions = {
+const suggestions = {
+  institutions,
   technologies
+}
+
+const handleSave = (data) => {
+  return new Promise(resolve => {
+    console.log(data)
+    resolve()
+  })
 }
 
 storiesOf('forms/EducationForm', module)
@@ -18,7 +26,7 @@ storiesOf('forms/EducationForm', module)
           <EducationForm
             data={education}
             suggestions={suggestions}
-            onSubmit={d => console.log('data=', d)} />
+            onSubmit={handleSave} />
         </Box>
       </div>
     )

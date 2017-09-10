@@ -24,7 +24,6 @@ storiesOf('forms/PositionForm', module)
       <div>
         <Box>
           <PositionForm
-            data={position}
             suggestions={suggestions}
             onSubmit={handleSave} />
         </Box>
