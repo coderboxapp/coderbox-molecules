@@ -1,7 +1,6 @@
 import React from 'react'
-import { Formik as withFormik } from 'formik'
-import { compose } from 'recompose'
-import { job } from '@coderbox/prop-types'
+import { Formik } from 'formik'
+import { compose, setDisplayName, defaultProps } from 'recompose'
 import { Field, Control, Input, Dropdown, Textarea } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
@@ -14,6 +13,8 @@ const Component = ({
   suggestions,
   handleChange,
   handleSubmit,
+  onCancel,
+  onSubmitComplete,
   ...props
 }) => {
   return (
@@ -75,37 +76,44 @@ const Component = ({
           placeholder='Description ?' />
       </Field>
 
-      <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
-        Login
-      </Button>
+      <div>
+        <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
+          Save
+        </Button>
+        <Button color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
+          Cancel
+        </Button>
+      </div>
     </form>
   )
 }
 
-Component.displayName = 'JobForm'
-Component.defaultProps = {
-  data: job
-}
+const withDisplayName = setDisplayName('PositionForm')
+const withDefaultProps = defaultProps({
+  data: {},
+  suggestions: { technologies: [] }
+})
+const withFormik = Formik({
+  mapPropsToValues: ({ data }) => ({
+    ...data,
+    type: 'job'
+  }),
+  handleSubmit: (values, { props, setSubmitting }) => {
+    if (props.onSubmit) {
+      props
+        .onSubmit(values)
+        .then((result) => {
+          setSubmitting(false)
+          if (props.onSubmitComplete) {
+            props.onSubmitComplete()
+          }
+        })
+    }
+  }
+})
 
 export default compose(
-  withFormik({
-    mapPropsToValues: ({ data }) => ({
-      title: data.title,
-      technologies: data.technologies.concat(),
-      location: data.location,
-      description: data.description
-    }),
-    handleSubmit: (values, { props, setSubmitting }) => {
-      if (props.onSubmit) {
-        props
-          .onSubmit(values)
-          .then((result) => {
-            setSubmitting(false)
-            if (props.onSubmitComplete) {
-              props.onSubmitComplete()
-            }
-          })
-      }
-    }
-  })
+  withDisplayName,
+  withDefaultProps,
+  withFormik
 )(Component)

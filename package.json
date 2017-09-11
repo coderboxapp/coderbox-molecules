@@ -55,7 +55,7 @@
     "yargs": "^8.0.2"
   },
   "dependencies": {
-    "@coderbox/atoms": "^1.0.37",
+    "@coderbox/atoms": "^1.0.39",
     "@coderbox/forms": "^1.0.33",
     "@coderbox/hocs": "^1.0.2",
     "@coderbox/utils": "^1.0.4",
@@ -63,7 +63,8 @@
     "jwt-decode": "^2.2.0",
     "moment": "^2.18.1",
     "react": "^15.5.4",
-    "react-avatar": "^2.3.0",
+    "react-addons-shallow-compare": "^15.6.0",
+    "react-avatar": "^2.4.0",
     "react-dom": "^15.5.4",
     "react-google-autocomplete": "^1.0.13",
     "react-markdown": "^2.5.0",

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Group, Icon } from '@coderbox/atoms'
-import { StackToolbar } from './styles'
+import { Toolbar } from './styles'
 
 const Component = ({ onPrev, onNext, ...props }) => {
   return (
-    <StackToolbar {...props}>
+    <Toolbar {...props}>
       <Group>
         <Button color='gray' tone='2' isIcon onClick={onPrev}>
           <Icon name='arrow-left' />
@@ -13,9 +13,9 @@ const Component = ({ onPrev, onNext, ...props }) => {
           <Icon name='arrow-right' />
         </Button>
       </Group>
-    </StackToolbar>
+    </Toolbar>
   )
 }
 
-Component.displayName = 'StackToolbar'
+Component.displayName = 'ToolbarNextPrev'
 export default Component

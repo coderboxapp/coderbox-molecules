@@ -8,7 +8,7 @@ import PositionForm from '.'
 
 let suggestions = {
   companies,
-  titles: [],
+  titles: titles,
   technologies
 }
 const handleSave = (data) => {
@@ -24,6 +24,7 @@ storiesOf('forms/PositionForm', module)
       <div>
         <Box>
           <PositionForm
+            data={position}
             suggestions={suggestions}
             onSubmit={handleSave} />
         </Box>

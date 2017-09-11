@@ -1,10 +1,10 @@
 // @flow
 import * as React from 'react'
 import cx from 'classnames'
-import Stack from 'components/Stack'
-import ToolbarEditDelete from 'components/ToolbarEditDelete'
+import { Stack } from '@coderbox/atoms'
 import { withStack } from '@coderbox/hocs'
 import { Factory } from 'utils'
+import { ToolbarEditDelete } from 'components'
 import { EditableItem } from './styles'
 
 type Props = {

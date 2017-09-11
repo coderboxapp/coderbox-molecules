@@ -1,22 +1,22 @@
 import React from 'react'
-import yup from 'yup'
-import { Formik as withFormik } from 'formik'
-import { compose, defaultProps, withPropsOnChange } from 'recompose'
-import { user } from '@coderbox/prop-types'
+import { object, string } from 'yup'
+import { Formik } from 'formik'
+import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
 import { Avatar } from 'elements'
 
 const Component = ({
-  profile,
+  data,
   values,
   errors,
   status,
-  submitting,
+  isSubmitting,
   handleChange,
   handleSubmit,
   onCancel,
+  onSubmitComplete,
   ...props
 }) => {
   return (
@@ -27,7 +27,7 @@ const Component = ({
         </Field>
       }
       <Field align='center'>
-        <Avatar email={profile.email} isEdit />
+        <Avatar email={data.email} isEdit />
       </Field>
 
       <Field label='Name:'>
@@ -69,10 +69,10 @@ const Component = ({
         </Control>
       </Field>
       <div>
-        <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
+        <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
-        <Button color='gray' tone='2' onClick={(evt) => props.stack ? props.stack.prev() : onCancel(evt)}>
+        <Button color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
           Cancel
         </Button>
       </div>
@@ -80,38 +80,35 @@ const Component = ({
   )
 }
 
-Component.displayName = 'UserProfileForm'
-Component.propTypes = {
-  profile: user
-}
+const withDefaultProps = defaultProps({ data: {} })
+const withDisplayName = setDisplayName('UserProfileForm')
+const withFormik = Formik({
+  mapPropsToValues: ({ data }) => ({
+    name: data.name,
+    location: data.location,
+    url: data.url
+  }),
+  validationSchema: object().shape({
+    name: string()
+      .min(3, 'Name has to be at least 3 characters long.')
+      .required('Name is required')
+  }),
+  handleSubmit: (values, { props, setSubmitting }) => {
+    if (props.onSubmit) {
+      props
+        .onSubmit(values)
+        .then((result) => {
+          setSubmitting(false)
+          if (props.onSubmitComplete) {
+            props.onSubmitComplete()
+          }
+        })
+    }
+  }
+})
 
 export default compose(
-  defaultProps({
-    profile: {},
-    submitting: false
-  }),
-  withPropsOnChange(
-    (props, nextProps) => props.submitting && !nextProps.submitting && !nextProps.status,
-    (props) => {
-      if (props.stack && props.stack.index > 0) props.stack.setIndex(0)
-      return {}
-    }
-  ),
-  withFormik({
-    mapPropsToValues: ({ profile }) => ({
-      name: profile.name,
-      location: profile.location,
-      url: profile.url
-    }),
-    validationSchema: yup.object().shape({
-      name: yup.string()
-        .min(3, 'Name has to be at least 3 characters long.')
-        .required('Name is required')
-    }),
-    handleSubmit: (values, { props }) => {
-      if (props.onSubmit) {
-        props.onSubmit(values)
-      }
-    }
-  })
+  withDisplayName,
+  withDefaultProps,
+  withFormik
 )(Component)

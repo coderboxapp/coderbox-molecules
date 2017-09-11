@@ -1,19 +1,18 @@
 import React from 'react'
 import { object, string } from 'yup'
 import { isObject } from 'lodash'
-import { Formik as withFormik } from 'formik'
-import { compose, defaultProps } from 'recompose'
-import { position, suggestions } from '@coderbox/prop-types'
+import { Formik } from 'formik'
+import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Dropdown, DateRange, Textarea } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
 const Component = ({
-  profile,
   values,
   errors,
   status,
   suggestions,
   isSubmitting,
+  setFieldValue,
   handleChange,
   handleSubmit,
   onCancel,
@@ -39,7 +38,7 @@ const Component = ({
             items={suggestions.titles}
             value={values.title}
             borderColor={errors['title.name'] ? 'danger' : undefined}
-            onChange={c => props.setFieldValue('title', isObject(c) ? c : {name: c})}
+            onChange={c => setFieldValue('title', isObject(c) ? c : {name: c})}
             placeholder='Type title(eg. Web Developer)'
           />
         </Control>
@@ -57,7 +56,7 @@ const Component = ({
             items={suggestions.companies}
             value={values.company}
             borderColor={errors['company.name'] ? 'danger' : undefined}
-            onChange={c => props.setFieldValue('company', isObject(c) ? c : {name: c})}
+            onChange={c => setFieldValue('company', isObject(c) ? c : {name: c})}
             placeholder='Type company name'
           />
         </Control>
@@ -74,7 +73,7 @@ const Component = ({
             labelField='name'
             items={suggestions.technologies}
             value={values.technologies}
-            onChange={t => props.setFieldValue('technologies', t)}
+            onChange={t => setFieldValue('technologies', t)}
             placeholder='Type technologies'
           />
         </Control>
@@ -87,7 +86,7 @@ const Component = ({
           name='dateRange'
           size='small'
           range={values.dateRange}
-          onChange={d => props.setFieldValue('dateRange', d)}
+          onChange={d => setFieldValue('dateRange', d)}
         />
       </Field>
 
@@ -112,48 +111,48 @@ const Component = ({
   )
 }
 
-Component.displayName = 'PositionForm'
-Component.propTypes = {
-  data: position,
-  suggestions: suggestions
-}
+const withDisplayName = setDisplayName('PositionForm')
+const withDefaultProps = defaultProps({
+  data: {},
+  suggestions: { companies: [], technologies: [], titles: [] }
+})
+
+const withFormik = Formik({
+  validateOnChange: true,
+  validationSchema: object().shape({
+    title: object().shape({
+      name: string()
+      .min(3, 'Title has to be at least 3 characters long.')
+      .required('Title is required')
+    }),
+    company: object().shape({
+      name: string()
+      .min(3, 'Title has to be at least 3 characters long.')
+      .required('Title is required')
+    })
+  }),
+  mapPropsToValues: ({ data }) => {
+    return {
+      ...data,
+      type: 'position'
+    }
+  },
+  handleSubmit: (values, { props, setSubmitting }) => {
+    if (props.onSubmit) {
+      props
+        .onSubmit(values)
+        .then((result) => {
+          setSubmitting(false)
+          if (props.onSubmitComplete) {
+            props.onSubmitComplete()
+          }
+        })
+    }
+  }
+})
 
 export default compose(
-  defaultProps({
-    data: {},
-    suggestions: { companies: [], technologies: [], titles: [] }
-  }),
-  withFormik({
-    validateOnChange: true,
-    validationSchema: object().shape({
-      title: object().shape({
-        name: string()
-        .min(3, 'Title has to be at least 3 characters long.')
-        .required('Title is required')
-      }),
-      company: object().shape({
-        name: string()
-        .min(3, 'Title has to be at least 3 characters long.')
-        .required('Title is required')
-      })
-    }),
-    mapPropsToValues: ({ data }) => {
-      return {
-        ...data,
-        type: 'position'
-      }
-    },
-    handleSubmit: (values, { props, setSubmitting }) => {
-      if (props.onSubmit) {
-        props
-          .onSubmit(values)
-          .then((result) => {
-            setSubmitting(false)
-            if (props.onSubmitComplete) {
-              props.onSubmitComplete()
-            }
-          })
-      }
-    }
-  })
+  withDisplayName,
+  withDefaultProps,
+  withFormik
 )(Component)

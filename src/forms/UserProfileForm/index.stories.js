@@ -12,7 +12,7 @@ storiesOf('forms/UserProfileForm', module)
       <div>
         <Box>
           <ProfileForm
-            profile={user}
+            data={user}
             onSubmit={d => console.log('data=', d)} />
         </Box>
       </div>

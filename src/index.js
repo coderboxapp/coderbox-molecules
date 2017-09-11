@@ -23,9 +23,8 @@ import UserProfileForm from 'forms/UserProfileForm'
 import AutocompleteLocation from 'components/AutocompleteLocation'
 import CompanyProfile from 'components/CompanyProfile'
 import JobHeader from 'components/JobHeader'
-import Stack from 'components/Stack'
-import StackToolbar from 'components/StackToolbar'
-import StackEditToolbar from 'components/StackEditToolbar'
+import ToolbarNextPrev from 'components/ToolbarNextPrev'
+import ToolbarEditDelete from 'components/ToolbarEditDelete'
 import Timeline from 'components/Timeline'
 import TimelineRow from 'components/TimelineRow'
 import UserProfile from 'components/UserProfile'
@@ -53,9 +52,8 @@ export {
   AutocompleteLocation,
   CompanyProfile,
   JobHeader,
-  Stack,
-  StackToolbar,
-  StackEditToolbar,
+  ToolbarNextPrev,
+  ToolbarEditDelete,
   Timeline,
   TimelineRow,
   UserProfile

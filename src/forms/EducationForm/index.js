@@ -1,8 +1,8 @@
 import React from 'react'
 import { object, string } from 'yup'
 import { isObject } from 'lodash'
-import { Formik as withFormik } from 'formik'
-import { compose, defaultProps } from 'recompose'
+import { Formik } from 'formik'
+import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
@@ -94,39 +94,42 @@ const Component = ({
   )
 }
 
-Component.displayName = 'EducationForm'
+const withDisplayName = setDisplayName('PositionForm')
+const withDefaultProps = defaultProps({
+  data: {},
+  suggestions: { institutions: [], technologies: [] }
+})
+const withFormik = Formik({
+  validateOnChange: true,
+  validationSchema: object().shape({
+    institution: object().shape({
+      name: string()
+      .min(3, 'Title has to be at least 3 characters long.')
+      .required('Title is required')
+    })
+  }),
+  mapPropsToValues: ({ data }) => {
+    return {
+      ...data,
+      type: 'education'
+    }
+  },
+  handleSubmit: (values, { props, setSubmitting }) => {
+    if (props.onSubmit) {
+      props
+        .onSubmit(values)
+        .then((result) => {
+          setSubmitting(false)
+          if (props.onSubmitComplete) {
+            props.onSubmitComplete()
+          }
+        })
+    }
+  }
+})
 
 export default compose(
-  defaultProps({
-    data: {},
-    suggestions: { institutions: [], technologies: [] }
-  }),
-  withFormik({
-    validateOnChange: true,
-    validationSchema: object().shape({
-      institution: object().shape({
-        name: string()
-        .min(3, 'Title has to be at least 3 characters long.')
-        .required('Title is required')
-      })
-    }),
-    mapPropsToValues: ({ data }) => {
-      return {
-        ...data,
-        type: 'education'
-      }
-    },
-    handleSubmit: (values, { props, setSubmitting }) => {
-      if (props.onSubmit) {
-        props
-          .onSubmit(values)
-          .then((result) => {
-            setSubmitting(false)
-            if (props.onSubmitComplete) {
-              props.onSubmitComplete()
-            }
-          })
-      }
-    }
-  })
+  withDisplayName,
+  withDefaultProps,
+  withFormik
 )(Component)

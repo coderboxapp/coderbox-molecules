@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { Button, Icon } from '@coderbox/atoms'
-import { StackToolbar } from './styles'
+import { Toolbar } from './styles'
 import type { Colors } from '@coderbox/atoms'
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
 
 const Component = ({ index, onEdit, onCancel, onDelete, color, ...props }: Props) => {
   return (
-    <StackToolbar {...props}>
+    <Toolbar {...props}>
       {index === 0 &&
         <Button isIcon color={color} tone='2' size='small' onClick={onEdit}>
           <Icon name='edit' />
@@ -28,11 +28,11 @@ const Component = ({ index, onEdit, onCancel, onDelete, color, ...props }: Props
       <Button isIcon color={color} tone='2' size='small' onClick={onDelete}>
         <Icon name='trash' />
       </Button>
-    </StackToolbar>
+    </Toolbar>
   )
 }
 
-Component.displayName = 'StackEditToolbar'
+Component.displayName = 'EditDeleteToolbar'
 Component.defaultProps = {
   index: 0,
   color: 'gray'
