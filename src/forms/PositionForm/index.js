@@ -83,10 +83,10 @@ const Component = ({
         <DateRange
           isSearch
           isMultiple
-          name='dateRange'
+          name='timePeriod'
           size='small'
-          range={values.dateRange}
-          onChange={d => setFieldValue('dateRange', d)}
+          range={values.timePeriod}
+          onChange={d => setFieldValue('timePeriod', d)}
         />
       </Field>
 

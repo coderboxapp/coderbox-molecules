@@ -32,7 +32,7 @@ export const Timeline = styled.div`
     width: 2px;
   }
 
-  .timeline-item:last-child:after {
+  .timeline-row:last-child:after {
     content: '';
     position: absolute;
     bottom: 0;
