@@ -18,7 +18,7 @@ type Props = {
 }
 
 const Component = ({ title, subtitle, icon, isOdd, children, ...props }: Props) => {
-  const className = cx('timeline-item', props.className)
+  const className = cx('timeline-row', props.className)
 
   let childs = [
     <Item isOdd={!isOdd} key={0}>
