@@ -2,8 +2,8 @@ import AutocompleteLocation from './AutocompleteLocation'
 import CompanyProfile from './CompanyProfile'
 import JobHeader from './JobHeader'
 import Stack from './Stack'
-import StackToolbar from './StackToolbar'
-import StackEditToolbar from './StackEditToolbar'
+import ToolbarNextPrev from './ToolbarNextPrev'
+import ToolbarEditDelete from './ToolbarEditDelete'
 import Timeline from './Timeline'
 import TimelineRow from './TimelineRow'
 import UserProfile from './UserProfile'
@@ -13,8 +13,8 @@ export {
   CompanyProfile,
   JobHeader,
   Stack,
-  StackToolbar,
-  StackEditToolbar,
+  ToolbarNextPrev,
+  ToolbarEditDelete,
   Timeline,
   TimelineRow,
   UserProfile

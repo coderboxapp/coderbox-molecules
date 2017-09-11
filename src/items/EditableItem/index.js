@@ -2,7 +2,7 @@
 import * as React from 'react'
 import cx from 'classnames'
 import Stack from 'components/Stack'
-import StackEditToolbar from 'components/StackEditToolbar'
+import ToolbarEditDelete from 'components/ToolbarEditDelete'
 import { withStack } from '@coderbox/hocs'
 import { Factory } from 'utils'
 import { EditableItem } from './styles'
@@ -42,7 +42,7 @@ class Component extends React.Component<Props> {
           {Item}
           {Form}
         </Stack>
-        <StackEditToolbar
+        <ToolbarEditDelete
           isFixed
           index={stack.index}
           onEdit={() => stack.setIndex(1)}
