@@ -1,5 +1,6 @@
 import React from 'react'
 import { object, string } from 'yup'
+import { isObject } from 'lodash'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
@@ -38,7 +39,7 @@ const Component = ({
             items={suggestions.institutions}
             value={values.institution}
             borderColor={errors['institution.name'] ? 'danger' : undefined}
-            onChange={c => setFieldValue('institution', c)}
+            onChange={c => setFieldValue('institution', isObject(c) ? c : {name: c})}
             placeholder='Type institution name (eg. West University)'
           />
         </Control>

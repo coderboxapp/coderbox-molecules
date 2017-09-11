@@ -1,5 +1,6 @@
 import React from 'react'
-import yup from 'yup'
+import { object, string } from 'yup'
+import { isObject } from 'lodash'
 import { Formik as withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { position, suggestions } from '@coderbox/prop-types'
@@ -38,7 +39,7 @@ const Component = ({
             items={suggestions.titles}
             value={values.title}
             borderColor={errors['title.name'] ? 'danger' : undefined}
-            onChange={c => props.setFieldValue('title', c)}
+            onChange={c => props.setFieldValue('title', isObject(c) ? c : {name: c})}
             placeholder='Type title(eg. Web Developer)'
           />
         </Control>
@@ -56,7 +57,7 @@ const Component = ({
             items={suggestions.companies}
             value={values.company}
             borderColor={errors['company.name'] ? 'danger' : undefined}
-            onChange={c => props.setFieldValue('company', c)}
+            onChange={c => props.setFieldValue('company', isObject(c) ? c : {name: c})}
             placeholder='Type company name'
           />
         </Control>
@@ -124,14 +125,14 @@ export default compose(
   }),
   withFormik({
     validateOnChange: true,
-    validationSchema: yup.object().shape({
-      title: yup.object().shape({
-        name: yup.string()
+    validationSchema: object().shape({
+      title: object().shape({
+        name: string()
         .min(3, 'Title has to be at least 3 characters long.')
         .required('Title is required')
       }),
-      company: yup.object().shape({
-        name: yup.string()
+      company: object().shape({
+        name: string()
         .min(3, 'Title has to be at least 3 characters long.')
         .required('Title is required')
       })

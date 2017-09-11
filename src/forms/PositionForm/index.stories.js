@@ -8,7 +8,7 @@ import PositionForm from '.'
 
 let suggestions = {
   companies,
-  titles,
+  titles: [],
   technologies
 }
 const handleSave = (data) => {
