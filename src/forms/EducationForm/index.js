@@ -65,11 +65,11 @@ const Component = ({
         <DateRange
           isSearch
           isMultiple
-          name='dateRange'
-          range={values.dateRange}
+          name='timePeriod'
+          range={values.timePeriod}
           label='In progress...'
           size='small'
-          onChange={d => setFieldValue('dateRange', d)}
+          onChange={d => setFieldValue('timePeriod', d)}
         />
       </Field>
 

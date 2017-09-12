@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@coderbox/atoms": "^1.0.39",
-    "@coderbox/forms": "^1.0.33",
+    "@coderbox/forms": "^1.0.34",
     "@coderbox/hocs": "^1.0.2",
     "@coderbox/utils": "^1.0.4",
     "formik": "^0.8.9",
