@@ -7,8 +7,6 @@ export const Item = styled.div`
 export const ItemLeft = styled.div`
   margin: 0;
   padding: 0;
-  text-align: center;
-  width: 80px;
 
   & .tag {
     padding: 0 0.35rem;
@@ -18,7 +16,8 @@ export const ItemLeft = styled.div`
 export const ItemContent = styled.div`
   display: block;
   margin-left: 0;
-  padding-left: 1.5em;
+  padding-left: 1.2em;
+  flex: 1;
 
   .subtitle {
     margin-bottom: 0.5em !important;
