@@ -7,6 +7,8 @@ export const Item = styled.div`
 export const ItemLeft = styled.div`
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 
   & .tag {
     padding: 0 0.35rem;
