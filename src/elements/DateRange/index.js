@@ -9,8 +9,8 @@ const DateRange = ({dateRange, ...props}) => {
 
   return (
     <s.DateRange>
-      <Text color='gray'><Icon name='calendar-o' /> {startDate}</Text>
-      <Icon color='gray' name='long-arrow-right' />
+      <Text color='gray'><Icon className='calendar' name='calendar-o' /> {startDate}</Text>
+      <Icon color='gray' className='arrow' name='long-arrow-right' />
       <Text color='gray'>{endDate}</Text>
     </s.DateRange>
   )

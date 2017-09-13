@@ -7,16 +7,18 @@ import { Item } from 'items'
 import * as s from './styles'
 
 const Component = ({ data, showTag, showDesc }) => {
-  let { company, location, title, minSalary, technologies, createdAt, description, published } = data
+  let { _id, company, location, title, minSalary, technologies, createdAt, description, published } = data
   let tag = showTag ? <Tag color='success' tone={1} size='small'>{published ? 'published' : 'draft'}</Tag> : null
 
   return (
     <s.JobItem>
       <Item image={company.logo} tag={tag}>
         <DaysAgo date={createdAt} />
-        <Title size='large'>{title}</Title>
+        <Link href={`/app/jobs/${_id}`}>
+          <Title size='large' color='black'>{title}</Title>
+        </Link>
         <Subtitle size='normal' color='gray'>
-          <Link>@{company.name}</Link>, {location.formatted_address}
+          <Link>@{company.name}</Link>, {location && location.formatted_address}
         </Subtitle>
         <Text color='success' tone={1}>
           min. {minSalary} € / month
