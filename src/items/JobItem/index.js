@@ -16,7 +16,7 @@ const Component = ({ data, showTag, showDesc }) => {
         <DaysAgo date={createdAt} />
         <Title size='large'>{title}</Title>
         <Subtitle size='normal' color='gray'>
-          <Link>@{company.name}</Link>, {location.formatted_address}
+          <Link>@{company.name}</Link>, {location && location.formatted_address}
         </Subtitle>
         <Text color='success' tone={1}>
           min. {minSalary} € / month
