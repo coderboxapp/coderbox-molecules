@@ -1,3 +1,4 @@
+import { PropTypes as mobxTypes } from 'mobx-react'
 import {
   shape,
   string,
@@ -6,6 +7,8 @@ import {
   object,
   bool
 } from 'prop-types'
+
+const { arrayOrObservableArrayOf } = mobxTypes
 
 export const technology = shape({
   _id: number,
@@ -43,7 +46,7 @@ export const user = shape({
 export const education = shape({
   _id: number,
   institution: shape({ logo: string, name: string }),
-  technologies: arrayOf(technology),
+  technologies: arrayOrObservableArrayOf(technology),
   timePeriod: dateRange,
   degree: string,
   type: equal('education')
@@ -54,7 +57,7 @@ export const position = shape({
   company: company,
   title: title,
   responsabilities: string,
-  technologies: arrayOf(technology),
+  technologies: arrayOrObservableArrayOf(technology),
   timePeriod: dateRange,
   type: equal('position')
 })
@@ -67,7 +70,7 @@ export const job = shape({
   published: bool,
   teamWork: bool,
   minSalary: number,
-  technologies: arrayOf(technology),
+  technologies: arrayOrObservableArrayOf(technology),
   company: company,
   type: equal('job')
 })

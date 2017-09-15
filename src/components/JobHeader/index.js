@@ -13,7 +13,7 @@ const Component = ({job, ...props}) => {
       <Subtitle color='primary'>@{job.company.name}</Subtitle>
       <Location location={job.location} />
       {job.minSalary > 0 && <Text color='success' tone={1} align='center'>min. {Math.round(job.minSalary / 12)} € / month</Text>}
-      <Tags tags={tags} />
+      <Tags color='white' tags={tags} />
     </styles.JobHeader>
   )
 }

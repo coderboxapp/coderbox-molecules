@@ -1,10 +1,14 @@
+// @flow
 import React from 'react'
-import { education } from '@coderbox/prop-types'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { DateRange, Tags } from 'elements'
 import { Item } from 'items'
 
-const Component = ({ data }) => {
+type Props = {
+  data: any
+}
+
+const Component = ({ data }: Props) => {
   let { institution, degree, technologies, timePeriod } = data
 
   return (
@@ -18,8 +22,4 @@ const Component = ({ data }) => {
 }
 
 Component.displayName = 'EducationItem'
-Component.propTypes = {
-  data: education.isRequired
-}
-
 export default Component

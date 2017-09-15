@@ -1,12 +1,17 @@
+// @flow
 import React from 'react'
-import { job } from '@coderbox/prop-types'
-import { bool } from 'prop-types'
 import { Title, Subtitle, Link, Text, Tag } from '@coderbox/atoms'
 import { DaysAgo, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 import * as s from './styles'
 
-const Component = ({ data, showTag, showDesc }) => {
+type Props = {
+  data: any,
+  showTag?: bool,
+  showDesc?: bool
+}
+
+const Component = ({ data, showTag, showDesc }: Props) => {
   let { _id, company, location, title, minSalary, technologies, createdAt, description, published } = data
   let tag = showTag ? <Tag color='success' tone={1} size='small'>{published ? 'published' : 'draft'}</Tag> : null
 
@@ -31,10 +36,4 @@ const Component = ({ data, showTag, showDesc }) => {
 }
 
 Component.displayName = 'JobItem'
-Component.propTypes = {
-  data: job,
-  showTag: bool,
-  showDesc: bool
-}
-
 export default Component

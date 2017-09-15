@@ -9,7 +9,7 @@ export const DateRange = styled.div`
   }
 
   & .icon.calendar {
-    margin-right:0.3rem;
     width: auto;
+    margin-right: 0.3rem;
   }
 `

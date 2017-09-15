@@ -1,10 +1,14 @@
+// @flow
 import React from 'react'
-import { position } from '@coderbox/prop-types'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { DateRange, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 
-const Component = ({ data }) => {
+type Props = {
+  data: any
+}
+
+const Component = ({ data }: Props) => {
   let { company, responsabilities, title, technologies, timePeriod } = data
 
   return (
@@ -19,8 +23,4 @@ const Component = ({ data }) => {
 }
 
 Component.displayName = 'PositionItem'
-Component.propTypes = {
-  data: position
-}
-
 export default Component
