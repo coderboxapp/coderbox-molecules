@@ -1,4 +1,5 @@
 import React from 'react'
+import { object, string } from 'yup'
 import { Formik } from 'formik'
 import { compose, setDisplayName, defaultProps } from 'recompose'
 import { Field, Control, Input, Dropdown, Textarea } from '@coderbox/forms'
@@ -32,7 +33,7 @@ const Component = ({
             value={values.title}
             color={errors.title ? 'danger' : null}
             onChange={handleChange}
-            placeholder='Your email address'
+            placeholder='Type title'
           />
         </Control>
       </Field>
@@ -62,7 +63,7 @@ const Component = ({
             value={values.location}
             color={errors.location ? 'danger' : null}
             onChange={loc => props.setFieldValue('location', loc)}
-            placeholder='Where do you live ?'
+            placeholder='Type location (leave blank for Remote)'
           />
         </Control>
       </Field>
@@ -73,7 +74,7 @@ const Component = ({
           name='description'
           value={values.description}
           onChange={handleChange}
-          placeholder='Description ?' />
+          placeholder='Description' />
       </Field>
 
       <div>
@@ -95,6 +96,12 @@ const withDefaultProps = defaultProps({
 })
 
 const withFormik = Formik({
+  validateOnChange: true,
+  validationSchema: object().shape({
+    title: string()
+      .min(3, 'Title has to be at least 3 characters long.')
+      .required('Title is required')
+  }),
   mapPropsToValues: ({ data }) => ({
     ...data,
     type: 'job'
