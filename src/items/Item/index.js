@@ -1,7 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
 import { string, element } from 'prop-types'
-import { Tag } from '@coderbox/atoms'
 import { Avatar } from 'elements'
 import { Item, ItemLeft, ItemContent } from './styles'
 

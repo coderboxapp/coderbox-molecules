@@ -28,7 +28,7 @@ class Component extends React.Component<Props> {
     let { data, stack, onSave, onDelete, suggestions, ...props } = this.props
     let className = cx('timeline', props.className)
     let factory = this.props.factory || new Factory()
-    let Item = factory.createItem(data)
+    let Item = factory.createItem(data, props)
     let Form = factory.createForm(data, {
       onSubmit: (formData) => onSave(formData),
       onSubmitComplete: () => stack.setIndex(0),

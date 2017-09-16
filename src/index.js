@@ -18,6 +18,7 @@ import LoginForm from 'forms/LoginForm'
 import PositionForm from 'forms/PositionForm'
 import EducationForm from 'forms/EducationForm'
 import UserProfileForm from 'forms/UserProfileForm'
+import JobForm from 'forms/JobForm'
 
 // components
 import AutocompleteLocation from 'components/AutocompleteLocation'
@@ -47,6 +48,7 @@ export {
   LoginForm,
   PositionForm,
   EducationForm,
+  JobForm,
   UserProfileForm,
   // components
   AutocompleteLocation,

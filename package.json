@@ -7,7 +7,7 @@
     "prepare": "yarn build",
     "build": "webpack --env production",
     "dev": "webpack --progress --colors --watch --env development",
-    "start": "start-storybook -p 6005",
+    "start": "start-storybook -p 6007",
     "build-storybook": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
     "flow": "flow"

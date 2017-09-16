@@ -1,17 +1,19 @@
 import React from 'react'
-import { PositionForm, EducationForm } from 'forms'
-import { PositionItem, EducationItem } from 'items'
+import { PositionForm, EducationForm, JobForm } from 'forms'
+import { PositionItem, EducationItem, JobItem } from 'items'
 
 export class Factory {
   constructor () {
     this.items = {
       'position': PositionItem,
-      'education': EducationItem
+      'education': EducationItem,
+      'job': JobItem
     }
 
     this.forms = {
       'position': PositionForm,
-      'education': EducationForm
+      'education': EducationForm,
+      'job': JobForm
     }
   }
 

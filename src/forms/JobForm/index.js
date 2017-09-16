@@ -42,9 +42,9 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
+            allowNew
             name='technologies'
             maxItems={4}
-            valueField='_id'
             labelField='name'
             items={suggestions.technologies}
             value={values.technologies}
@@ -93,6 +93,7 @@ const withDefaultProps = defaultProps({
   data: {},
   suggestions: { technologies: [] }
 })
+
 const withFormik = Formik({
   mapPropsToValues: ({ data }) => ({
     ...data,

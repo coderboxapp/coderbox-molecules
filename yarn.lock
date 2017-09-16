@@ -2,9 +2,19 @@
 # yarn lockfile v1
 
 
-"@coderbox/atoms@^1.0.36", "@coderbox/atoms@^1.0.39":
+"@coderbox/atoms@^1.0.36":
   version "1.0.39"
   resolved "https://registry.yarnpkg.com/@coderbox/atoms/-/atoms-1.0.39.tgz#1ff8cf2227555283e19bf5c2876c9bcd09271a45"
+  dependencies:
+    react "^15.5.4"
+    react-dom "^15.5.4"
+    styled-components "^2.1.2"
+    styled-theme "^0.3.3"
+    styled-utils "^1.2.4"
+
+"@coderbox/atoms@^1.0.39":
+  version "1.0.42"
+  resolved "https://registry.yarnpkg.com/@coderbox/atoms/-/atoms-1.0.42.tgz#8121cac6c23f04a583b85d3d2c470a82dff4c2f8"
   dependencies:
     react "^15.5.4"
     react-dom "^15.5.4"
@@ -25,8 +35,8 @@
     styled-utils "^1.2.4"
 
 "@coderbox/hocs@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@coderbox/hocs/-/hocs-1.0.2.tgz#f321817a6e84820c6fc72d0b574c8d726de73de0"
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@coderbox/hocs/-/hocs-1.0.5.tgz#ec3a95857816be22386655fed404c1f0f43da6c2"
   dependencies:
     lodash "^4.17.4"
     react "^15.6.1"
@@ -5555,8 +5565,8 @@ styled-tools@^0.1.4:
     lodash "^4.17.4"
 
 styled-utils@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/styled-utils/-/styled-utils-1.2.4.tgz#b11f9b766f624bf3f5658b9bb25aa38a1063a2d9"
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/styled-utils/-/styled-utils-1.2.5.tgz#81e302dc287cb8869d129b9feefa8527e822f4f0"
   dependencies:
     lodash "^4.17.4"
     polished "^1.3.0"
@@ -5921,9 +5931,36 @@ webpack-sources@^1.0.1:
     source-list-map "^2.0.0"
     source-map "~0.5.3"
 
-"webpack@^2.5.1 || ^3.0.0", webpack@^3.5.6:
+"webpack@^2.5.1 || ^3.0.0":
   version "3.5.6"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.6.tgz#a492fb6c1ed7f573816f90e00c8fbb5a20cc5c36"
+  dependencies:
+    acorn "^5.0.0"
+    acorn-dynamic-import "^2.0.0"
+    ajv "^5.1.5"
+    ajv-keywords "^2.0.0"
+    async "^2.1.2"
+    enhanced-resolve "^3.4.0"
+    escope "^3.6.0"
+    interpret "^1.0.0"
+    json-loader "^0.5.4"
+    json5 "^0.5.1"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
+    memory-fs "~0.4.1"
+    mkdirp "~0.5.0"
+    node-libs-browser "^2.0.0"
+    source-map "^0.5.3"
+    supports-color "^4.2.1"
+    tapable "^0.2.7"
+    uglifyjs-webpack-plugin "^0.4.6"
+    watchpack "^1.4.0"
+    webpack-sources "^1.0.1"
+    yargs "^8.0.2"
+
+webpack@^3.5.6:
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.6.0.tgz#a89a929fbee205d35a4fa2cc487be9cbec8898bc"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
