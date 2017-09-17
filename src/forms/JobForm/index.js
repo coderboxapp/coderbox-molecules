@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string } from 'yup'
 import { Formik } from 'formik'
 import { compose, setDisplayName, defaultProps } from 'recompose'
-import { Field, Control, Input, Dropdown, Textarea } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown, Textarea, Checkbox } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
 
@@ -75,6 +75,36 @@ const Component = ({
           value={values.description}
           onChange={handleChange}
           placeholder='Description' />
+      </Field>
+
+      <Field>
+        <Checkbox
+          rows={10}
+          name='published'
+          checked={values.published}
+          onChange={(e, checked) => props.setFieldValue('published', checked)}>
+          Published
+        </Checkbox>
+      </Field>
+
+      <Field>
+        <Checkbox
+          rows={10}
+          name='paid'
+          checked={values.paid}
+          onChange={(e, checked) => props.setFieldValue('paid', checked)}>
+          Paid
+        </Checkbox>
+      </Field>
+
+      <Field>
+        <Checkbox
+          rows={10}
+          name='teamWork'
+          checked={values.teamWork}
+          onChange={(e, checked) => props.setFieldValue('teamWork', checked)}>
+          Team Work
+        </Checkbox>
       </Field>
 
       <div>

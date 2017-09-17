@@ -26,6 +26,7 @@ import { createForm } from 'forms'
 import AutocompleteLocation from 'components/AutocompleteLocation'
 import CompanyProfile from 'components/CompanyProfile'
 import JobHeader from 'components/JobHeader'
+import JobExtra from 'components/JobExtra'
 import ToolbarNextPrev from 'components/ToolbarNextPrev'
 import ToolbarEditDelete from 'components/ToolbarEditDelete'
 import Timeline from 'components/Timeline'
@@ -56,6 +57,7 @@ export {
   AutocompleteLocation,
   CompanyProfile,
   JobHeader,
+  JobExtra,
   ToolbarNextPrev,
   ToolbarEditDelete,
   Timeline,

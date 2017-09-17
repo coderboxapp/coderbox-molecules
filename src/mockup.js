@@ -100,7 +100,7 @@ export const job = {
 - 2+ years experience with JavaScript libraries such as \`jQuery\`
   `,
   published: true,
-  paid: false,
+  paid: true,
   teamWork: true,
   minSalary: 1400,
   views: 1,

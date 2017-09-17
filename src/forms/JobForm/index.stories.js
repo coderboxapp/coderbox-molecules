@@ -19,8 +19,6 @@ storiesOf('forms/JobForm', module)
             data={job}
             suggestions={suggestions}
             onSubmit={d => console.log('data=', d)} />
-
-          <JobForm />
         </Box>
       </div>
     )

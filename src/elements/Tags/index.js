@@ -3,7 +3,7 @@ import { Tag } from '@coderbox/atoms'
 import cx from 'classnames'
 import { Tags } from './styles'
 
-const Component = ({tags, margin, ...props}) => {
+const Component = ({tags, margin, children, ...props}) => {
   let className = cx('tags', props.className)
 
   return (
@@ -11,6 +11,7 @@ const Component = ({tags, margin, ...props}) => {
       {tags.map(
         tag => <Tag {...props} key={tag._id}>{tag.name}</Tag>
       )}
+      {children}
     </Tags>
   )
 }

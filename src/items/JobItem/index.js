@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Title, Subtitle, Link, Text, Tag } from '@coderbox/atoms'
+import { Title, Subtitle, Link, Button, Group, Text, Tag, Icon } from '@coderbox/atoms'
 import { DaysAgo, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 import * as s from './styles'
@@ -29,7 +29,20 @@ const Component = ({ data, href, showTag, showDesc }: Props) => {
         <Text color='success' tone={1}>
           min. {data.minSalary} € / month
         </Text>
-        <Tags tags={data.technologies} />
+        <Tags tags={data.technologies}>
+          {data.paid && (
+            <Group>
+              <Tag color='success' tone={1} isIcon><Icon name='gift' /></Tag>
+              <Tag color='success'>paid</Tag>
+            </Group>
+          )}
+          {data.teamWork && (
+            <Group>
+              <Tag color='accent' tone={1} isIcon><Icon name='male' /></Tag>
+              <Tag color='accent'>team work</Tag>
+            </Group>
+          )}
+        </Tags>
         {showDesc && <Markdown source={data.description} />}
       </Item>
     </s.JobItem>

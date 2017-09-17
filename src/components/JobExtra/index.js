@@ -14,7 +14,7 @@ const Component = ({ job, ...props }) => {
         <Icon name='bar-chart' color='gray' />
         {views} view(s)
       </Link>
-      <Link>
+      <Link href={`/app/candidates/${job._id}`}>
         <Icon name='inbox' color='gray' />
         {candidates.length} candidate(s)
       </Link>
