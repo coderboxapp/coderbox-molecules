@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Tags = styled.div`
   margin: ${p => p.margin || '0.5em 0'};
-  display: flex;
+  display: inline-flex;
 
   & .tag {
     margin-bottom: 0.25em;

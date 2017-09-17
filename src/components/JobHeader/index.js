@@ -1,5 +1,5 @@
 import React from 'react'
-import { Title, Text, Subtitle } from '@coderbox/atoms'
+import { Title, Text, Subtitle, Group, Tag, Icon } from '@coderbox/atoms'
 import { Avatar, Location, Tags } from 'elements'
 import * as styles from './styles'
 
@@ -13,7 +13,20 @@ const Component = ({job, ...props}) => {
       <Subtitle color='primary'>@{job.company.name}</Subtitle>
       <Location location={job.location} />
       {job.minSalary > 0 && <Text color='success' tone={1} align='center'>min. {Math.round(job.minSalary / 12)} € / month</Text>}
-      <Tags color='white' tags={tags} />
+      <Tags color='white' tags={tags}>
+        {job.paid && (
+          <Group>
+            <Tag color='success' tone={1} isIcon><Icon name='gift' /></Tag>
+            <Tag color='success'>paid</Tag>
+          </Group>
+        )}
+        {job.teamWork && (
+          <Group>
+            <Tag color='accent' tone={1} isIcon><Icon name='male' /></Tag>
+            <Tag color='accent'>team work</Tag>
+          </Group>
+        )}
+      </Tags>
     </styles.JobHeader>
   )
 }
