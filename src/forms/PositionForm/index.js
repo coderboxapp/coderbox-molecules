@@ -26,7 +26,7 @@ const Component = ({
           <Text color='danger' size='normal'>{status}</Text>
         </Field>
       }
-      <Field label='Title:'>
+      <Field label='Title:' isRequired>
         <Control hasLeftIcon>
           <Icon name='info' className='left' />
           <Dropdown
@@ -44,7 +44,7 @@ const Component = ({
         </Control>
       </Field>
 
-      <Field label='Company:'>
+      <Field label='Company:' isRequired>
         <Control hasLeftIcon>
           <Icon name='building' className='left' />
           <Dropdown

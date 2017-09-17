@@ -4,6 +4,7 @@ import { Link } from '@coderbox/atoms'
 import * as styles from './styles'
 
 const AvatarComponent = ({ size, isEdit, ...props }) => {
+  console.log(props)
   return (
     <styles.Avatar size={size}>
       <Avatar {...props} size={size} />

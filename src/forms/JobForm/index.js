@@ -25,7 +25,7 @@ const Component = ({
           <Text color='danger' size='normal'>{status}</Text>
         </Field>
       }
-      <Field label='Title:'>
+      <Field label='Title:' isRequired>
         <Control hasLeftIcon>
           <Icon name='info' className='left' />
           <Input

@@ -27,7 +27,7 @@ const Component = ({
         </Field>
       }
 
-      <Field label='Institution:'>
+      <Field label='Institution:' isRequired>
         <Control hasLeftIcon>
           <Icon name='building' className='left' />
           <Dropdown

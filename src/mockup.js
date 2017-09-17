@@ -115,3 +115,27 @@ export const items = [
   position,
   education
 ]
+
+export const candidate = {
+  '_id': 63,
+  'createdAt': '2017-07-08T11:22:02.834Z',
+  'status': 'apply',
+  'job': {
+    '_id': 30,
+    'company': 4,
+    'title': 'FullStack Engineer (MERN)',
+    'radar': {
+      'technologies': [{'_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 96}, {'_id': 116, 'name': 'express', 'category': 'backend', 'duration': 96}, {'_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 96}, {'_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 96}, {'_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 96}],
+      'categories': [{'name': 'frontend', 'duration': 96}, {'name': 'backend', 'duration': 96}, {'name': 'database', 'duration': 96}]
+    }
+  },
+  'profile': {
+    '_id': '584dd7ff734d1d55b6dcfa90',
+    'email': 'ghalex@gmail.com',
+    'name': 'Alexandru Ghiura',
+    'radar': {
+      'technologies': [{'_id': 93, 'name': 'java', 'category': 'backend', 'duration': 7}, {'_id': 70, 'name': 'spring', 'category': 'backend', 'duration': 7}, {'_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 65}, {'_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 65}, {'_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 65}, {'_id': 59, 'name': 'javascript', 'category': 'frontend', 'duration': 65}, {'_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 65}],
+      'categories': [{'name': 'backend', 'duration': 72}, {'name': 'frontend', 'duration': 65}, {'name': 'database', 'duration': 65}]
+    }
+  }
+}

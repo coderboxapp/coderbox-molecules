@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import { Title, Subtitle, Link, Button, Group, Text, Tag, Icon } from '@coderbox/atoms'
+import { Title, Subtitle, Link, Group, Text, Tag, Icon } from '@coderbox/atoms'
 import { DaysAgo, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 import * as s from './styles'
