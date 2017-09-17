@@ -6,6 +6,8 @@ import { withTheme } from '@coderbox/hocs'
 import { position } from 'mockup'
 import { compose, withHandlers } from 'recompose'
 import EditableItem from '.'
+import { createItem } from 'items'
+import { createForm } from 'forms'
 
 const Component = compose(
   withHandlers({
@@ -24,7 +26,8 @@ const Component = compose(
         <EditableItem
           data={position}
           onSave={onSave}
-          onDelete={onDelete} />
+          onDelete={onDelete}
+          factory={{createForm, createItem}} />
       </Box>
     )
   }

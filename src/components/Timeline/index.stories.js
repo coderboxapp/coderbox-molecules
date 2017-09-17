@@ -8,7 +8,8 @@ import { items } from 'mockup'
 
 import Timeline from '.'
 import TimelienRow from '../TimelineRow'
-import { EditableItem } from 'items'
+import { EditableItem, createItem } from 'items'
+import { createForm } from 'forms'
 
 storiesOf('components/Timeline', module)
   .add('simple usage', withTheme(theme, () => {
@@ -29,7 +30,7 @@ storiesOf('components/Timeline', module)
                   icon={item.icon}
                   color='primary'>
 
-                  <EditableItem data={item} />
+                  <EditableItem data={item} factory={{createForm, createItem}} />
                 </TimelienRow>
               )
             }

@@ -12,6 +12,7 @@ import EditableItem from 'items/EditableItem'
 import JobItem from 'items/JobItem'
 import PositionItem from 'items/PositionItem'
 import EducationItem from 'items/EducationItem'
+import { createItem } from 'items'
 
 // forms
 import LoginForm from 'forms/LoginForm'
@@ -19,6 +20,7 @@ import PositionForm from 'forms/PositionForm'
 import EducationForm from 'forms/EducationForm'
 import UserProfileForm from 'forms/UserProfileForm'
 import JobForm from 'forms/JobForm'
+import { createForm } from 'forms'
 
 // components
 import AutocompleteLocation from 'components/AutocompleteLocation'
@@ -58,5 +60,8 @@ export {
   ToolbarEditDelete,
   Timeline,
   TimelineRow,
-  UserProfile
+  UserProfile,
+  // utils
+  createForm,
+  createItem
 }

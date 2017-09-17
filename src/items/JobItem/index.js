@@ -7,29 +7,30 @@ import * as s from './styles'
 
 type Props = {
   data: any,
+  href?: string,
   showTag?: bool,
   showDesc?: bool
 }
 
-const Component = ({ data, showTag, showDesc }: Props) => {
-  let { _id, company, location, title, minSalary, technologies, createdAt, description, published } = data
-  let tag = showTag ? <Tag color={published ? 'primary' : 'gray'} tone={0} size='small'>{published ? 'published' : 'draft'}</Tag> : null
+const Component = ({ data, href, showTag, showDesc }: Props) => {
+  const tagColor = data.published ? 'primary' : 'gray'
+  const tag = showTag ? <Tag color={tagColor} size='small'>{data.published ? 'published' : 'draft'}</Tag> : null
 
   return (
     <s.JobItem>
-      <Item image={company.logo} tag={tag}>
-        <DaysAgo date={createdAt} />
-        <Link href={`/app/jobs/${_id}`} color='black'>
-          <Title size='large'>{title}</Title>
+      <Item image={data.company.logo} tag={tag}>
+        <DaysAgo date={data.createdAt} />
+        <Link href={href} color='black'>
+          <Title size='large'>{data.title}</Title>
         </Link>
         <Subtitle size='normal' color='gray'>
-          <Link>@{company.name}</Link>, {location && location.formatted_address}
+          <Link>@{data.company.name}</Link>, {data.location && data.location.formatted_address}
         </Subtitle>
         <Text color='success' tone={1}>
-          min. {minSalary} € / month
+          min. {data.minSalary} € / month
         </Text>
-        <Tags tags={technologies} />
-        {showDesc && <Markdown source={description} />}
+        <Tags tags={data.technologies} />
+        {showDesc && <Markdown source={data.description} />}
       </Item>
     </s.JobItem>
   )

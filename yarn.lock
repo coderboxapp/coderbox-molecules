@@ -13,8 +13,8 @@
     styled-utils "^1.2.4"
 
 "@coderbox/atoms@^1.0.39":
-  version "1.0.42"
-  resolved "https://registry.yarnpkg.com/@coderbox/atoms/-/atoms-1.0.42.tgz#8121cac6c23f04a583b85d3d2c470a82dff4c2f8"
+  version "1.0.43"
+  resolved "https://registry.yarnpkg.com/@coderbox/atoms/-/atoms-1.0.43.tgz#6dac5aaced2bf24994b6bff4d0335ed621bce31a"
   dependencies:
     react "^15.5.4"
     react-dom "^15.5.4"
