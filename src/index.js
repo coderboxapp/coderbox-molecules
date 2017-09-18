@@ -12,6 +12,7 @@ import EditableItem from 'items/EditableItem'
 import JobItem from 'items/JobItem'
 import PositionItem from 'items/PositionItem'
 import EducationItem from 'items/EducationItem'
+import CandidateItem from 'items/CandidateItem'
 import { createItem } from 'items'
 
 // forms
@@ -47,6 +48,7 @@ export {
   EditableItem,
   PositionItem,
   EducationItem,
+  CandidateItem,
   // forms
   LoginForm,
   PositionForm,
