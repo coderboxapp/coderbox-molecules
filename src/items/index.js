@@ -10,6 +10,7 @@ const createItem = (data, props) => {
   const map = {
     'position': PositionItem,
     'education': EducationItem,
+    'internship': JobItem,
     'job': JobItem
   }
 

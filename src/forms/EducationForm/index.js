@@ -110,8 +110,7 @@ const withFormik = Formik({
   }),
   mapPropsToValues: ({ data }) => {
     return {
-      ...data,
-      type: 'education'
+      ...data
     }
   },
   handleSubmit: (values, { props, setSubmitting }) => {

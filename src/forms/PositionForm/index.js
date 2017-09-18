@@ -133,8 +133,7 @@ const withFormik = Formik({
   }),
   mapPropsToValues: ({ data }) => {
     return {
-      ...data,
-      type: 'position'
+      ...data
     }
   },
   handleSubmit: (values, { props, setSubmitting }) => {

@@ -133,8 +133,7 @@ const withFormik = Formik({
       .required('Title is required')
   }),
   mapPropsToValues: ({ data }) => ({
-    ...data,
-    type: 'job'
+    ...data
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     if (props.onSubmit) {

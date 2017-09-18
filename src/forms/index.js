@@ -10,6 +10,7 @@ const createForm = (data, props) => {
     'position': PositionForm,
     'education': EducationForm,
     'user': UserProfileForm,
+    'internship': JobForm,
     'job': JobForm
   }
 
