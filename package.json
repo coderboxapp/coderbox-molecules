@@ -1,6 +1,6 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {

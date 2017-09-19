@@ -68,13 +68,15 @@ const Component = ({
         </Control>
       </Field>
 
-      <Field label='Description:'>
+      <Field label='Description:' isRequired>
         <Textarea
           rows={10}
           name='description'
           value={values.description}
+          color={errors.description ? 'danger' : null}
           onChange={handleChange}
-          placeholder='Description' />
+          placeholder='Description'
+          isOutlined />
       </Field>
 
       <Field>
@@ -130,7 +132,10 @@ const withFormik = Formik({
   validationSchema: object().shape({
     title: string()
       .min(3, 'Title has to be at least 3 characters long.')
-      .required('Title is required')
+      .required('Title is required'),
+    description: string()
+      .min(5, 'Description has to be at least 5 characters long.')
+      .required()
   }),
   mapPropsToValues: ({ data }) => ({
     ...data

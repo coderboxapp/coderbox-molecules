@@ -26,9 +26,11 @@ const Component = ({ data, href, showTag, showDesc }: Props) => {
         <Subtitle size='normal' color='gray'>
           <Link>@{data.company.name}</Link>, {data.location && data.location.formatted_address}
         </Subtitle>
-        <Text color='success' tone={1}>
-          min. {data.minSalary} € / month
-        </Text>
+        {data.type === 'job' &&
+          <Text color='success' tone={1}>
+            min. {data.minSalary} € / month
+          </Text>
+        }
         <Tags tags={data.technologies}>
           {data.paid && (
             <Group>
