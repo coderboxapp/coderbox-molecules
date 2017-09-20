@@ -3971,6 +3971,12 @@ moment@^2.18.1:
   version "2.18.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
+mqcss@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/mqcss/-/mqcss-1.0.2.tgz#b16350bea019af3bc4378280af600c081600d11a"
+  dependencies:
+    lodash "^4.17.4"
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"

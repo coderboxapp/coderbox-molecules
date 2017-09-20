@@ -21,7 +21,7 @@ const Component = ({ title, subtitle, icon, isOdd, children, ...props }: Props) 
   const className = cx('timeline-row', props.className)
 
   let childs = [
-    <Item isOdd={!isOdd} key={0}>
+    <Item isOdd={!isOdd} isTitle key={0}>
       <Title size='large'>{title}</Title>
       <Subtitle size='small' color='gray'>{subtitle}</Subtitle>
     </Item>,

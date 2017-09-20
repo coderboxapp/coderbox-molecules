@@ -100,7 +100,7 @@ const withDefaultProps = defaultProps({
   suggestions: { institutions: [], technologies: [] }
 })
 const withFormik = Formik({
-  validateOnChange: true,
+  validateOnChange: false,
   validationSchema: object().shape({
     institution: object().shape({
       name: string()

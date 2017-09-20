@@ -1,6 +1,6 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {
@@ -63,6 +63,7 @@
     "jwt-decode": "^2.2.0",
     "mobx-react": "^4.2.2",
     "moment": "^2.18.1",
+    "mqcss": "^1.0.2",
     "react": "^15.5.4",
     "react-addons-shallow-compare": "^15.6.0",
     "react-avatar": "^2.4.0",

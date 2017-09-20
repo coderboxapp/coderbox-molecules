@@ -118,7 +118,7 @@ const withDefaultProps = defaultProps({
 })
 
 const withFormik = Formik({
-  validateOnChange: true,
+  validateOnChange: false,
   validationSchema: object().shape({
     title: object().shape({
       name: string()

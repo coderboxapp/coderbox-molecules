@@ -128,7 +128,7 @@ const withDefaultProps = defaultProps({
 })
 
 const withFormik = Formik({
-  validateOnChange: true,
+  validateOnChange: false,
   validationSchema: object().shape({
     title: string()
       .min(3, 'Title has to be at least 3 characters long.')

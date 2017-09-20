@@ -62,14 +62,14 @@ Component.defaultProps = {
 
 export default compose(
   withFormik({
-    mapPropsToValues: (p) => ({ email: p.email || '', password: p.password || '' }),
     validationSchema: yup.object().shape({
       email: yup.string()
-        .email('Invalid email address')
-        .required('Email is required'),
+      .email('Invalid email address')
+      .required('Email is required'),
       password: yup.string()
-        .required('Password is required')
+      .required('Password is required')
     }),
+    mapPropsToValues: (p) => ({ email: p.email || '', password: p.password || '' }),
     handleSubmit: (values, { props }) => {
       if (props.onSubmit) {
         props.onSubmit(values)

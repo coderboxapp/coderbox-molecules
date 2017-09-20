@@ -32,10 +32,10 @@ export const Timeline = styled.div`
     width: 2px;
   }
 
-  .timeline-row:last-child:after {
+  & > .timeline-row:last-child:after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -110px;
     left: 50%;
     transform: translateX(-50%);
     background: ${bgColor};
