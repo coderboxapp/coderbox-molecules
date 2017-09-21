@@ -1,7 +1,7 @@
 import React from 'react'
-import yup from 'yup'
-import { Formik as withFormik } from 'formik'
-import { compose } from 'recompose'
+import { string, object } from 'yup'
+import { Formik } from 'formik'
+import { compose, defaultProps } from 'recompose'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 
@@ -9,7 +9,7 @@ const Component = ({
   values,
   errors,
   status,
-  submitting,
+  isSubmitting,
   handleChange,
   handleSubmit,
   ...props
@@ -47,7 +47,7 @@ const Component = ({
           />
         </Control>
       </Field>
-      <Button color='primary' onClick={handleSubmit} isLoading={submitting}>
+      <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
         Login
       </Button>
     </form>
@@ -55,25 +55,34 @@ const Component = ({
 }
 
 Component.displayName = 'LoginForm'
-Component.defaultProps = {
+
+const withDefaultProps = defaultProps({
   email: '',
   password: ''
-}
+})
+
+const withFormik = Formik({
+  validateOnChange: false,
+  validationSchema: object().shape({
+    email: string().email('Invalid email address').required('Email is required'),
+    password: string().min(4, 'Must be longer than 4 characters').required('Password is required')
+  }),
+  mapPropsToValues: (p) => ({ email: p.email || '', password: p.password || '' }),
+  handleSubmit: (values, { props, setSubmitting }) => {
+    if (props.onSubmit) {
+      props
+        .onSubmit(values)
+        .then((result) => {
+          setSubmitting(false)
+          if (props.onSubmitComplete) {
+            props.onSubmitComplete()
+          }
+        })
+    }
+  }
+})
 
 export default compose(
-  withFormik({
-    validationSchema: yup.object().shape({
-      email: yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
-      password: yup.string()
-      .required('Password is required')
-    }),
-    mapPropsToValues: (p) => ({ email: p.email || '', password: p.password || '' }),
-    handleSubmit: (values, { props }) => {
-      if (props.onSubmit) {
-        props.onSubmit(values)
-      }
-    }
-  })
+  withDefaultProps,
+  withFormik
 )(Component)
