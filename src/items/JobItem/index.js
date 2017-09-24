@@ -27,9 +27,24 @@ const Component = ({ data, href, showTag, showDesc }: Props) => {
           <Link>@{data.company.name}</Link>, {data.location && data.location.formatted_address}
         </Subtitle>
         {data.type === 'job' &&
-          <Text color='success' tone={1}>
-            min. {data.minSalary} € / month
-          </Text>
+          <div className='row'>
+            <Text color='gray'>
+              min. salary:
+            </Text>
+            <Text color='primary'>
+              <b>{data.minSalary} € / month</b>
+            </Text>
+          </div>
+        }
+        {data.score !== undefined &&
+          <div className='row'>
+            <Text color='gray'>
+              score:
+            </Text>
+            <Text color={data.score > 30 ? 'success' : 'danger'}>
+              <b>{data.score} %</b>
+            </Text>
+          </div>
         }
         <Tags tags={data.technologies}>
           {data.paid && (

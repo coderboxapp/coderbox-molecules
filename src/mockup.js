@@ -101,6 +101,7 @@ export const job = {
   `,
   published: true,
   paid: true,
+  score: 0,
   teamWork: true,
   minSalary: 1400,
   views: 1,
