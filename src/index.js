@@ -33,6 +33,7 @@ import ToolbarEditDelete from 'components/ToolbarEditDelete'
 import Timeline from 'components/Timeline'
 import TimelineRow from 'components/TimelineRow'
 import UserProfile from 'components/UserProfile'
+import MarkdownEditor from 'components/MarkdownEditor'
 
 export {
   // elements
@@ -65,6 +66,7 @@ export {
   Timeline,
   TimelineRow,
   UserProfile,
+  MarkdownEditor,
   // utils
   createForm,
   createItem

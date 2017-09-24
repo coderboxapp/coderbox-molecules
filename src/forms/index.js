@@ -3,12 +3,14 @@ import LoginForm from './LoginForm'
 import PositionForm from './PositionForm'
 import EducationForm from './EducationForm'
 import JobForm from './JobForm'
+import ProjectForm from './ProjectForm'
 import UserProfileForm from './UserProfileForm'
 
 const createForm = (data, props) => {
   const map = {
     'position': PositionForm,
     'education': EducationForm,
+    'project': ProjectForm,
     'user': UserProfileForm,
     'internship': JobForm,
     'job': JobForm
@@ -24,6 +26,7 @@ export {
   PositionForm,
   EducationForm,
   JobForm,
+  ProjectForm,
   UserProfileForm,
   createForm
 }

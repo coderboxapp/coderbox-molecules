@@ -75,6 +75,14 @@ export const position = {
   icon: 'briefcase'
 }
 
+export const project = {
+  _id: 2,
+  title: 'Thanky',
+  url: 'http://thanky.ro',
+  technologies: technologies.concat().slice(0, 2),
+  timePeriod: { end: '2017-06-01T12:57:34.716Z', start: '2016-11-01T22:00:00.000Z' },
+  description: '**Thanky** is a digital loyalty program.'
+}
 export const education = {
   _id: 55,
   degree: 'Master’s Degree',
