@@ -13,6 +13,7 @@ import JobItem from 'items/JobItem'
 import PositionItem from 'items/PositionItem'
 import EducationItem from 'items/EducationItem'
 import CandidateItem from 'items/CandidateItem'
+import ProjectItem from 'items/ProjectItem'
 import { createItem } from 'items'
 
 // forms
@@ -21,6 +22,7 @@ import PositionForm from 'forms/PositionForm'
 import EducationForm from 'forms/EducationForm'
 import UserProfileForm from 'forms/UserProfileForm'
 import JobForm from 'forms/JobForm'
+import ProjectForm from 'forms/ProjectForm'
 import { createForm } from 'forms'
 
 // components
@@ -50,11 +52,13 @@ export {
   PositionItem,
   EducationItem,
   CandidateItem,
+  ProjectItem,
   // forms
   LoginForm,
   PositionForm,
   EducationForm,
   JobForm,
+  ProjectForm,
   UserProfileForm,
   // components
   AutocompleteLocation,
