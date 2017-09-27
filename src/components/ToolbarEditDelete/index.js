@@ -1,18 +1,22 @@
 // @flow
 import React from 'react'
-import { Button, Icon } from '@coderbox/atoms'
+import { Button, Icon, YesNo } from '@coderbox/atoms'
+import { compose, mapProps, withState } from 'recompose'
 import { Toolbar } from './styles'
+
 import type { Colors } from '@coderbox/atoms'
 
 type Props = {
   index: number,
+  pending?: boolean,
   onEdit?: Function,
   onCancel?: Function,
   onDelete?: Function,
   color?: Colors
 }
 
-const Component = ({ index, onEdit, onCancel, onDelete, color, ...props }: Props) => {
+const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props }: Props) => {
+  console.log(props)
   return (
     <Toolbar {...props}>
       {index === 0 &&
@@ -25,9 +29,11 @@ const Component = ({ index, onEdit, onCancel, onDelete, color, ...props }: Props
           <Icon name='times' />
         </Button>
       }
-      <Button isIcon color={color} tone='2' size='small' onClick={onDelete}>
-        <Icon name='trash' />
-      </Button>
+      <YesNo color={color} size='small' onYes={onDelete}>
+        <Button color={color} tone='2' size='small' isLoading={pending} isIcon>
+          <Icon name='trash' />
+        </Button>
+      </YesNo>
     </Toolbar>
   )
 }
@@ -38,4 +44,17 @@ Component.defaultProps = {
   color: 'gray'
 }
 
-export default Component
+export default compose(
+  withState('pending', 'setPending', false),
+  mapProps(p => {
+    return {
+      ...p,
+      onDelete: () => {
+        p.setPending(true)
+        p.onDelete().then(() => {
+          p.setPending(false)
+        })
+      }
+    }
+  })
+)(Component)
