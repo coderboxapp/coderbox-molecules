@@ -4,7 +4,7 @@ import { Formik } from 'formik'
 import { compose, setDisplayName, defaultProps } from 'recompose'
 import { Field, Control, Input, Dropdown, Textarea, Checkbox } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
-import { AutocompleteLocation } from 'components'
+import { AutocompleteLocation, MarkdownEditor } from 'components'
 
 const Component = ({
   values,
@@ -69,14 +69,11 @@ const Component = ({
       </Field>
 
       <Field label='Description:' isRequired>
-        <Textarea
-          rows={10}
+        <MarkdownEditor
           name='description'
           value={values.description}
-          color={errors.description ? 'danger' : null}
-          onChange={handleChange}
-          placeholder='Description'
-          isOutlined />
+          onBlur={(evt, v) => props.setFieldValue('description', v)}
+          placeholder='Description ?' />
       </Field>
 
       <Field>

@@ -6,6 +6,7 @@ import JobItem from './JobItem'
 import PositionItem from './PositionItem'
 import EducationItem from './EducationItem'
 import CandidateItem from './CandidateItem'
+import ProjectItem from './ProjectItem'
 
 const createItem = (data, props) => {
   const map = {
@@ -13,6 +14,7 @@ const createItem = (data, props) => {
     'education': EducationItem,
     'internship': JobItem,
     'candidate': CandidateItem,
+    'project': ProjectItem,
     'job': JobItem
   }
 
@@ -28,5 +30,6 @@ export {
   PositionItem,
   CandidateItem,
   EducationItem,
+  ProjectItem,
   createItem
 }

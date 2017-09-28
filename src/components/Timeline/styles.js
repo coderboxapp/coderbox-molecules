@@ -35,7 +35,7 @@ export const Timeline = styled.div`
   & > .timeline-row:last-child:after {
     content: '';
     position: absolute;
-    bottom: -110px;
+    bottom: -90px;
     left: 50%;
     transform: translateX(-50%);
     background: ${bgColor};

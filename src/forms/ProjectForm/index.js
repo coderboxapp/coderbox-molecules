@@ -1,9 +1,8 @@
 import React from 'react'
 import { object, string } from 'yup'
-import { isObject } from 'lodash'
 import { Formik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
-import { Field, Control, Dropdown, DateRange } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown, DateRange } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { MarkdownEditor } from 'components'
 
@@ -30,35 +29,24 @@ const Component = ({
       <Field label='Title:' isRequired>
         <Control hasLeftIcon>
           <Icon name='info' className='left' />
-          <Dropdown
-            isSearch
-            allowNew
+          <Input
             name='title'
-            maxItems={4}
-            labelField='name'
-            items={suggestions.titles}
             value={values.title}
-            borderColor={errors['title.name'] ? 'danger' : undefined}
-            onChange={c => setFieldValue('title', isObject(c) ? c : {name: c})}
-            placeholder='Type title(eg. Web Developer)'
+            color={errors.title ? 'danger' : null}
+            onChange={handleChange}
+            placeholder='Type project name'
           />
         </Control>
       </Field>
 
-      <Field label='Company / Organization:' isRequired>
+      <Field label='URL:'>
         <Control hasLeftIcon>
-          <Icon name='building' className='left' />
-          <Dropdown
-            isSearch
-            allowNew
-            name='company'
-            maxItems={4}
-            labelField='name'
-            items={suggestions.companies}
-            value={values.company}
-            borderColor={errors['company.name'] ? 'danger' : undefined}
-            onChange={c => setFieldValue('company', isObject(c) ? c : {name: c})}
-            placeholder='Type company name'
+          <Icon name='link' className='left' />
+          <Input
+            name='url'
+            value={values.url}
+            onChange={handleChange}
+            placeholder='Type project name'
           />
         </Control>
       </Field>
@@ -86,17 +74,19 @@ const Component = ({
           isMultiple
           name='timePeriod'
           size='small'
+          label='Still working on this...'
           range={values.timePeriod}
           onChange={d => setFieldValue('timePeriod', d)}
         />
       </Field>
 
-      <Field label='Responsabilities:'>
+      <Field label='Description:' isRequired>
         <MarkdownEditor
-          name='responsabilities'
-          value={values.responsabilities}
-          onBlur={(evt, v) => setFieldValue('responsabilities', v)}
-          placeholder='Description ?' />
+          name='description'
+          value={values.description}
+          color={errors.description ? 'danger' : null}
+          onBlur={(evt, v) => setFieldValue('description', v)}
+          placeholder='Type project description' />
       </Field>
 
       <div>
@@ -111,7 +101,7 @@ const Component = ({
   )
 }
 
-const withDisplayName = setDisplayName('PositionForm')
+const withDisplayName = setDisplayName('ProjectForm')
 const withDefaultProps = defaultProps({
   data: {},
   suggestions: { companies: [], technologies: [], titles: [] }
@@ -120,16 +110,12 @@ const withDefaultProps = defaultProps({
 const withFormik = Formik({
   validateOnChange: false,
   validationSchema: object().shape({
-    title: object().shape({
-      name: string()
+    title: string()
       .min(3, 'Title has to be at least 3 characters long.')
-      .required('Title is required')
-    }),
-    company: object().shape({
-      name: string()
-      .min(3, 'Title has to be at least 3 characters long.')
-      .required('Title is required')
-    })
+      .required('Title is required'),
+    description: string()
+      .min(5, 'Description has to be at least 5 characters long.')
+      .required()
   }),
   mapPropsToValues: ({ data }) => {
     return {

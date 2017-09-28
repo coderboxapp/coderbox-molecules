@@ -16,7 +16,14 @@ const Component = compose(
         setTimeout(resolve, 1200)
       })
     },
-    onDelete: (props) => (item) => console.log('Delete: ', item)
+    onDelete: (props) => (item) => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          console.log('Delete: ', item)
+          resolve()
+        }, 1200)
+      })
+    }
   }),
   withTheme(theme)
 )(

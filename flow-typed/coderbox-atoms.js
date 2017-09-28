@@ -10,6 +10,7 @@ declare module '@coderbox/atoms' {
   declare var Title: React$ComponentType<*>
   declare var Tag: React$ComponentType<*>
   declare var Group: React$ComponentType<*>
+  declare var YesNo: React$ComponentType<*>
 
   declare type Colors = 'primary' | 'success' | 'danger' | 'white' | 'black' | 'gray'
   declare var theme : any

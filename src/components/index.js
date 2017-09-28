@@ -8,6 +8,7 @@ import Timeline from './Timeline'
 import TimelineRow from './TimelineRow'
 import UserProfile from './UserProfile'
 import CandidateCharts from './CandidateCharts'
+import MarkdownEditor from './MarkdownEditor'
 
 export {
   AutocompleteLocation,
@@ -15,6 +16,7 @@ export {
   CompanyProfile,
   JobHeader,
   JobExtra,
+  MarkdownEditor,
   ToolbarNextPrev,
   ToolbarEditDelete,
   Timeline,
