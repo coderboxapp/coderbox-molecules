@@ -1,15 +1,6 @@
-import Avatar from './Avatar'
-import DateRange from './DateRange'
-import DaysAgo from './DaysAgo'
-import Location from './Location'
-import Markdown from './Markdown'
-import Tags from './Tags'
+const req = require.context('.', true, /\.\/[^/]+\/index\.js$/)
 
-export {
-  Avatar,
-  DateRange,
-  DaysAgo,
-  Location,
-  Markdown,
-  Tags
-}
+req.keys().forEach((key) => {
+  const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
+  module.exports[componentName] = req(key).default
+})

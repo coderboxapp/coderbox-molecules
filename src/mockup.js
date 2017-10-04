@@ -112,7 +112,7 @@ export const job = {
   score: 0,
   teamWork: true,
   minSalary: 1400,
-  views: 1,
+  views: 12,
   technologies: technologies.concat().slice(0, 2),
   industry: 3,
   categories: [{'name': 'backend', 'duration': 96}, {'name': 'frontend', 'duration': 96}],

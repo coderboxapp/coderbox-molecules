@@ -9,6 +9,10 @@ export const EditorContainer = styled.div`
   border-radius: 3px;
   line-height: 1.5em;
 
+  & .ButtonWrap__root___1EO_R {
+    z-index: 2;
+  }
+
   & > div {
     box-shadow: inset 0 1px 2px rgba(100,100,100,0.12);
   }

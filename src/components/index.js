@@ -1,25 +1,6 @@
-import AutocompleteLocation from './AutocompleteLocation'
-import CompanyProfile from './CompanyProfile'
-import JobHeader from './JobHeader'
-import JobExtra from './JobExtra'
-import ToolbarNextPrev from './ToolbarNextPrev'
-import ToolbarEditDelete from './ToolbarEditDelete'
-import Timeline from './Timeline'
-import TimelineRow from './TimelineRow'
-import UserProfile from './UserProfile'
-import CandidateCharts from './CandidateCharts'
-import MarkdownEditor from './MarkdownEditor'
+const req = require.context('.', true, /\.\/[^/]+\/index\.js$/)
 
-export {
-  AutocompleteLocation,
-  CandidateCharts,
-  CompanyProfile,
-  JobHeader,
-  JobExtra,
-  MarkdownEditor,
-  ToolbarNextPrev,
-  ToolbarEditDelete,
-  Timeline,
-  TimelineRow,
-  UserProfile
-}
+req.keys().forEach((key) => {
+  const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
+  module.exports[componentName] = req(key).default
+})
