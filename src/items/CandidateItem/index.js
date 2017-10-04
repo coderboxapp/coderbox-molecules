@@ -22,7 +22,7 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
   let technologies = intersectionBy(profile.radar.technologies, job.radar.technologies, t => t.name)
   let score = Math.round(((technologies.length + 0.5) / job.radar.technologies.length) * 100)
   let statusColor = (status) => {
-    if (status === 'apply') return 'gray'
+    if (status === 'apply') return 'primary'
     if (status === 'waiting') return 'accent'
     if (status === 'accepted') return 'success'
     if (status === 'rejected') return 'danger'
@@ -37,11 +37,11 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
       <Subtitle size='normal'><Link>{profile.email}</Link></Subtitle>
       <Tags>
         <Group>
-          <Tag color='gray' tone={1}>score:</Tag>
+          <Tag color='light'>score:</Tag>
           <Tag color={score > 30 ? 'success' : 'danger'}>{score}%</Tag>
         </Group>
         <Group>
-          <Tag color='gray' tone={1}>status:</Tag>
+          <Tag color='light'>status:</Tag>
           <Tag color={statusColor(status)}>{status}</Tag>
         </Group>
       </Tags>
