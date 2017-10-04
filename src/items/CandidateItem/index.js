@@ -49,14 +49,14 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
       <Toolbar>
         {(status === 'apply' && !pending) && (
           <ToolbarGroup>
-            <YesNo color='success' size='small' onYes={onAccept}>
-              <Button color='success' size='small' isOutlined isLoading={pending}>
+            <YesNo color='success' size='small' tone='1' onYes={onAccept}>
+              <Button color='success' size='small' isLoading={pending}>
                 <Icon name='check' />
                 Accept
               </Button>
             </YesNo>
-            <YesNo color='danger' size='small'>
-              <Button color='danger' size='small' isOutlined isLoading={pending}>
+            <YesNo color='danger' size='small' tone='1' onYes={onReject}>
+              <Button color='danger' size='small' isLoading={pending}>
                 <Icon name='ban' />
                 Reject
               </Button>
