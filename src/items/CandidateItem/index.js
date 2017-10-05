@@ -1,11 +1,12 @@
 // @flow
 import React from 'react'
-import { Title, Subtitle, Link, Button, Icon, Tag, Group, YesNo } from '@coderbox/atoms'
 import { intersectionBy } from 'lodash'
 import { DaysAgo, Tags } from 'elements'
-import { CandidateCharts } from 'components'
-import { compose, withState, withHandlers, mapProps } from 'recompose'
+import { compose, withState, withHandlers } from 'recompose'
+import { withPending } from '@coderbox/hocs'
+import { Title, Subtitle, Link, Button, Icon, Tag, Group, YesNo } from '@coderbox/atoms'
 import { Item } from 'items'
+import { CandidateCharts } from 'components'
 import { Toolbar, ToolbarGroup } from './styles'
 
 type Props = {
@@ -84,28 +85,10 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
 Component.displayName = 'CandidateItem'
 
 const withChartsToggle = compose(
+  withPending(['onAccept', 'onReject']),
   withState('showCharts', 'setShowCharts', false),
-  withState('pending', 'setPending', false),
   withHandlers({
     toggleCharts: ({ setShowCharts }) => () => setShowCharts(show => !show)
-  }),
-  mapProps(p => {
-    return {
-      ...p,
-      onAccept: () => {
-        p.setPending(true)
-        p.onAccept().then(() => {
-          console.log('doooone')
-          p.setPending(false)
-        })
-      },
-      onReject: () => {
-        p.setPending(true)
-        p.onAccept().then(() => {
-          p.setPending(false)
-        })
-      }
-    }
   })
 )
 

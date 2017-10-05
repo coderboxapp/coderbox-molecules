@@ -25,7 +25,7 @@ const Component = compose(
       return (
         <div>
           <Box>
-            <CandidateItem data={{...candidate, status}} onAccept={onAccept} />
+            <CandidateItem data={{...candidate, status}} onAccept={onAccept} onReject={() => console.log('reject')} />
           </Box>
         </div>
       )

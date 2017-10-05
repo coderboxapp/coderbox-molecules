@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import { Button, Icon, YesNo } from '@coderbox/atoms'
-import { compose, mapProps, withState } from 'recompose'
+import { withPending } from '@coderbox/hocs'
 import { Toolbar } from './styles'
 
 import type { Colors } from '@coderbox/atoms'
@@ -44,17 +44,4 @@ Component.defaultProps = {
   color: 'gray'
 }
 
-export default compose(
-  withState('pending', 'setPending', false),
-  mapProps(p => {
-    return {
-      ...p,
-      onDelete: () => {
-        p.setPending(true)
-        p.onDelete().then(() => {
-          p.setPending(false)
-        })
-      }
-    }
-  })
-)(Component)
+export default withPending(['onDelete'])(Component)
