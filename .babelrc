@@ -1,19 +1,25 @@
 {
-	"presets": [
-		"es2015",
-		"react",
-		"stage-0",
-		"flow"
-	],
-	"plugins": [
-		["styled-components"],
-		[
-			"module-resolver", {
-				"root": ["./src"],
-				"alias": {
-					"@coderbox/prop-types": "/proptypes"
-				}
-			}
-		]
-	]
+  "presets": [
+    "react",
+    "flow",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [ "last 2 versions" ]
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [ "transform-object-rest-spread" ],
+    [ "babel-plugin-transform-class-properties" ],
+    [ "styled-components" ],
+    [
+      "module-resolver",
+      {
+        "root": [ "./src" ]
+      }
+    ]
+  ]
 }
