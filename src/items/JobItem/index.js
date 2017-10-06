@@ -9,16 +9,17 @@ type Props = {
   data: any,
   href?: string,
   showTag?: bool,
-  showDesc?: bool
+  showDesc?: bool,
+  hideLeft?: bool
 }
 
-const Component = ({ data, href, showTag, showDesc }: Props) => {
+const Component = ({ data, href, showTag, showDesc, hideLeft }: Props) => {
   const tagColor = data.published ? 'primary' : 'gray'
   const tag = showTag ? <Tag color={tagColor} size='small'>{data.published ? 'published' : 'draft'}</Tag> : null
 
   return (
     <s.JobItem>
-      <Item image={data.company.logo} tag={tag}>
+      <Item image={data.company.logo} tag={tag} hideLeft={hideLeft}>
         <DaysAgo date={data.createdAt} />
         <Link href={href} color='black'>
           <Title size='large'>{data.title}</Title>

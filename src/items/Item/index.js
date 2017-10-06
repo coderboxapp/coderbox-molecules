@@ -4,14 +4,16 @@ import { string, element } from 'prop-types'
 import { Avatar } from 'elements'
 import { Item, ItemLeft, ItemContent } from './styles'
 
-const Component = ({ image, email, tag, children, ...props }) => {
+const Component = ({ image, email, tag, children, hideLeft, ...props }) => {
   let className = cx('item', props.className)
   return (
     <Item className={className}>
-      <ItemLeft>
-        <Avatar email={email} src={image} size={60} />
-        {tag}
-      </ItemLeft>
+      {!hideLeft && (
+        <ItemLeft>
+          <Avatar email={email} src={image} size={60} />
+          {tag}
+        </ItemLeft>
+      )}
       <ItemContent>
         {children}
       </ItemContent>
