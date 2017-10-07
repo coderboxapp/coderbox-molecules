@@ -19,8 +19,8 @@ type Props = {
 }
 
 const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject }: Props) => {
-  let { profile, job, status } = data
-  let technologies = intersectionBy(profile.radar.technologies, job.radar.technologies, t => t.name)
+  let { user, job, status } = data
+  let technologies = intersectionBy(user.radar.technologies, job.radar.technologies, t => t.name)
   let score = Math.round(((technologies.length + 0.5) / job.radar.technologies.length) * 100)
   let statusColor = (status) => {
     if (status === 'apply') return 'primary'
@@ -32,10 +32,10 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
   if (score > 100) score = 100
 
   return (
-    <Item email={profile.email}>
+    <Item email={user.email}>
       <DaysAgo date={data.createdAt} />
-      <Title size='large'>{profile.name}</Title>
-      <Subtitle size='normal'><Link>{profile.email}</Link></Subtitle>
+      <Title size='large'>{user.name}</Title>
+      <Subtitle size='normal'><Link>{user.email}</Link></Subtitle>
       <Tags>
         <Group>
           <Tag color='light'>score:</Tag>
@@ -46,7 +46,7 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
           <Tag color={statusColor(status)}>{status}</Tag>
         </Group>
       </Tags>
-      <Tags tags={profile.radar.technologies} />
+      <Tags tags={user.radar.technologies} />
       <Toolbar>
         {(status === 'apply' && !pending) && (
           <ToolbarGroup>
@@ -70,7 +70,7 @@ const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject
             <Button isLoading>xx</Button>
           </Group>
         )}
-        <Button href={`/app/${profile._id}`} color='primary' size='small' target='_blank' isIcon>
+        <Button href={`/app/${user._id}`} color='primary' size='small' target='_blank' isIcon>
           <Icon name='user' />
         </Button>
         <Button color='gray' tone='2' size='small' isIcon isInverted={showCharts} onClick={toggleCharts}>
