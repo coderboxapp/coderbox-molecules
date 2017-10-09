@@ -138,7 +138,7 @@ export const candidate = {
       'categories': [{'name': 'frontend', 'duration': 96}, {'name': 'backend', 'duration': 96}, {'name': 'database', 'duration': 96}]
     }
   },
-  'profile': {
+  'user': {
     '_id': '584dd7ff734d1d55b6dcfa90',
     'email': 'ghalex@gmail.com',
     'name': 'Alexandru Ghiura',

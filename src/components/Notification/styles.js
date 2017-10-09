@@ -22,10 +22,10 @@ export const Notification = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+  }
 
-    p:not(:last-child) {
-      margin-bottom: 0.5rem;
-    }
+  & .content .button {
+    margin-top: 0.5rem;
   }
 
   & p.time {

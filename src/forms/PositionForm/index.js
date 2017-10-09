@@ -68,6 +68,7 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
+            allowNew
             accentColor='primary'
             name='technologies'
             maxItems={4}

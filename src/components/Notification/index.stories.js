@@ -9,21 +9,11 @@ const Component = compose(withTheme(theme))((props) => {
   return (
     <div>
       <Box>
-        <Notification date={new Date()}>
+        <Notification date={new Date()} btnIcon='check' btnLabel='Accept'>
           <Text>
             <Link>Coderbox</Link> has accepted your application as <Link>Web Developer</Link>. Please click{' '}
             <Link>accept</Link> to let the company know you choosed this internship.
           </Text>
-          <div>
-            <Button color='light' size='small'>
-              <Icon name='check' />
-              Accept
-            </Button>
-            <Button color='light' size='small'>
-              <Icon name='close' />
-              Reject
-            </Button>
-          </div>
         </Notification>
       </Box>
       <Box>
@@ -31,12 +21,6 @@ const Component = compose(withTheme(theme))((props) => {
           <Text>
             <Link>Coderbox</Link> has rejected your application to internship <Link>Web Developer</Link>.
           </Text>
-          <div>
-            <Button color='light' size='small'>
-              <Icon name='trash-o' />
-              Delete
-            </Button>
-          </div>
         </Notification>
       </Box>
       <Box>
