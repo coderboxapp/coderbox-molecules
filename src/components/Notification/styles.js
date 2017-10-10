@@ -29,7 +29,7 @@ export const Notification = styled.div`
   }
 
   & p.time {
-    width: 65px;
+    width: 75px;
     display: flex;
     align-items: center;
     justify-content: center;
