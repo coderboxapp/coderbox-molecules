@@ -15,7 +15,7 @@ const Component = ({ icon, date, btnLabel, btnIcon, children, hideButton, pendin
       <div className='content'>
         {children}
         {!hideButton && (
-          <Button onClick={onClick} color='light' size='small'>
+          <Button onClick={onClick} color='light' size='small' isLoading={pending}>
             <Icon name={btnIcon} />
             {btnLabel}
           </Button>
