@@ -3,8 +3,9 @@ import cx from 'classnames'
 import moment from 'moment'
 import { Icon, Text, Button } from '@coderbox/atoms'
 import { Notification } from './styles'
+import { withPending } from '@coderbox/hocs'
 
-const Component = ({ icon, date, btnLabel, btnIcon, children, hideButton, onClick, ...props }) => {
+const Component = ({ icon, date, btnLabel, btnIcon, children, hideButton, pending, onClick, ...props }) => {
   const className = cx('notification', props.className)
   const time = moment(date).from(moment().add(5, 'm'), false)
 
@@ -14,7 +15,7 @@ const Component = ({ icon, date, btnLabel, btnIcon, children, hideButton, onClic
       <div className='content'>
         {children}
         {!hideButton && (
-          <Button onClick={onClick} color='light' size='small'>
+          <Button onClick={onClick} color='light' size='small' isLoading={pending}>
             <Icon name={btnIcon} />
             {btnLabel}
           </Button>
@@ -33,4 +34,4 @@ Component.defaultProps = {
   btnLabel: 'Delete'
 }
 
-export default Component
+export default withPending(['onClick'])(Component)
