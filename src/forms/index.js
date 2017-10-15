@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 import PositionForm from './PositionForm'
 import EducationForm from './EducationForm'
 import JobForm from './JobForm'
@@ -23,6 +24,7 @@ const createForm = (data, props) => {
 
 export {
   LoginForm,
+  SignupForm,
   PositionForm,
   EducationForm,
   JobForm,
