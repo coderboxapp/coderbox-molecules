@@ -30,6 +30,7 @@ const Component = ({
             value={values.email}
             color={errors.email ? 'danger' : null}
             onChange={handleChange}
+            onEnter={handleSubmit}
             placeholder='Your email address'
           />
         </Control>
@@ -43,6 +44,7 @@ const Component = ({
             value={values.password}
             color={errors.password ? 'danger' : null}
             onChange={handleChange}
+            onEnter={handleSubmit}
             placeholder='Your password'
           />
         </Control>

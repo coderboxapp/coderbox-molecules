@@ -31,6 +31,7 @@ const Component = ({
             value={values.email}
             color={errors.email ? 'danger' : null}
             onChange={handleChange}
+            onEnter={handleSubmit}
             placeholder='Your Email' />
           <Icon
             color={errors.email ? 'white' : null}
@@ -47,6 +48,7 @@ const Component = ({
             value={values.name}
             color={errors.name ? 'danger' : null}
             onChange={handleChange}
+            onEnter={handleSubmit}
             placeholder='Your Name' />
           <Icon
             color={errors.name ? 'white' : null}
@@ -62,6 +64,7 @@ const Component = ({
             placeholder='Your Password'
             type='password'
             value={values.password}
+            onEnter={handleSubmit}
             onChange={handleChange} />
           <Icon name='lock' className='left' />
         </Control>
