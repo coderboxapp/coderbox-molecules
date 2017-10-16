@@ -4,6 +4,7 @@ import SignupForm from './SignupForm'
 import PositionForm from './PositionForm'
 import EducationForm from './EducationForm'
 import JobForm from './JobForm'
+import CompanyForm from './CompanyForm'
 import ProjectForm from './ProjectForm'
 import UserProfileForm from './UserProfileForm'
 
@@ -28,6 +29,7 @@ export {
   PositionForm,
   EducationForm,
   JobForm,
+  CompanyForm,
   ProjectForm,
   UserProfileForm,
   createForm
