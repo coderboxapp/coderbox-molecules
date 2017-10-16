@@ -1,6 +1,6 @@
 import React from 'react'
 import { string, object } from 'yup'
-import { Formik } from 'formik'
+import { withFormik } from 'formik'
 import { compose, defaultProps } from 'recompose'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
@@ -82,7 +82,7 @@ const Component = ({
 const withDefaultProps = defaultProps({
 })
 
-const withFormik = Formik({
+const withFormikEnhancer = withFormik({
   validateOnChange: false,
   validationSchema: object().shape({
     email: string().email().required('Email is required'),
@@ -110,6 +110,6 @@ const withFormik = Formik({
 })
 
 export default compose(
-  withFormik,
-  withDefaultProps
+  withDefaultProps,
+  withFormikEnhancer
 )(Component)

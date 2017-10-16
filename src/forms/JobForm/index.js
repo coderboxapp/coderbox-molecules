@@ -1,8 +1,8 @@
 import React from 'react'
 import { object, string } from 'yup'
-import { Formik } from 'formik'
+import { withFormik } from 'formik'
 import { compose, setDisplayName, defaultProps } from 'recompose'
-import { Field, Control, Input, Dropdown, Textarea, Checkbox } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown, Checkbox } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation, MarkdownEditor } from 'components'
 
@@ -124,7 +124,7 @@ const withDefaultProps = defaultProps({
   suggestions: { technologies: [] }
 })
 
-const withFormik = Formik({
+const withFormikEnhancer = withFormik({
   validateOnChange: false,
   validationSchema: object().shape({
     title: string()
@@ -154,5 +154,5 @@ const withFormik = Formik({
 export default compose(
   withDisplayName,
   withDefaultProps,
-  withFormik
+  withFormikEnhancer
 )(Component)

@@ -1,6 +1,6 @@
 import React from 'react'
 import { object, string } from 'yup'
-import { Formik } from 'formik'
+import { withFormik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
@@ -82,7 +82,7 @@ const Component = ({
 
 const withDefaultProps = defaultProps({ data: {} })
 const withDisplayName = setDisplayName('UserProfileForm')
-const withFormik = Formik({
+const withFormikEnhancer = withFormik({
   mapPropsToValues: ({ data }) => ({
     name: data.name,
     location: data.location,
@@ -110,5 +110,5 @@ const withFormik = Formik({
 export default compose(
   withDisplayName,
   withDefaultProps,
-  withFormik
+  withFormikEnhancer
 )(Component)

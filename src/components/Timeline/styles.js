@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { bgColor } from 'styled-utils'
+import { onMobile } from 'mqcss'
 
 export const Timeline = styled.div`
   position: relative;
@@ -42,5 +43,9 @@ export const Timeline = styled.div`
     height: 12px;
     width: 12px;
     border-radius: 50%;
+
+    ${onMobile} {
+      bottom: -110px;
+    }
   }
 `
