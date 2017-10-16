@@ -20,9 +20,10 @@ export const technologies = [
 export const companies = [
   {
     _id: 4,
-    name: 'coderbox',
+    name: 'Coderbox',
     logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/coderbox-blue.png',
     shortBio: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
+    description: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
     location: location
   },
   {_id: 104, name: 'tibco software innovations romania'},
