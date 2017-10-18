@@ -1,10 +1,10 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {
-    "prepare": "yarn build",
+    "prepare": "npm run build",
     "build": "webpack --env production",
     "dev": "webpack --progress --colors --watch --env development",
     "start": "start-storybook -p 6007",

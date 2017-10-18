@@ -25,7 +25,7 @@ const Component = ({ data, href, showTag, showDesc, hideLeft }: Props) => {
           <Title size='large'>{data.title}</Title>
         </Link>
         <Subtitle size='normal' color='gray'>
-          <Link>@{data.company.name}</Link>, {data.location && data.location.formatted_address}
+          <Link href={`/app/companies/${data.company._id}`}>@{data.company.name}</Link>, {data.location && data.location.formatted_address}
         </Subtitle>
         {data.type === 'job' &&
           <div className='row'>
