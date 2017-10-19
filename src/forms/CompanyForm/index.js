@@ -71,7 +71,7 @@ const Component = ({
         </Control>
       </Field>
 
-      <Field label='YouTube URL:'>
+      <Field label='YouTube CODE:'>
         <Control hasLeftIcon>
           <Icon name='youtube' className='left' />
           <Input
@@ -79,7 +79,7 @@ const Component = ({
             value={values.video}
             color={errors.video ? 'danger' : null}
             onChange={handleChange}
-            placeholder='Ex. https://www.youtube.com/watch?v={code}'
+            placeholder='Ex. 71WseneXzSs'
           />
         </Control>
       </Field>
