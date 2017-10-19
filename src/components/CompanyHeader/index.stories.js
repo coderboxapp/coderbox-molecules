@@ -6,11 +6,12 @@ import { withTheme } from '@coderbox/utils'
 import { company } from 'mockup'
 import CompanyProfile from '.'
 
-storiesOf('components/CompanyProfile', module)
-  .add('simple usage', withTheme(theme, () => {
-    return (
-      <Box>
-        <CompanyProfile company={company} />
-      </Box>
-    )
-  }))
+const stories = storiesOf('components/CompanyHeader', module)
+
+stories.add('simple usage', withTheme(theme, () => {
+  return (
+    <Box color='light'>
+      <CompanyProfile company={company} />
+    </Box>
+  )
+}))

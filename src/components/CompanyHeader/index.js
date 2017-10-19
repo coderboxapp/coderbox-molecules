@@ -1,6 +1,6 @@
 import React from 'react'
 import { Avatar, Location, Tags } from 'elements'
-import { Title, Link } from '@coderbox/atoms'
+import { Title, Link, Subtitle } from '@coderbox/atoms'
 import { CompanyProfile } from './styles'
 
 const Component = ({ company }) => {
@@ -12,7 +12,10 @@ const Component = ({ company }) => {
       <Title>{company.name}</Title>
       <Location location={company.location} />
       <Link href={company.website}>{company.website}</Link>
-      <Tags color='white' tags={company.technologies} />
+      {company.technologies.length && [
+        <Subtitle size='normal'>Our Tech Stack:</Subtitle>,
+        <Tags color='white' tags={company.technologies} />
+      ]}
     </CompanyProfile>
   )
 }
