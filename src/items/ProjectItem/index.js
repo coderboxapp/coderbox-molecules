@@ -9,10 +9,10 @@ type Props = {
 }
 
 const Component = ({ data }: Props) => {
-  let { title, technologies, url, timePeriod, description } = data
+  let { title, technologies, url, timePeriod, description, logo } = data
 
   return (
-    <Item>
+    <Item image={logo}>
       <DateRange dateRange={timePeriod} />
       <Title size='large'>{title}</Title>
       <Subtitle size='normal' color='gray'><Link>{url}</Link></Subtitle>
