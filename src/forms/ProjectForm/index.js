@@ -39,6 +39,18 @@ const Component = ({
         </Control>
       </Field>
 
+      <Field label='Logo URL:'>
+        <Control hasLeftIcon>
+          <Icon name='picture-o' className='left' />
+          <Input
+            name='logo'
+            value={values.logo}
+            onChange={handleChange}
+            placeholder='Project logo (60x60)'
+          />
+        </Control>
+      </Field>
+
       <Field label='URL:'>
         <Control hasLeftIcon>
           <Icon name='link' className='left' />
