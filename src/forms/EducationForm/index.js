@@ -32,7 +32,6 @@ const Component = ({
           <Icon name='building' className='left' />
           <Dropdown
             isSearch
-            isMultiple
             allowNew
             maxItems={4}
             labelField='name'
