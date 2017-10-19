@@ -9,7 +9,7 @@ import CandidateRadarChart from '../CandidateRadarChart'
 import ToolbarNextPrev from '../ToolbarNextPrev'
 
 const Component = ({ data, stack }) => {
-  console.log(data)
+
   return (
     <Container>
       <Stack index={stack.index % 2}>

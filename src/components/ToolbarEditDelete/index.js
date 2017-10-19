@@ -16,7 +16,6 @@ type Props = {
 }
 
 const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props }: Props) => {
-  console.log(props)
   return (
     <Toolbar {...props}>
       {index === 0 &&

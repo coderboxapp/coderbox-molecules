@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string } from 'yup'
 import { withFormik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
-import { Field, Control, Input } from '@coderbox/forms'
+import { Field, Control, Input, Dropdown } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation, MarkdownEditor } from 'components'
 import { Avatar } from 'elements'
@@ -12,6 +12,7 @@ const Component = ({
   values,
   errors,
   status,
+  suggestions,
   isSubmitting,
   setFieldValue,
   handleChange,
@@ -51,21 +52,52 @@ const Component = ({
             name='location'
             value={values.location}
             color={errors.location ? 'danger' : null}
-            onChange={loc => props.setFieldValue('location', loc)}
+            onChange={loc => setFieldValue('location', loc)}
             placeholder='Where do you live ?'
+          />
+        </Control>
+      </Field>
+
+      <Field label='Website:'>
+        <Control hasLeftIcon>
+          <Icon name='globe' className='left' />
+          <Input
+            name='website'
+            value={values.website}
+            color={errors.website ? 'danger' : null}
+            onChange={handleChange}
+            placeholder='Ex. http://www.company.com'
           />
         </Control>
       </Field>
 
       <Field label='YouTube URL:'>
         <Control hasLeftIcon>
-          <Icon name='globe' className='left' />
+          <Icon name='youtube' className='left' />
           <Input
             name='video'
             value={values.video}
             color={errors.video ? 'danger' : null}
             onChange={handleChange}
             placeholder='Ex. https://www.youtube.com/watch?v={code}'
+          />
+        </Control>
+      </Field>
+
+      <Field label='Company Stack:'>
+        <Control>
+          <Dropdown
+            isSearch
+            isMultiple
+            allowNew
+            accentColor='primary'
+            name='technologies'
+            maxItems={4}
+            labelField='name'
+            items={suggestions.technologies}
+            value={values.technologies}
+            onChange={t => setFieldValue('technologies', t)}
+            placeholder='Technologies company use (ex. javascript, react, etc...)'
           />
         </Control>
       </Field>
@@ -90,15 +122,18 @@ const Component = ({
   )
 }
 
-const withDefaultProps = defaultProps({ data: {} })
 const withDisplayName = setDisplayName('CompanyForm')
+const withDefaultProps = defaultProps({
+  data: {},
+  suggestions: { companies: [], technologies: [], titles: [] }
+})
+
 const withFormikEnhancer = withFormik({
-  mapPropsToValues: ({ data }) => ({
-    name: data.name,
-    location: data.location,
-    video: data.video,
-    description: data.description
-  }),
+  mapPropsToValues: ({ data }) => {
+    return {
+      ...data
+    }
+  },
   validationSchema: object().shape({
     name: string()
       .min(3, 'Name has to be at least 3 characters long.')

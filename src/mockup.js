@@ -22,8 +22,12 @@ export const companies = [
     _id: 4,
     name: 'Coderbox',
     logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/coderbox-blue.png',
-    shortBio: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
     description: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
+    website: 'http://www.coderbox.ro',
+    technologies: [
+      {_id: 1, name: 'css', category: 'frontend', 'duration': 96},
+      {_id: 3, name: 'javascript', category: 'frontend', 'duration': 96}
+    ],
     location: location
   },
   {_id: 104, name: 'tibco software innovations romania'},

@@ -12,10 +12,12 @@ let libraryName = 'coderbox-ui'
 let plugins = [
   new webpack.DefinePlugin({
     'process.env': {
+      ENV: JSON.stringify(process.env.NODE_ENV),
       NODE_ENV: JSON.stringify(process.env.NODE_ENV)
     }
   }),
-  new webpack.NamedModulesPlugin()
+  new webpack.NamedModulesPlugin(),
+  new webpack.IgnorePlugin(/\.\/locale$/)
 ]
 
 if (env === 'production') {
