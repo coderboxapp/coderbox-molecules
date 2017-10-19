@@ -69,10 +69,10 @@ const Component = ({
             isSearch
             isMultiple
             allowNew
-            accentColor='primary'
-            name='technologies'
             maxItems={4}
             labelField='name'
+            accentColor='primary'
+            name='technologies'
             items={suggestions.technologies}
             value={values.technologies}
             onChange={t => setFieldValue('technologies', t)}

@@ -68,10 +68,11 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
-            accentColor='primary'
-            name='technologies'
+            allowNew
             maxItems={4}
             labelField='name'
+            accentColor='primary'
+            name='technologies'
             items={suggestions.technologies}
             value={values.technologies}
             onChange={t => setFieldValue('technologies', t)}

@@ -32,10 +32,12 @@ const Component = ({
           <Icon name='building' className='left' />
           <Dropdown
             isSearch
+            isMultiple
             allowNew
-            name='institution'
             maxItems={4}
             labelField='name'
+            accentColor='primary'
+            name='institution'
             items={suggestions.institutions}
             value={values.institution}
             borderColor={errors['institution.name'] ? 'danger' : undefined}
