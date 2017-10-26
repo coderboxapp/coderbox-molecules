@@ -20,7 +20,7 @@ const Component = ({
   ...props
 }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} {...props}>
       {status &&
         <Field>
           <Text color='danger' size='normal'>{status}</Text>
