@@ -101,10 +101,10 @@ const Component = ({
       </Field>
 
       <div>
-        <Button color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
+        <Button className='btn-save' color='primary' onClick={handleSubmit} isLoading={isSubmitting}>
           Save
         </Button>
-        <Button color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
+        <Button className='btn-cancel' color='gray' tone='2' onClick={(evt) => onCancel(evt)}>
           Cancel
         </Button>
       </div>
