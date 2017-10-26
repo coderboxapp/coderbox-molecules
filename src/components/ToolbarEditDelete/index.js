@@ -1,5 +1,6 @@
 // @flow
 import React from 'react'
+import cx from 'classnames'
 import { Button, Icon, YesNo } from '@coderbox/atoms'
 import { withPending } from '@coderbox/hocs'
 import { Toolbar } from './styles'
@@ -12,14 +13,17 @@ type Props = {
   onEdit?: Function,
   onCancel?: Function,
   onDelete?: Function,
+  className?: string,
   color?: Colors
 }
 
 const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props }: Props) => {
+  const className = cx('editdelete-toolbar', props.className)
+
   return (
-    <Toolbar {...props}>
+    <Toolbar {...props} className={className}>
       {index === 0 &&
-        <Button isIcon color={color} tone='2' size='small' onClick={onEdit}>
+        <Button isIcon color={color} tone='2' size='small' onClick={onEdit} className='btn-edit'>
           <Icon name='edit' />
         </Button>
       }
@@ -28,7 +32,7 @@ const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props
           <Icon name='times' />
         </Button>
       }
-      <YesNo color={color} size='small' onYes={onDelete}>
+      <YesNo color={color} size='small' onYes={onDelete} className='btn-delete'>
         <Button color={color} tone='2' size='small' isLoading={pending} isIcon>
           <Icon name='trash' />
         </Button>
