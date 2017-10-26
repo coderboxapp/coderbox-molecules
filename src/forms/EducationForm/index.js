@@ -20,7 +20,7 @@ const Component = ({
   ...props
 }) => {
   return (
-    <form onSubmit={handleSubmit} {...props}>
+    <form onSubmit={handleSubmit} className={props.className}>
       {status &&
         <Field>
           <Text color='danger' size='normal'>{status}</Text>
