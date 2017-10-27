@@ -32,8 +32,8 @@ const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props
           <Icon name='times' />
         </Button>
       }
-      <YesNo color={color} size='small' onYes={onDelete} className='btn-delete'>
-        <Button color={color} tone='2' size='small' isLoading={pending} isIcon>
+      <YesNo color={color} size='small' onYes={onDelete}>
+        <Button color={color} tone='2' size='small' isLoading={pending} isIcon className='btn-delete'>
           <Icon name='trash' />
         </Button>
       </YesNo>
