@@ -51,6 +51,7 @@ const Component = ({
           <Dropdown
             isSearch
             isMultiple
+            allowNew
             name='technologies'
             maxItems={4}
             labelField='name'

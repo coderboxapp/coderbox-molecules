@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Stack } from '@coderbox/atoms'
+import { Stack } from '@coderbox/atoms'
 import { withStack } from '@coderbox/hocs'
 import { each, find } from 'lodash'
 import { compose, mapProps } from 'recompose'
@@ -9,7 +9,6 @@ import CandidateRadarChart from '../CandidateRadarChart'
 import ToolbarNextPrev from '../ToolbarNextPrev'
 
 const Component = ({ data, stack }) => {
-
   return (
     <Container>
       <Stack index={stack.index % 2}>
@@ -38,7 +37,7 @@ const withChartData = mapProps(
     let profileMin = 8
     let data = categories.concat()
     let jobRadar = candidate.job.radar
-    let profileRadar = candidate.profile.radar
+    let profileRadar = candidate.user.radar
 
     each(profileRadar.categories, c => {
       let entry = find(data, e => e.category === c.name)
