@@ -21,7 +21,7 @@ type Props = {
 const Component = ({ data, showCharts, toggleCharts, pending, onAccept, onReject }: Props) => {
   let { user, job, status } = data
   let technologies = intersectionBy(user.radar.technologies, job.radar.technologies, t => t.name)
-  let score = Math.round(((technologies.length + 0.5) / job.radar.technologies.length) * 100)
+  let score = Math.round(((technologies.length) / job.radar.technologies.length) * 100)
   let statusColor = (status) => {
     if (status === 'apply') return 'primary'
     if (status === 'waiting') return 'accent'
