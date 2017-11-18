@@ -40,6 +40,7 @@ const Component = ({
             value={values.name}
             color={errors.name ? 'danger' : null}
             onChange={handleChange}
+            disabled
             placeholder='Your name (eg. Darth Vader)'
           />
         </Control>
