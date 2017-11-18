@@ -10,7 +10,7 @@ const Component = ({job, ...props}) => {
     <styles.JobHeader>
       <Avatar src={job.company.logo} />
       <Title>{job.title}</Title>
-      <Link href={`/app/companies/${job.company._id}`}>
+      <Link href={`/app/companies/${job.company.name}`}>
         <Subtitle color='primary'>@{job.company.name}</Subtitle>
       </Link>
       <Location location={job.location} />
