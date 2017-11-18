@@ -15,7 +15,7 @@ const Component = ({ data }: Props) => {
     <Item image={company.logo}>
       <DateRange dateRange={timePeriod} />
       <Title size='large'>{title.name}</Title>
-      <Subtitle size='normal' color='gray'><Link>@{company.name}</Link></Subtitle>
+      <Subtitle size='normal' color='gray'><Link href={`/app/companies/${data.company.name}`}>@{company.name}</Link></Subtitle>
       <Tags tags={technologies} />
       <Markdown source={responsabilities} />
     </Item>
