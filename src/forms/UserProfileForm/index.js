@@ -106,11 +106,11 @@ const withDefaultProps = defaultProps({
 })
 
 const withFormikEnhancer = withFormik({
-  mapPropsToValues: ({ data }) => ({
-    name: data.name,
-    location: data.location,
-    url: data.url
-  }),
+  mapPropsToValues: ({ data }) => {
+    return {
+      ...data
+    }
+  },
   validationSchema: object().shape({
     name: string()
       .min(3, 'Name has to be at least 3 characters long.')
