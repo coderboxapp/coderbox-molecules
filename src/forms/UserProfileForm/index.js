@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string } from 'yup'
 import { withFormik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
-import { Field, Control, Input } from '@coderbox/forms'
+import { Field, Control, Dropdown, Input } from '@coderbox/forms'
 import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
 import { Avatar } from 'elements'
@@ -12,6 +12,7 @@ const Component = ({
   values,
   errors,
   status,
+  suggestions,
   isSubmitting,
   handleChange,
   handleSubmit,
@@ -56,6 +57,24 @@ const Component = ({
         </Control>
       </Field>
 
+      <Field label='Favorite technologies:'>
+        <Control>
+          <Dropdown
+            isSearch
+            isMultiple
+            allowNew
+            maxItems={4}
+            labelField='name'
+            accentColor='primary'
+            name='technologies'
+            items={suggestions.technologies}
+            value={values.technologies}
+            onChange={t => props.setFieldValue('technologies', t)}
+            placeholder='Type technologies'
+          />
+        </Control>
+      </Field>
+
       <Field label='Personal website:'>
         <Control hasLeftIcon>
           <Icon name='globe' className='left' />
@@ -80,8 +99,12 @@ const Component = ({
   )
 }
 
-const withDefaultProps = defaultProps({ data: {} })
 const withDisplayName = setDisplayName('UserProfileForm')
+const withDefaultProps = defaultProps({
+  data: {},
+  suggestions: { technologies: [] }
+})
+
 const withFormikEnhancer = withFormik({
   mapPropsToValues: ({ data }) => ({
     name: data.name,

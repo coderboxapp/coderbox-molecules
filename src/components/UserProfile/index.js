@@ -2,7 +2,7 @@ import React from 'react'
 import { object, string, shape } from 'prop-types'
 import { compose, branch, renderComponent } from 'recompose'
 import { Title, Link } from '@coderbox/atoms'
-import { Location, Avatar } from 'elements'
+import { Location, Avatar, Tags } from 'elements'
 import * as s from './styles'
 
 const Component = ({ profile, ...props }) => {
@@ -11,6 +11,7 @@ const Component = ({ profile, ...props }) => {
       <Avatar email={profile.email} />
       <Title>{profile.name}</Title>
       <Location location={profile.location} />
+      {profile.technologies && <Tags tags={profile.technologies} />}
       {profile.url && <Link href={profile.url}>{profile.url}</Link>}
     </s.Profile>
   )
