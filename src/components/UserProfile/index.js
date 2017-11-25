@@ -11,7 +11,7 @@ const Component = ({ profile, ...props }) => {
       <Avatar email={profile.email} />
       <Title>{profile.name}</Title>
       <Location location={profile.location} />
-      {profile.technologies && <Tags tags={profile.technologies} />}
+      {profile.technologies && <Tags color='primary' tags={profile.technologies} />}
       {profile.url && <Link href={profile.url}>{profile.url}</Link>}
     </s.Profile>
   )
