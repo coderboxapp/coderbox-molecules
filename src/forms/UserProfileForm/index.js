@@ -1,11 +1,12 @@
 import React from 'react'
-import { object, string, number } from 'yup'
+import { object, string } from 'yup'
 import { withFormik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Dropdown, Input } from '@coderbox/forms'
-import { Icon, Button, Text, Group } from '@coderbox/atoms'
+import { Icon, Button, Text } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
 import { Avatar } from 'elements'
+import NumberFormat from 'react-number-format'
 
 const Component = ({
   data,
@@ -74,11 +75,19 @@ const Component = ({
       <Field label='Mobile Phone:'>
         <Control hasLeftIcon>
           <Icon name='phone' className='left' />
-          <Input
+          <NumberFormat
             name='phone'
             value={values.phone}
+            format='(+40) #### ### ###'
+            mask='_'
+            customInput={Input}
             color={errors.phone ? 'danger' : null}
-            onChange={handleChange}
+            onValueChange={(values) => {
+              const { formattedValue } = values
+              // formattedValue = $2,223
+              // value ie, 2223
+              props.setFieldValue('phone', formattedValue)
+            }}
             placeholder='Your phone (07xx-xxx-xxx)'
           />
         </Control>
@@ -140,7 +149,7 @@ const withFormikEnhancer = withFormik({
   },
   validationSchema: object().shape({
     name: string().min(3, 'Name has to be at least 3 characters long.').required('Name is required'),
-    phone: string().matches(/^\d{4}-\d{3}-\d{3}$/)
+    phone: string().matches(/^\(\+40\) \d{4} \d{3} \d{3}$/)
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     if (props.onSubmit) {

@@ -3,7 +3,7 @@ export const user = {
   name: 'Alexandru Ghiura',
   email: 'ghalex@gmail.com',
   url: 'http://twitter.com/ghalex',
-  phone: 2323,
+  phone: '0743 152 161',
   technologies: [{_id: 93, name: 'java', category: 'backend', 'duration': 96}, {_id: 70, name: 'spring', category: 'backend', 'duration': 96}],
   location: {
     formatted_address: 'Timisoara, Romania'
