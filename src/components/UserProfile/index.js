@@ -12,7 +12,7 @@ const Component = ({ profile, ...props }) => {
       <Avatar email={profile.email} />
       <Title>{profile.name}</Title>
       <Location location={profile.location} />
-      {profile.phone && <Text><Icon name='phone' /> (+40) 0724-251-777</Text>}
+      {profile.phone && <Text><Icon name='phone' />{profile.phone}</Text>}
       {technologies.length > 0 && <Tags color='primary' tone='0' tags={profile.technologies} />}
       {profile.url && <Link href={profile.url}>{profile.url}</Link>}
     </s.Profile>
