@@ -1,9 +1,9 @@
 import React from 'react'
-import { object, string } from 'yup'
+import { object, string, number } from 'yup'
 import { withFormik } from 'formik'
 import { compose, defaultProps, setDisplayName } from 'recompose'
 import { Field, Control, Dropdown, Input } from '@coderbox/forms'
-import { Icon, Button, Text } from '@coderbox/atoms'
+import { Icon, Button, Text, Group } from '@coderbox/atoms'
 import { AutocompleteLocation } from 'components'
 import { Avatar } from 'elements'
 
@@ -57,6 +57,33 @@ const Component = ({
         </Control>
       </Field>
 
+      {/* <Field label='Mobile Phone:'>
+        <Group>
+          <Button color='gray' isStatic>+40</Button>
+          <Control hasLeftIcon>
+            <Icon name='phone' className='left' />
+            <Input
+              name='phone'
+              value={values.phone}
+              color={errors.phone ? 'danger' : null}
+              placeholder='Your phone'
+            />
+          </Control>
+        </Group>
+      </Field> */}
+      <Field label='Mobile Phone:'>
+        <Control hasLeftIcon>
+          <Icon name='phone' className='left' />
+          <Input
+            name='phone'
+            value={values.phone}
+            color={errors.phone ? 'danger' : null}
+            onChange={handleChange}
+            placeholder='Your phone (07xx-xxx-xxx)'
+          />
+        </Control>
+      </Field>
+
       <Field label='Favorite technologies:'>
         <Control>
           <Dropdown
@@ -82,7 +109,7 @@ const Component = ({
             name='url'
             value={values.url}
             color={errors.url ? 'danger' : null}
-            onChange={handleChange}
+            onChange={e => props.setFieldValue('url', e.value)}
             placeholder='Your personal website'
           />
         </Control>
@@ -112,9 +139,8 @@ const withFormikEnhancer = withFormik({
     }
   },
   validationSchema: object().shape({
-    name: string()
-      .min(3, 'Name has to be at least 3 characters long.')
-      .required('Name is required')
+    name: string().min(3, 'Name has to be at least 3 characters long.').required('Name is required'),
+    phone: string().matches(/^\d{4}-\d{3}-\d{3}$/)
   }),
   handleSubmit: (values, { props, setSubmitting }) => {
     if (props.onSubmit) {

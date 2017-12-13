@@ -8,6 +8,7 @@ import ProfileForm from '.'
 
 storiesOf('forms/UserProfileForm', module)
   .add('simple usage', withTheme(theme, () => {
+    console.log(user)
     return (
       <div>
         <Box>
