@@ -20,7 +20,7 @@ const Component = ({ data, score, selectedTechnologies }: Props) => {
       <Tags>
         <Group>
           <Tag color='light'>score:</Tag>
-          <Tag color={score > 30 ? 'success' : 'danger'}>{score}%</Tag>
+          <Tag color={score > 15 ? 'success' : 'danger'}>{score}%</Tag>
         </Group>
       </Tags>
       <Tags tags={user.stats.technologies} selectedTags={selectedTechnologies} />
