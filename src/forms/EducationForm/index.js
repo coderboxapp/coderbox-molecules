@@ -79,7 +79,7 @@ const Component = ({
         <Dropdown
           name='degree'
           value={values.degree}
-          items={[ 'High School', 'Bachelor’s Degree', 'Engineer’s Degree', 'Master’s Degree' ]}
+          items={[ 'High School', 'Bachelor’s Degree', 'Engineer’s Degree', 'Master’s Degree', 'PhD Degree' ]}
           onChange={d => setFieldValue('degree', d)}
         />
       </Field>

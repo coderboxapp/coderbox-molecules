@@ -1,12 +1,13 @@
 // @flow
 import React from 'react'
 import { DaysAgo, Tags } from 'elements'
-import { Title, Subtitle, Link, Tag, Group } from '@coderbox/atoms'
+import { Title, Subtitle, Link, Tag, Group, Text, Icon } from '@coderbox/atoms'
 import { Item } from 'items'
 
 type Props = {
   data: any,
-  score: number
+  score: number,
+  selectedTechnologies: []
 }
 
 const Component = ({ data, score, selectedTechnologies }: Props) => {
@@ -17,6 +18,7 @@ const Component = ({ data, score, selectedTechnologies }: Props) => {
       <DaysAgo date={data.createdAt} />
       <Title size='large'>{user.name}</Title>
       <Subtitle size='normal'><Link>{user.email}</Link></Subtitle>
+      <Link size='small' color='grey' style={{marginTop: -10}}><Icon name='phone' /> {user.phone || 'No Phone 😞'}</Link>
       <Tags>
         <Group>
           <Tag color='light'>score:</Tag>
