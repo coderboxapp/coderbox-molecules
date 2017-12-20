@@ -24,7 +24,7 @@ const Component = compose(
     ({ onAccept, status }) => {
       return (
         <div>
-          <Box>
+          <Box padding={0}>
             <CandidateItem data={{...candidate, status}} onAccept={onAccept} onReject={() => console.log('reject')} />
           </Box>
         </div>

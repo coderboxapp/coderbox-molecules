@@ -1,6 +1,6 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.0.58",
+  "version": "1.0.59",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {
@@ -75,7 +75,7 @@
     "recharts": "^1.0.0-apha.5",
     "recompose": "^0.26.0",
     "styled-components": "^2.1.2",
-    "styled-utils": "^1.2.4",
+    "styled-utils": "1.2.4",
     "yup": "^0.23.0"
   }
 }

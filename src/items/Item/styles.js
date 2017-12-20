@@ -15,7 +15,7 @@ export const ItemLeft = styled.div`
   }
 `
 
-export const ItemContent = styled.div`
+export const ItemRight = styled.div`
   display: block;
   margin-left: 0;
   padding-left: 1.2em;

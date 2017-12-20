@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 import { string, element } from 'prop-types'
 import { Avatar } from 'elements'
-import { Item, ItemLeft, ItemContent } from './styles'
+import { Item, ItemLeft, ItemRight } from './styles'
 
 const Component = ({ image, email, tag, children, hideLeft, ...props }) => {
   let className = cx('item', props.className)
@@ -14,9 +14,9 @@ const Component = ({ image, email, tag, children, hideLeft, ...props }) => {
           {tag}
         </ItemLeft>
       )}
-      <ItemContent>
+      <ItemRight>
         {children}
-      </ItemContent>
+      </ItemRight>
     </Item>
   )
 }
