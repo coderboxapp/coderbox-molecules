@@ -9,7 +9,7 @@ type Props = {
   score: number
 }
 
-const Component = ({ data, score, selectedTags }: Props) => {
+const Component = ({ data, score, selectedTechnologies }: Props) => {
   let { user } = data
 
   return (
@@ -23,7 +23,7 @@ const Component = ({ data, score, selectedTags }: Props) => {
           <Tag color={score > 30 ? 'success' : 'danger'}>{score}%</Tag>
         </Group>
       </Tags>
-      <Tags tags={user.technologies} selectedTags={selectedTags} />
+      <Tags tags={user.stats.technologies} selectedTags={selectedTechnologies} />
     </Item>
   )
 }
@@ -31,7 +31,7 @@ const Component = ({ data, score, selectedTags }: Props) => {
 Component.displayName = 'CandidateItem'
 Component.defaultProps = {
   score: 0,
-  selectedTags: []
+  selectedTechnologies: []
 }
 
 export default Component
