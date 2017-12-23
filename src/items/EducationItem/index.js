@@ -14,8 +14,8 @@ const Component = ({ data }: Props) => {
   return (
     <Item image={institution.logo}>
       <DateRange dateRange={timePeriod} />
-      <Title size='large'>{degree}</Title>
-      <Subtitle size='normal' color='gray'><Link>@{institution.name}</Link></Subtitle>
+      <Title size='large'>{institution.name}</Title>
+      <Subtitle size='normal' color='gray'><Link>{degree}</Link></Subtitle>
       <Tags tags={technologies} />
     </Item>
   )
