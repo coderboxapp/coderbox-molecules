@@ -10,7 +10,7 @@ const stories = storiesOf('components/CompanyHeader', module)
 
 stories.add('simple usage', withTheme(theme, () => {
   return (
-    <Box color='light'>
+    <Box>
       <CompanyProfile company={company} />
     </Box>
   )

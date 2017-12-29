@@ -32,38 +32,38 @@ export const companies = [
     ],
     location: location
   },
-  {_id: 104, name: 'tibco software innovations romania'},
-  {_id: 103, name: 'tibco software'},
-  {_id: 101, name: 'intelligent software system'},
-  {_id: 97, name: 'bolue couch'},
-  {_id: 96, name: 'saguaro'},
-  {_id: 94, name: 'epoint web solutions'},
-  {_id: 93, name: 'nokia'},
-  {_id: 932, name: 'nok it'},
-  {_id: 92, name: 'athos'}
+  {_id: 104, name: 'Tibco software innovations romania'},
+  {_id: 103, name: 'Tibco software'},
+  {_id: 101, name: 'Intelligent software system'},
+  {_id: 97, name: 'Bolue couch'},
+  {_id: 96, name: 'Saguaro'},
+  {_id: 94, name: 'Epoint web solutions'},
+  {_id: 93, name: 'Nokia'},
+  {_id: 932, name: 'Nok it'},
+  {_id: 92, name: 'Athos'}
 ]
 
 export const titles = [
-  {_id: 104, name: 'web developer'},
-  {_id: 103, name: 'front-end developer'},
-  {_id: 3, name: 'manager engineer'},
-  {_id: 4, name: 'software engineer'}
+  {_id: 104, name: 'Web Developer'},
+  {_id: 103, name: 'Front-end Developer'},
+  {_id: 3, name: 'Manager Engineer'},
+  {_id: 4, name: 'Software Engineer'}
 ]
 
 export const institutions = [
   {
     _id: 22,
-    name: 'west university of timisoara',
+    name: 'West University of Timisoara',
     logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
   },
   {
     _id: 234,
-    name: 'politehnica university of timisoara',
+    name: 'Politehnica university of Timisoara',
     logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
   },
   {
     _id: 1118,
-    name: 'economics university of timisoara',
+    name: 'Economics university of Timisoara',
     logo: 'https://s3-eu-west-1.amazonaws.com/coderbox/logos/uvt.png'
   }
 ]

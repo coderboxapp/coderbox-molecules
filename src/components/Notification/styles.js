@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { bgColor } from 'styled-utils'
+import * as color from 'styled-utils/color'
 
 export const Notification = styled.div`
-  border: 1px solid ${bgColor};
+  border: 1px solid ${color.bg};
   display: flex;
   align-items: stretch;
   justify-content: space-between;

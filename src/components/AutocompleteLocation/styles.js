@@ -12,10 +12,10 @@ export const Container = styled.div`
     outline: 0;
     padding: 0 0.55rem;
     border: 1px solid #dbdbdb;
-    border-radius: ${p => p.theme.sizes.radius};
+    border-radius: 3px;
     max-width: 100%;
     width: 100%;
-    height: ${p => p.theme.sizes.height};
+    height: 2.40em;
     box-sizing: border-box;
     appearance: none;
     box-shadow: inset 0 1px 2px rgba(100, 100, 100, 0.12);

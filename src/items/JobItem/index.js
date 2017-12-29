@@ -56,8 +56,8 @@ const Component = ({ data, href, showTag, showDesc, hideLeft }: Props) => {
           )}
           {data.teamWork && (
             <Group>
-              <Tag color='accent' tone={1} isIcon><Icon name='male' /></Tag>
-              <Tag color='accent'>team work</Tag>
+              <Tag color='secondary' tone={1} isIcon><Icon name='male' /></Tag>
+              <Tag color='secondary'>team work</Tag>
             </Group>
           )}
         </Tags>

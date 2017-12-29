@@ -7,7 +7,7 @@ export const Avatar = styled.div`
   padding: 0.35em;
   border: 1px solid;
   border-color: #cacaca;
-  border-radius: ${p => p.theme.sizes.radius};
+  border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
   background-color: white;
   text-align: center;
@@ -16,7 +16,7 @@ export const Avatar = styled.div`
   max-width: ${p => p.size}px;
 
   & img {
-    border-radius: ${p => p.theme.sizes.radius} !important;
+    border-radius: 3px !important;
   }
 
   & a {

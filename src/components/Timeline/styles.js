@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { bgColor } from 'styled-utils'
 import { onMobile } from 'mqcss'
+import * as color from 'styled-utils/color'
 
 export const Timeline = styled.div`
   position: relative;
@@ -20,7 +20,7 @@ export const Timeline = styled.div`
     content: "";
     position: absolute;
     transform: translateX(-50%);
-    background: ${bgColor};
+    background: ${color.bg};
     z-index: 0;
   }
   &:before {
@@ -39,7 +39,7 @@ export const Timeline = styled.div`
     bottom: -90px;
     left: 50%;
     transform: translateX(-50%);
-    background: ${bgColor};
+    background: ${color.bg};
     height: 12px;
     width: 12px;
     border-radius: 50%;
