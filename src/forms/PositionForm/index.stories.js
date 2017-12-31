@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withTheme } from '@coderbox/utils'
+import withTheme from 'withTheme'
 import { Box, theme } from '@coderbox/atoms'
 import { companies, titles, technologies, position } from 'mockup'
 import PositionForm from '.'

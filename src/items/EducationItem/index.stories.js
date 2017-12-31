@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { Box, theme } from '@coderbox/atoms'
-import { withTheme } from '@coderbox/utils'
+import withTheme from 'withTheme'
 import { education } from 'mockup'
 import EducationItem from '.'
 

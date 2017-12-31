@@ -2,7 +2,7 @@ import React from 'react'
 import { storiesOf, action } from '@storybook/react'
 import { Field, Control } from '@coderbox/forms'
 import { Icon, theme } from '@coderbox/atoms'
-import { withTheme } from '@coderbox/utils'
+import withTheme from 'withTheme'
 import AutocompleteLocation from '.'
 
 storiesOf('components/AutocompleteLocation', module)

@@ -1,6 +1,6 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {
@@ -54,7 +54,6 @@
     "@coderbox/atoms": "^1.1.4",
     "@coderbox/forms": "^1.1.0",
     "@coderbox/hocs": "^1.0.9",
-    "@coderbox/utils": "^1.0.4",
     "classnames": "^2.2.5",
     "formik": "^0.9.4",
     "lodash": "^4.17.4",

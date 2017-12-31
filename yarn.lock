@@ -56,14 +56,6 @@
     recompose "^0.25.0"
     styled-components "^2.1.2"
 
-"@coderbox/utils@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@coderbox/utils/-/utils-1.0.4.tgz#6afe3199aa8033c1eea88ff1f7f98fbac179d1d5"
-  dependencies:
-    lodash "^4.17.4"
-    moment "^2.18.1"
-    styled-components "^2.1.2"
-
 "@storybook/addon-actions@^3.2.6", "@storybook/addon-actions@^3.3.3":
   version "3.3.3"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.3.3.tgz#468e3426eb8f109825d9b41bf77f206711fa74b3"
