@@ -1,23 +1,10 @@
-// @flow
 import React from 'react'
 import cx from 'classnames'
 import { Button, Icon, YesNo } from '@coderbox/atoms'
 import { withPending } from '@coderbox/hocs'
 import { Toolbar } from './styles'
 
-import type { Colors } from '@coderbox/atoms'
-
-type Props = {
-  index: number,
-  pending?: boolean,
-  onEdit?: Function,
-  onCancel?: Function,
-  onDelete?: Function,
-  className?: string,
-  color?: Colors
-}
-
-const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props }: Props) => {
+const Component = ({ index, color, pending, onEdit, onCancel, onDelete, ...props }) => {
   const className = cx('editdelete-toolbar', props.className)
 
   return (

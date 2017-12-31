@@ -1,19 +1,10 @@
-// @flow
 import React from 'react'
 import { Title, Subtitle, Link, Group, Text, Tag, Icon } from '@coderbox/atoms'
 import { DaysAgo, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 import * as s from './styles'
 
-type Props = {
-  data: any,
-  href?: string,
-  showTag?: bool,
-  showDesc?: bool,
-  hideLeft?: bool
-}
-
-const Component = ({ data, href, showTag, showDesc, hideLeft }: Props) => {
+const Component = ({ data, href, showTag, showDesc, hideLeft }) => {
   const tagColor = data.published ? 'primary' : 'gray'
   const tag = showTag ? <Tag color={tagColor} size='small'>{data.published ? 'published' : 'draft'}</Tag> : null
 

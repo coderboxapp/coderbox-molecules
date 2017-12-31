@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import * as color from 'styled-utils/color'
 
 export const EditorContainer = styled.div`
   width: 100%;
   font-family: ${p => p.theme.fonts.primary};
   border: 1px solid transparent;
-  border-color: ${color.bg};
   border-radius: 3px;
   line-height: 1.5em;
 

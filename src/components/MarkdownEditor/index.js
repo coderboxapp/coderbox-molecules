@@ -3,6 +3,11 @@ import RichTextEditor from 'react-rte'
 import { EditorContainer } from './styles'
 
 class Component extends React.Component {
+  static displayName = 'MarkdownEditor'
+  static defaultProps = {
+    color: 'light'
+  }
+
   constructor (props) {
     super(props)
     this.state = {

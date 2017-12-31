@@ -1,23 +1,10 @@
-// @flow
 import * as React from 'react'
 import cx from 'classnames'
 import { reverse } from 'lodash'
 import { Box, Icon, Title, Subtitle } from '@coderbox/atoms'
 import { Container, Item } from './styles'
 
-import type { Colors } from '@coderbox/atoms'
-
-type Props = {
-  title: string,
-  subtitle: string,
-  icon: string,
-  className?: string,
-  isOdd?: bool,
-  children?: React.Element<*>,
-  color: Colors
-}
-
-const Component = ({ title, subtitle, icon, isOdd, children, ...props }: Props) => {
+const Component = ({ title, subtitle, icon, isOdd, children, ...props }) => {
   const className = cx('timeline-row', props.className)
 
   let childs = [

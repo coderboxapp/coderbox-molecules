@@ -1,14 +1,9 @@
-// @flow
 import React from 'react'
 import { Title, Subtitle, Link } from '@coderbox/atoms'
 import { DateRange, Tags, Markdown } from 'elements'
 import { Item } from 'items'
 
-type Props = {
-  data: any
-}
-
-const Component = ({ data }: Props) => {
+const Component = ({ data }) => {
   let { company, responsabilities, title, technologies, timePeriod } = data
 
   return (

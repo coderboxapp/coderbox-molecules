@@ -11,7 +11,7 @@ const Component = ({job, ...props}) => {
       <Avatar src={job.company.logo} />
       <Title>{job.title}</Title>
       <Link href={`/app/companies/${job.company.name}`}>
-        <Subtitle color='primary'>@{job.company.name}</Subtitle>
+        <Subtitle color='primary' size='large'>@{job.company.name}</Subtitle>
       </Link>
       <Location location={job.location} />
       {job.minSalary > 0 && <Text color='success' tone={1} align='center'>min. {Math.round(job.minSalary / 12)} € / month</Text>}

@@ -4,7 +4,7 @@ export const user = {
   email: 'ghalex@gmail.com',
   url: 'http://twitter.com/ghalex',
   phone: '0743 152 161',
-  technologies: [{_id: 93, name: 'java', category: 'backend', 'duration': 96}, {_id: 70, name: 'spring', category: 'backend', 'duration': 96}],
+  technologies: [{ _id: 93, name: 'java', category: 'backend', 'duration': 96 }, { _id: 70, name: 'spring', category: 'backend', 'duration': 96 }],
   location: {
     formatted_address: 'Timisoara, Romania'
   }
@@ -13,10 +13,10 @@ export const user = {
 export const location = { formatted_address: 'Timișoara, România' }
 
 export const technologies = [
-  {_id: 93, name: 'java', category: 'backend', 'duration': 96},
-  {_id: 70, name: 'spring', category: 'backend', 'duration': 96},
-  {_id: 1, name: 'css', category: 'frontend', 'duration': 96},
-  {_id: 3, name: 'javascript', category: 'frontend', 'duration': 96}
+  { _id: 93, name: 'java', category: 'backend', 'duration': 96 },
+  { _id: 70, name: 'spring', category: 'backend', 'duration': 96 },
+  { _id: 1, name: 'css', category: 'frontend', 'duration': 96 },
+  { _id: 3, name: 'javascript', category: 'frontend', 'duration': 96 }
 ]
 
 export const companies = [
@@ -27,27 +27,27 @@ export const companies = [
     description: 'Manage your **{** tech career **}**. Stop searching for jobs, join [Coderbox](http://www.coderbox.me) and we will help you have a successful **{** tech career **}**.',
     website: 'http://www.coderbox.ro',
     technologies: [
-      {_id: 1, name: 'css', category: 'frontend', 'duration': 96},
-      {_id: 3, name: 'javascript', category: 'frontend', 'duration': 96}
+      { _id: 1, name: 'css', category: 'frontend', 'duration': 96 },
+      { _id: 3, name: 'javascript', category: 'frontend', 'duration': 96 }
     ],
     location: location
   },
-  {_id: 104, name: 'Tibco software innovations romania'},
-  {_id: 103, name: 'Tibco software'},
-  {_id: 101, name: 'Intelligent software system'},
-  {_id: 97, name: 'Bolue couch'},
-  {_id: 96, name: 'Saguaro'},
-  {_id: 94, name: 'Epoint web solutions'},
-  {_id: 93, name: 'Nokia'},
-  {_id: 932, name: 'Nok it'},
-  {_id: 92, name: 'Athos'}
+  { _id: 104, name: 'Tibco software innovations romania' },
+  { _id: 103, name: 'Tibco software' },
+  { _id: 101, name: 'Intelligent software system' },
+  { _id: 97, name: 'Bolue couch' },
+  { _id: 96, name: 'Saguaro' },
+  { _id: 94, name: 'Epoint web solutions' },
+  { _id: 93, name: 'Nokia' },
+  { _id: 932, name: 'Nok it' },
+  { _id: 92, name: 'Athos' }
 ]
 
 export const titles = [
-  {_id: 104, name: 'Web Developer'},
-  {_id: 103, name: 'Front-end Developer'},
-  {_id: 3, name: 'Manager Engineer'},
-  {_id: 4, name: 'Software Engineer'}
+  { _id: 104, name: 'Web Developer' },
+  { _id: 103, name: 'Front-end Developer' },
+  { _id: 3, name: 'Manager Engineer' },
+  { _id: 4, name: 'Software Engineer' }
 ]
 
 export const institutions = [
@@ -122,7 +122,7 @@ export const job = {
   views: 12,
   technologies: technologies.concat().slice(0, 2),
   industry: 3,
-  categories: [{'name': 'backend', 'duration': 96}, {'name': 'frontend', 'duration': 96}],
+  categories: [{ 'name': 'backend', 'duration': 96 }, { 'name': 'frontend', 'duration': 96 }],
   createdAt: '2017-06-07T08:49:01.358Z',
   type: 'job'
 }
@@ -141,17 +141,17 @@ export const candidate = {
     'company': 4,
     'title': 'FullStack Engineer (MERN)',
     'radar': {
-      'technologies': [{'_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 96}, {'_id': 116, 'name': 'express', 'category': 'backend', 'duration': 96}, {'_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 96}, {'_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 96}, {'_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 96}],
-      'categories': [{'name': 'frontend', 'duration': 96}, {'name': 'backend', 'duration': 96}, {'name': 'database', 'duration': 96}]
+      'technologies': [{ '_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 96 }, { '_id': 116, 'name': 'express', 'category': 'backend', 'duration': 96 }, { '_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 96 }, { '_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 96 }, { '_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 96 }],
+      'categories': [{ 'name': 'frontend', 'duration': 96 }, { 'name': 'backend', 'duration': 96 }, { 'name': 'database', 'duration': 96 }]
     }
   },
   'user': {
-    '_id': '584dd7ff734d1d55b6dcfa90',
-    'email': 'ghalex@gmail.com',
-    'name': 'Alexandru Ghiura',
-    'radar': {
-      'technologies': [{'_id': 93, 'name': 'java', 'category': 'backend', 'duration': 7}, {'_id': 70, 'name': 'spring', 'category': 'backend', 'duration': 7}, {'_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 65}, {'_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 65}, {'_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 65}, {'_id': 59, 'name': 'javascript', 'category': 'frontend', 'duration': 65}, {'_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 65}],
-      'categories': [{'name': 'backend', 'duration': 72}, {'name': 'frontend', 'duration': 65}, {'name': 'database', 'duration': 65}]
+    _id: '584dd7ff734d1d55b6dcfa90',
+    email: 'ghalex@gmail.com',
+    name: 'Alexandru Ghiura',
+    phone: '0743 162 161',
+    stats: {
+      technologies: [{ '_id': 93, 'name': 'java', 'category': 'backend', 'duration': 7 }, { '_id': 70, 'name': 'spring', 'category': 'backend', 'duration': 7 }, { '_id': 155, 'name': 'reactjs', 'category': 'frontend', 'duration': 65 }, { '_id': 87, 'name': 'mongodb', 'category': 'database', 'duration': 65 }, { '_id': 77, 'name': 'nodejs', 'category': 'backend', 'duration': 65 }, { '_id': 59, 'name': 'javascript', 'category': 'frontend', 'duration': 65 }, { '_id': 4, 'name': 'redux', 'category': 'frontend', 'duration': 65 }]
     }
   }
 }

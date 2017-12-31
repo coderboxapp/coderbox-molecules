@@ -1,18 +1,8 @@
-// @flow
 import * as React from 'react'
 import cx from 'classnames'
 import { Timeline } from './styles'
 
-import type { Colors } from '@coderbox/atoms'
-import type TimelineRow from '../TimelineRow'
-
-type Props = {
-  className?: string,
-  color: Colors,
-  children?: TimelineRow
-}
-
-class Component extends React.Component<Props> {
+class Component extends React.Component {
   static displayName = 'Timeline'
   static defaultProps = {
     color: 'primary'

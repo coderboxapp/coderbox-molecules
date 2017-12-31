@@ -1,4 +1,3 @@
-// @flow
 import * as React from 'react'
 import cx from 'classnames'
 import { Stack } from '@coderbox/atoms'
@@ -6,19 +5,7 @@ import { withStack } from '@coderbox/hocs'
 import { ToolbarEditDelete } from 'components'
 import { EditableItem } from './styles'
 
-type Props = {
-  data: any,
-  factory: {createForm: Function, createItem: Function},
-  stack: { index: number, setIndex: (i: number) => void},
-  suggestions: [],
-  hideToolbar?: bool,
-  className?: string,
-  children?: React.Node,
-  onSave: Function,
-  onDelete: Function
-}
-
-class Component extends React.Component<Props> {
+class Component extends React.Component {
   static displayName = 'EditableItem'
   static defaultProps = {
     color: 'primary',
