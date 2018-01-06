@@ -6,7 +6,7 @@ import { Item } from 'items'
 const Component = ({ data, score, selectedTechnologies }) => {
   let { user, status } = data
   let technologies = user.stats ? user.stats.technologies : []
-  let statusToColor = {'apply': 'light', 'contacted': 'secondary', 'interviewed': 'primary', 'accepted': 'green', 'rejected': 'danger'}
+  let statusToColor = {'apply': 'grey', 'contacted': 'secondary', 'interviewed': 'primary', 'accepted': 'green', 'rejected': 'danger'}
 
   return (
     <Item className='candidate-item' email={user.email}>
