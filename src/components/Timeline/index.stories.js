@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { storiesOf } from '@storybook/react'
 import { Box, theme } from '@coderbox/atoms'
-import { withTheme, toYears } from '@coderbox/utils'
+import withTheme from 'withTheme'
 import { items } from 'mockup'
 
 import Timeline from '.'
@@ -18,7 +18,7 @@ storiesOf('components/Timeline', module)
           {items.map(
             (item, index) => {
               const title = item.timePeriod.end ? moment(item.timePeriod.end).format('MMM YYYY') : 'Present'
-              const subtitle = toYears(item.timePeriod)
+              const subtitle = moment(item.timePeriod).format('YYYY MM')
 
               return (
                 <TimelienRow

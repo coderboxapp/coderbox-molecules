@@ -135,7 +135,7 @@ export const items = [
 export const candidate = {
   '_id': 63,
   'createdAt': '2017-07-08T11:22:02.834Z',
-  'status': 'apply',
+  'status': 'contacted',
   'job': {
     '_id': 30,
     'company': 4,

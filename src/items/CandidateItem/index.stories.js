@@ -8,7 +8,7 @@ import { candidate } from 'mockup'
 import CandidateItem from '.'
 
 const Component = compose(
-  withState('status', 'setStatus', 'apply'),
+  withState('status', 'setStatus'),
   withHandlers({
     onAccept: (props) => d => {
       return new Promise(resolve => {
@@ -24,8 +24,8 @@ const Component = compose(
     ({ onAccept, status }) => {
       return (
         <div>
-          <Box padding={0}>
-            <CandidateItem data={{...candidate, status}} onAccept={onAccept} onReject={() => console.log('reject')} />
+          <Box padding='10px'>
+            <CandidateItem data={{...candidate}} onAccept={onAccept} onReject={() => console.log('reject')} />
           </Box>
         </div>
       )
