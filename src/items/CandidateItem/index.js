@@ -6,7 +6,7 @@ import { Item } from 'items'
 const Component = ({ data, score, selectedTechnologies }) => {
   let { user, status } = data
   let technologies = user.stats ? user.stats.technologies : []
-  let statusToColor = {'apply': 'grey', 'contacted': 'secondary', 'interviewed': 'primary', 'accepted': 'green', 'rejected': 'danger'}
+  let statusToColor = {'apply': 'grey', 'contacted': 'secondary', 'interviewed': 'primary', 'accepted': 'success', 'rejected': 'danger'}
 
   return (
     <Item className='candidate-item' email={user.email}>
@@ -26,19 +26,6 @@ const Component = ({ data, score, selectedTechnologies }) => {
           <Tag color={statusToColor[status]}>{status}</Tag>
         </Group>
       </Tags>
-      {/* <ControlGroup>
-        <Control>
-          <Button isStatic size='small' color='light'>status:</Button>
-        </Control>
-        <Control>
-          <Dropdown
-            value={status}
-            items={statuses}
-            size='small'
-            onChange={(item) => console.log(item)}
-            placeholder='status' />
-        </Control>
-      </ControlGroup> */}
       <Tags tags={technologies} selectedTags={selectedTechnologies} />
     </Item>
   )
