@@ -1,6 +1,6 @@
 {
   "name": "@coderbox/ui",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "React Components used at @Coderbox",
   "main": "lib/coderbox-ui.js",
   "scripts": {
@@ -51,7 +51,7 @@
     "yargs": "^9.0.1"
   },
   "dependencies": {
-    "@coderbox/atoms": "^1.1.4",
+    "@coderbox/atoms": "^1.1.7",
     "@coderbox/forms": "^1.1.0",
     "@coderbox/hocs": "^1.0.9",
     "classnames": "^2.2.5",
