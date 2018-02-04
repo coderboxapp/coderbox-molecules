@@ -4,9 +4,8 @@ import { Title, Subtitle, Link, Tag, Group, Icon } from '@coderbox/atoms'
 import { Item } from 'items'
 
 const Component = ({ data, score, selectedTechnologies }) => {
-  let { user, status } = data
+  let { user, status, statusColor } = data
   let technologies = user.stats ? user.stats.technologies : []
-  let statusToColor = {'apply': 'grey', 'contacted': 'secondary', 'interviewed': 'primary', 'accepted': 'success', 'rejected': 'danger'}
 
   return (
     <Item className='candidate-item' email={user.email}>
@@ -23,7 +22,7 @@ const Component = ({ data, score, selectedTechnologies }) => {
         </Group>
         <Group>
           <Tag color='light'>status:</Tag>
-          <Tag color={statusToColor[status]}>{status}</Tag>
+          <Tag color={statusColor || 'grey'}>{status}</Tag>
         </Group>
       </Tags>
       <Tags tags={technologies} selectedTags={selectedTechnologies} />
