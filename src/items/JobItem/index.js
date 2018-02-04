@@ -28,7 +28,7 @@ const Component = ({ data, href, showTag, showDesc, hideLeft }) => {
             </Text>
           </div>
         }
-        {data.score !== undefined &&
+        {(data.score !== undefined && !data.hideScore) &&
           <div className='row'>
             <Text color='gray'>
               score:
